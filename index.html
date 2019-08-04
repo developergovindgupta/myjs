@@ -1,40 +1,98 @@
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>myJS: Tutorial</title>
+    <link rel="stylesheet" href="css/main.css" />
+    <script src="js/myJS.min.js"></script>
+  </head>
 
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-  <title>myJS: Tutorial</title>
-  <link rel="stylesheet" href="css/main.css">
-  <script src="js/myJS.js"></script>
-</head>
-
-<body class="Theme-3">
-  <header>
-    <h1>Welcome in <b><u>MYJS</u></b> Library, an Extension of Javascript.</h1>
-    <h2>Manage Your Java Script Easy</h2>
-    <h3>
-      This library add many dom prototype extension methods to make easy
-      javascript coding.
-    </h3>
-  </header>
-  <section>
-    <nav>
-
-    </nav>
-    <container>
-      Welcome!! Learn how to use javascript extension methods
-    </container>
-    <article>
-
-    </article>
-
-  </section>
-  <footer>
-    <span>Enjoy! javascript coading more easy than previously what you know or learned.</span>
-  </footer>
-
-</body>
-
+  <body class="Theme-3">
+    <header>
+      <div id="ThemeChanger">
+        <a onclick="changeThemeTo(this)" class="Theme-0"></a>
+        <a onclick="changeThemeTo(this)" class="Theme-1"></a>
+        <a onclick="changeThemeTo(this)" class="Theme-2"></a>
+        <a onclick="changeThemeTo(this)" class="Theme-3"></a>
+        <a onclick="changeThemeTo(this)" class="Theme-4"></a>
+        <a onclick="changeThemeTo(this)" class="Theme-5"></a>
+        <a onclick="changeThemeTo(this)" class="Theme-6"></a>
+      </div>
+      <h1>
+        Welcome in <b><u>MYJS</u></b> Library, an Extension of Javascript.
+      </h1>
+      <h2>Make Your Java Scripting Easy</h2>
+      <h3>
+        This library add many dom prototype extension methods to make easy
+        javascript coding.
+      </h3>
+    </header>
+    <section>
+      <nav>
+        <div class="nav_title">
+          MYJS<br />
+          <span style="font-size: 10pt;">Make Your Java Scripting Easy</span>
+        </div>
+        <ul class="nav_Menu">
+          <li target="pages/Home.html" class="Selected">
+            Home
+          </li>
+        </ul>
+        <div class="nav_title">
+          DOM Ext.
+        </div>
+        <ul class="nav_Menu">
+          <li target="pages/ready.html">
+            document.ready(fn)
+          </li>
+          <li target="pages/load.html">
+            .load()
+          </li>
+        </ul>
+      </nav>
+      <container> </container>
+      <article>
+        <a download="myJS.js" href="js/myJS.js">Download myJS.js</a><br />
+        <a download="myJS.min.js" href="js/myJS.min.js">Download myJS.min.js</a>
+      </article>
+    </section>
+    <footer>
+      <span
+        >Enjoy! javascript coading more easy than previously what you know or
+        learned.</span
+      >
+    </footer>
+  </body>
 </html>
+<script type=" text/javascript">
+  (function () {
+    let Theme = parseInt(Math.random() * 7);
+    document.body.className = "Theme-" +
+      Theme;
+  })();
+
+  function changeThemeTo(obj) {
+    document.body.className = obj.className;
+  }
+  document.ready(function () {
+    document.querySelector("container").load("pages/Home.html");
+    document.querySelectorAll("nav .nav_Menu li").forEach(x => {
+      x.addEventListener("click", function (e) {
+        document.querySelectorAll(".Selected").forEach(x => {
+          x.classList.remove("Selected");
+        });
+
+        this.classList.add("Selected");
+        document
+          .querySelector("container")
+          .load(this.getAttribute("target"))
+          .then(function (obj) {})
+          .catch(function (ex) {
+            console.log(ex);
+          });
+      });
+    });
+  });
+</script>
