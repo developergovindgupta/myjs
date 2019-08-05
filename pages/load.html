@@ -2,48 +2,51 @@
 <hr />
 <h3>Target:</h3>
 <p>
-    Applicable with any DOM object having innerHTML attribute.
+  Applicable with any DOM object having innerHTML attribute.
 </p>
 <hr />
 <h3>Description :</h3>
 <p>
-    It load passed page url content in target DOM element asynchronously. It
-    follows Promise structure.
+  It load passed page url content in target DOM element asynchronously. It
+  follows Promise structure.
 </p>
 <hr />
 <h3>Syntax:</h3>
 <p>
-    DOMElement.load('url').then(function).catch(function)
+  DOMElement.load('url').then(function).catch(function)
 </p>
 <hr />
 
 <h3>Usase:</h3>
 <div class="divExample">
-    <ol>
-        <li>
-            document.getElementById('divTarget').load('page.html')
+  <ol>
+    <li>
+      document.getElementById('divTarget').load('page.html')
+    </li>
+    <li>
+      document.querySelector('#divTarget').load('page.html')
+    </li>
+    <li>
+      document.getElementById('divTarget').load('page.html').then(function(obj){
+      <br />
+      <ul style="list-style: none;">
+        <li style="color:green;">
+          //After Load Success Process
+          <br />
+          //obj target element as 'divTarget' in this example.
         </li>
-        <li>
-            document.querySelector('#divTarget').load('page.html')
+      </ul>
+      }).catch(function(ex){
+      <ul style="list-style: none;">
+        <li style="color:green;">
+          //After Load Fail Process
         </li>
-        <li>
-            document.getElementById('divTarget').load('page.html').then(function(obj){
-            <br>
-            <ul style="list-style: none;">
-                <li style="color:green;">
-                    //After Load Success Process
-                    <br>
-                    //obj target element as 'divTarget' in this example.
-                </li>
-            </ul>
-            }).catch(function(ex){
-            <ul style="list-style: none;">
-                <li style="color:green;">
-                    //After Load Fail Process
-                </li>
-            </ul>
-            })
-        </li>
-    </ol>
-
+      </ul>
+      })
+    </li>
+  </ol>
 </div>
+<script type="text/javascript">
+  window.location.href =
+    window.location.origin + "?page=" + window.location.pathname;
+</script>

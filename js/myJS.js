@@ -43,6 +43,14 @@
         });
         return p;
     };
-
+    /*val get/set the value of input element selected and targeted*/
+    node.__proto__.__proto__.val = function (value) {
+        if (value || value === '') {
+            this.value = value;
+            return this;
+        } else {
+            return this.value ? this.value : "";
+        }
+    };
 
 })();

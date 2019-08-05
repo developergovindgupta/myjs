@@ -1,0 +1,48 @@
+<h1>.val(<i>value</i>)</h1>
+<hr />
+<h3>Target:</h3>
+<p>
+  Applicable with any DOM input object having attribute value.
+</p>
+<hr />
+<h3>Description :</h3>
+<p>
+  get/set value attribute of input element. if value is passed then it set the value and return element itself, otherwise return value of element.
+</p>
+<br />
+<p>
+  <b>Note: after setting the value of input control it return the control itself.</b>
+</p>
+<hr />
+<h3>Syntax:</h3>
+<p>
+  DOMInputElement.val(<i>'value'</i>)
+</p>
+<hr />
+
+<h3>Usase:</h3>
+<div class="divExample">
+  <ol>
+    <li>
+      document.getElementById('txtName').val("Govind Gupta")<br />
+      <span class="output"
+        ><i>it sets the value of textbox with value "<b>Govind Gupta</b>" and return textbox element</i></span
+      >
+    </li>
+    <li>
+      document.getElementById('txtName').val()<br />
+      <span class="output"
+        ><i>it returns the value of textbox, that is "<b>Govind Gupta</b>"</i></span
+      >
+    </li>
+    <li>
+      document.getElementById('txtName').val("Govind Gupta").val()<br />
+      <span class="output"
+        ><i>it set the value of textbox with "<b>Govind Gupta</b>" and then get the value of textbox, that is "<b>Govind Gupta</b>"</i></span
+      >
+    </li>
+  </ol>
+</div>
+<script type="text/javascript">
+  window.location.href = window.location.origin + "?page=" + window.location.pathname;
+</script>
