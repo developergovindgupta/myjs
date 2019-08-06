@@ -4,6 +4,9 @@
 <p>
   Applicable with any DOM input object having attribute value.
 </p>
+<p>
+  In case of DOM NodeList first Node Element is processed for get/set.
+</p>
 <hr />
 <h3>Description :</h3>
 <p>
@@ -18,6 +21,9 @@
 <p>
   DOMInputElement.val(<i>'value'</i>)
 </p>
+<p>
+  DOMInputNodeList.val(<i>'value'</i>)
+</p>
 <hr />
 
 <h3>Usase:</h3>
@@ -30,7 +36,19 @@
       >
     </li>
     <li>
+      document.querySelector('#txtName').val("Govind Gupta")<br />
+      <span class="output"
+        ><i>it sets the value of textbox with value "<b>Govind Gupta</b>" and return textbox element</i></span
+      >
+    </li>
+    <li>
       document.getElementById('txtName').val()<br />
+      <span class="output"
+        ><i>it returns the value of textbox, that is "<b>Govind Gupta</b>"</i></span
+      >
+    </li>
+    <li>
+      document.querySelector('#txtName').val()<br />
       <span class="output"
         ><i>it returns the value of textbox, that is "<b>Govind Gupta</b>"</i></span
       >
@@ -39,6 +57,18 @@
       document.getElementById('txtName').val("Govind Gupta").val()<br />
       <span class="output"
         ><i>it set the value of textbox with "<b>Govind Gupta</b>" and then get the value of textbox, that is "<b>Govind Gupta</b>"</i></span
+      >
+    </li>
+    <li>
+      document.querySelectorAll('input[type="text"]').val("Govind Gupta")<br />
+      <span class="output"
+        ><i>it sets the first node's value with value "<b>Govind Gupta</b>" and return NodeList</i></span
+      >
+    </li>
+    <li>
+      document.querySelectorAll('input[type="text"]').val()<br />
+      <span class="output"
+        ><i>it returns the value of first textbox's, that is "<b>Govind Gupta</b>"</i></span
       >
     </li>
   </ol>

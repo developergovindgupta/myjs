@@ -1,0 +1,64 @@
+<h1>.html(<i>html</i>)</h1>
+<hr />
+<h3>Target:</h3>
+<p>
+  Applicable with any DOM element having attribute innerHTML.
+</p>
+<p>
+  In case of DOM NodeList first Node Element is processed for get/set.
+</p>
+<hr />
+<h3>Description :</h3>
+<p>
+  get/set innerHTML of DOM element. if html is passed then it set the innerHTML and return element itself, otherwise return innerHTML of element.
+</p>
+<br />
+<p>
+  <b>Note: after setting the innerHTML of element it return the element itself.</b>
+</p>
+<hr />
+<h3>Syntax:</h3>
+<p>
+  DOMElement.html(<i>'html'</i>)
+</p>
+<p>
+  DOMNodeList.html(<i>'html'</i>)
+</p>
+<hr />
+
+<h3>Usase:</h3>
+<div class="divExample">
+  <ol>
+    <li>
+      document.getElementById('firstDiv').html("welcome")<br />
+      <span class="output"><i>it sets the innerHTML of div having id firstDiv with html "<b>welcome</b>" and return firstDiv element</i></span>
+    </li>
+    <li>
+      document.querySelector('#firstDiv').html("welcome")<br />
+      <span class="output"><i>it sets the innerHTML of div having id firstDiv with innerHTML "<b>welcome</b>" and return firstDiv element</i></span>
+    </li>
+    <li>
+      document.getElementById('firstDiv').html()<br />
+      <span class="output"><i>it returns the innerHTML of firstDiv, that is "<b>welcome</b>"</i></span>
+    </li>
+    <li>
+      document.querySelector('#firstDiv').html()<br />
+      <span class="output"><i>it returns the innerHTML of firstDiv, that is "<b>welcome</b>"</i></span>
+    </li>
+    <li>
+      document.getElementById('firstDiv').html("welcome").html()<br />
+      <span class="output"><i>it set the innerHTML of firstDiv with "<b>welcome</b>" and then get the innerHTML of firstDiv, that is "<b>welcome</b>"</i></span>
+    </li>
+    <li>
+      document.querySelectorAll('div').html("welcome")<br />
+      <span class="output"><i>it sets the first div's innerHTML with html "<b>welcome</b>" and return divNodeList</i></span>
+    </li>
+    <li>
+      document.querySelectorAll('div').html()<br />
+      <span class="output"><i>it returns the innerHTML of first div's, that is "<b>welcome</b>"</i></span>
+    </li>
+  </ol>
+</div>
+<script type="text/javascript">
+  window.location.href = window.location.origin + "?page=" + window.location.pathname;
+</script>

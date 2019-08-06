@@ -52,5 +52,48 @@
             return this.value ? this.value : "";
         }
     };
+    node.__proto__.__proto__.html = function (html) {
+        if (html || html === '') {
+            this.innerHTML = html;
+            return this;
+        } else {
+            return this.innerHTML ? this.innerHTML : "";
+        }
+    };
+    ////////////////////////////////////////////////////////////////////////////////////////////
+    // querySelectorAll Extenstion Methods
+    ////////////////////////////////////////////////////////////////////////////////////////////
+    let nodeList = document.querySelectorAll('html');
+    nodeList.__proto__.val = function (value) {
+        if (value || value === '') {
+            if (this.length > 0) {
+                this[0].value = value;
+            }
+            return this;
+        } else {
+            if (this.length > 0) {
+                return this[0].value ? this[0].value : "";
+            } else {
+                return "";
+            }
+        }
 
+
+    };
+    nodeList.__proto__.html = function (html) {
+        if (html || html === '') {
+            if (this.length > 0) {
+                this[0].innerHTML = html;
+            }
+            return this;
+        } else {
+            if (this.length > 0) {
+                return this[0].innerHTML ? this[0].innerHTML : "";
+            } else {
+                return "";
+            }
+        }
+
+
+    };
 })();
