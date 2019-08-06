@@ -96,4 +96,40 @@
 
 
     };
+    ////////////////////////////////////////////////////////////////////////////////////////////
+    // getElementsByTagNames,getElementsByClassName Extenstion Methods
+    ////////////////////////////////////////////////////////////////////////////////////////////
+    let htmlCollection = document.getElementsByTagName('div');
+    htmlCollection.__proto__.val = function (value) {
+        if (value || value === '') {
+            if (this.length > 0) {
+                this[0].value = value;
+            }
+            return this;
+        } else {
+            if (this.length > 0) {
+                return this[0].value ? this[0].value : "";
+            } else {
+                return "";
+            }
+        }
+
+
+    };
+    htmlCollection.__proto__.html = function (html) {
+        if (html || html === '') {
+            if (this.length > 0) {
+                this[0].innerHTML = html;
+            }
+            return this;
+        } else {
+            if (this.length > 0) {
+                return this[0].innerHTML ? this[0].innerHTML : "";
+            } else {
+                return "";
+            }
+        }
+
+
+    };
 })();
