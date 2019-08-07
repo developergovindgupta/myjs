@@ -60,6 +60,9 @@
             return this.innerHTML ? this.innerHTML : "";
         }
     };
+    node.__proto__.__proto__.text = function () {
+        return this.innerText ? this.innerText.trim() : "";
+    };
     ////////////////////////////////////////////////////////////////////////////////////////////
     // querySelectorAll Extenstion Methods
     ////////////////////////////////////////////////////////////////////////////////////////////
@@ -96,6 +99,13 @@
 
 
     };
+    nodeList.__proto__.text = function () {
+        if (this.length > 0) {
+            return this[0].innerText ? this[0].innerText.trim() : "";
+        } else {
+            return "";
+        }
+    };
     ////////////////////////////////////////////////////////////////////////////////////////////
     // getElementsByTagNames,getElementsByClassName Extenstion Methods
     ////////////////////////////////////////////////////////////////////////////////////////////
@@ -131,5 +141,12 @@
         }
 
 
+    };
+    htmlCollection.__proto__.text = function () {
+        if (this.length > 0) {
+            return this[0].innerText ? this[0].innerText.trim() : "";
+        } else {
+            return "";
+        }
     };
 })();
