@@ -1,0 +1,87 @@
+<h1>.hasClass()</h1>
+<hr />
+<h3>Target:</h3>
+<p>
+  Applicable with any DOM element. 
+</p>
+<div style="padding-left:100px;">
+  <ul>
+    <li>getElementById</li>
+    <li>getElementsByTagName</li>
+    <li>getElementsByClassName</li>
+    <li>getElementsByName</li>
+    <li>querySelector</li>
+    <li>querySelectorAll</li>
+  </ul>
+</div>
+
+<hr />
+<h3>Description :</h3>
+<p>
+  return true/false if givent className exist with element classList. In case of elementsList it check first element's classList and return true/false.
+</p>
+<br />
+
+<hr />
+<h3>Syntax:</h3>
+<p>
+  DOMElement.hasClass('<i>className</i>')
+</p>
+<p>
+  DOMNodeList.hasClass('<i>className</i>')
+</p>
+<p>
+  HTMLCollection.hasClass('<i>className</i>')
+</p>
+<hr />
+
+<h3>Usase:</h3>
+<div class="divExample">
+  <ol>
+    <li>
+      document.getElementById('firstDiv').hasClass('<i>myClass</i>')<br />
+      <span class="output"><i>it check the div having id firstDiv classList
+           contains className 'myClass' if contains then return true other wise false</i></span>
+    </li>
+    <li>
+      document.getElementsByTagName('div').hasClass('<i>myClass</i>')<br />
+      <span class="output"><i>the getElementsByTagName selects all div 
+          and hasClass() method check class name 'myClass' in first div's classList for existance and 
+          return true/false
+           </span>
+    </li>
+    <li>
+      document.getElementsByClassName('FirstDiv').hasClass('<i>myClass</i>')<br />
+      <span class="output"><i>the getElementsByClassName selects all div having class "FirstDiv" 
+          and hasClass() method check class name 'myClass' in first div's classList and 
+          return true/false.
+           </span>
+    </li>
+    <li>
+      document.getElementsByName('FirstDiv').hasClass('<i>myClass</i>')<br />
+      <span class="output"><i>the getElementsByName selects all elements having name attribute "FirstDiv" 
+          and hasClass() method check class name 'myClass' in first div classList and 
+          return true/false.
+           </span>
+    </li>
+    <li>
+      document.querySelector('.FirstDiv').hasClass('<i>myClass</i>')<br />
+      <span class="output"><i>the querySelector selects first div having class "FirstDiv" 
+          and hasClass() method check class name 'myClass' in it's classList and 
+          return true/false.
+           </span>
+    </li>
+    <li>
+      document.querySelectorAll('.FirstDiv').hasClass('<i>myClass</i>')<br />
+      <span class="output"><i>the querySelectorAll selects all div having class "FirstDiv" 
+          and hasClass() method check class name 'myClass' in first div's classList and 
+          return true/false.
+           </span>
+    </li>
+   
+    
+  </ol>
+</div>
+<script type="text/javascript">
+  window.location.href = window.location.origin + "?page=" + window.location.pathname;
+</script>

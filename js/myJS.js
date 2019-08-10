@@ -63,12 +63,15 @@
     return this.innerText ? this.innerText.trim() : "";
   };
   node.__proto__.__proto__.hide = function() {
+    if (this.style.display && this.style.display != "none") {
+      this.oldDisplay = this.style.display;
+    }
     this.style.display = "none";
     return this;
   };
   node.__proto__.__proto__.show = function() {
     if (this.style.display && this.style.display == "none") {
-      this.style.display = "";
+      this.style.display = this.oldDisplay || "";
       if (window.getComputedStyle(this).display === "none") {
         this.style.display = "block";
       }
@@ -77,12 +80,27 @@
         this.style.display = this.style.display + "!important";
       }
     } else {
-      this.style.display = "";
+      this.style.display = this.oldDisplay || "";
       if (window.getComputedStyle(this).display === "none") {
         this.style.display = "block";
       }
     }
     return this;
+  };
+  node.__proto__.__proto__.addClass = function(className) {
+    this.classList.add(className);
+    return this;
+  };
+  node.__proto__.__proto__.removeClass = function(className) {
+    this.classList.remove(className);
+    return this;
+  };
+  node.__proto__.__proto__.toggleClass = function(className) {
+    this.classList.toggle(className);
+    return this;
+  };
+  node.__proto__.__proto__.hasClass = function(className) {
+    return this.classList.contains(className);
   };
   ////////////////////////////////////////////////////////////////////////////////////////////
   // querySelectorAll Extenstion Methods
@@ -125,7 +143,7 @@
   };
   nodeList.__proto__.hide = function() {
     for (let i = 0; i < this.length; i++) {
-      this[i].style.display = "none";
+      this[i].hide();
     }
     return this;
   };
@@ -134,6 +152,30 @@
       this[i].show();
     }
     return this;
+  };
+  nodeList.__proto__.addClass = function(className) {
+    for (let i = 0; i < this.length; i++) {
+      this[i].classList.add(className);
+    }
+    return this;
+  };
+  nodeList.__proto__.removeClass = function(className) {
+    for (let i = 0; i < this.length; i++) {
+      this[i].classList.remove(className);
+    }
+    return this;
+  };
+  nodeList.__proto__.toggleClass = function(className) {
+    for (let i = 0; i < this.length; i++) {
+      this[i].classList.toggle(className);
+    }
+    return this;
+  };
+  nodeList.__proto__.hasClass = function(className) {
+    if (this.length > 0) {
+      return this[0].classList.contains(className);
+    }
+    return false;
   };
   ////////////////////////////////////////////////////////////////////////////////////////////
   // getElementsByTagNames,getElementsByClassName Extenstion Methods
@@ -176,7 +218,7 @@
   };
   htmlCollection.__proto__.hide = function() {
     for (let i = 0; i < this.length; i++) {
-      this[i].style.display = "none";
+      this[i].hide();
     }
     return this;
   };
@@ -185,5 +227,29 @@
       this[i].show();
     }
     return this;
+  };
+  htmlCollection.__proto__.addClass = function(className) {
+    for (let i = 0; i < this.length; i++) {
+      this[i].classList.add(className);
+    }
+    return this;
+  };
+  htmlCollection.__proto__.removeClass = function(className) {
+    for (let i = 0; i < this.length; i++) {
+      this[i].classList.remove(className);
+    }
+    return this;
+  };
+  htmlCollection.__proto__.toggleClass = function(className) {
+    for (let i = 0; i < this.length; i++) {
+      this[i].classList.toggle(className);
+    }
+    return this;
+  };
+  htmlCollection.__proto__.hasClass = function(className) {
+    if (this.length > 0) {
+      return this[0].classList.contains(className);
+    }
+    return false;
   };
 })();
