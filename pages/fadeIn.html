@@ -1,0 +1,83 @@
+<h1>.fadeIn(<i>[duration],[callBack]</i>)</h1>
+<hr />
+<h3>Target:</h3>
+<p>
+  Applicable with any DOM element.
+</p>
+<div style="padding-left:100px;">
+  <ul>
+    <li>getElementById</li>
+    <li>getElementsByTagName</li>
+    <li>getElementsByClassName</li>
+    <li>getElementsByName</li>
+    <li>querySelector</li>
+    <li>querySelectorAll</li>
+  </ul>
+</div>
+
+<hr />
+<h3>Description :</h3>
+<p>
+  hide selected element/elements list with fade animation.
+  <br />
+  <i>duration</i>: optional if not passed then default is 300ms.
+  <br />
+  <i>callBack</i>:optional function executes when animation completes.
+</p>
+<br />
+<p>
+  <b>Note: if callBack function is passed then after animation callback method will initiate. </b>
+</p>
+<hr />
+<h3>Syntax:</h3>
+<p>
+  DOMElement.fadeIn(<i>[duration],[callBack]</i>)
+</p>
+<p>
+  DOMNodeList.fadeIn(<i>[duration],[callBack]</i>)
+</p>
+<p>
+  HTMLCollection.fadeIn(<i>[duration],[callBack]</i>)
+</p>
+<hr />
+
+<h3>Usase:</h3>
+<div class="divExample">
+  <ol>
+    <li>
+      document.getElementById('firstDiv').fadeIn()<br />
+      <span class="output"><i>it hides the div having id firstDiv with fade animation and return firstDiv element</i></span>
+    </li>
+    <li>
+      document.getElementsByTagName('div').fadeIn()<br />
+      <span class="output"><i>the getElementsByTagName selects all div and fadeIn() method hides all divs with fade animation and return getElementsByTagName result for further processing you do not need to execute selector again. </i></span>
+    </li>
+    <li>
+      document.getElementsByClassName('FirstDiv').fadeIn()<br />
+      <span class="output"><i>the getElementsByClassName selects all div having class "FirstDiv" and fadeIn() method hides all divs with fade animation and return getElementsByClassName result for further processing you do not need to execute selector again. </i></span>
+    </li>
+    <li>
+      document.getElementsByName('FirstDiv').fadeIn()<br />
+      <span class="output"><i>the getElementsByName selects all elements having name attribute "FirstDiv" and fadeIn() method hides all elements with fade animation and return getElementsByName result for further processing you do not need to execute selector again. </i></span>
+    </li>
+    <li>
+      document.querySelector('.FirstDiv').fadeIn()<br />
+      <span class="output"><i>the querySelector selects first div having class "FirstDiv" and fadeIn() method hide it with fade animation and return querySelector result for further processing you do not need to execute selector again. </i></span>
+    </li>
+    <li>
+      document.querySelectorAll('.FirstDiv').fadeIn()<br />
+      <span class="output"><i>the querySelectorAll selects all div having class "FirstDiv" and fadeIn() method hides all divs with fade animation and return querySelectorAll result for further processing you do not need to execute selector again. </i></span>
+    </li>
+    <li>
+      document.querySelectorAll('.FirstDiv').fadeIn(3000)<br />
+      <span class="output"><i>hides all div having class 'FirstDiv' aftet 3 seconds, smoothly with fade animation.</i></span>
+    </li>
+    <li>
+      document.querySelectorAll('.FirstDiv').fadeIn(3000,function(){this.fadeOut(3000);})<br />
+      <span class="output"><i>hides all div having class 'FirstDiv' aftet 3 seconds, smoothly with fade animation and then passed callBack function executes.</i></span>
+    </li>
+  </ol>
+</div>
+<script type="text/javascript">
+  window.location.href = window.location.origin + "?page=" + window.location.pathname;
+</script>

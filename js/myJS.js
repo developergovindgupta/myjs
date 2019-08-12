@@ -1,7 +1,7 @@
-(function() {
-  document.ready = function(fn) {
+(function () {
+  document.ready = function (fn) {
     if (typeof fn === "function") {
-      document.addEventListener("readystatechange", function() {
+      document.addEventListener("readystatechange", function () {
         if (document.readyState === "complete") {
           fn();
         }
@@ -20,12 +20,12 @@
     It follows Promise structure.
     ======================================================================================
     */
-  node.__proto__.__proto__.load = function(url) {
+  node.__proto__.__proto__.load = function (url) {
     let container = this;
-    let p = new Promise(function(resolve, reject) {
+    let p = new Promise(function (resolve, reject) {
       try {
         let xhr = new XMLHttpRequest();
-        xhr.onreadystatechange = function(e) {
+        xhr.onreadystatechange = function (e) {
           if (xhr.readyState === 4 && xhr.status === 200) {
             container.innerHTML = xhr.responseText;
             resolve(container);
@@ -43,7 +43,7 @@
     return p;
   };
   /*val get/set the value of input element selected and targeted*/
-  node.__proto__.__proto__.val = function(value) {
+  node.__proto__.__proto__.val = function (value) {
     if (value || value === "") {
       this.value = value;
       return this;
@@ -51,7 +51,7 @@
       return this.value ? this.value : "";
     }
   };
-  node.__proto__.__proto__.html = function(html) {
+  node.__proto__.__proto__.html = function (html) {
     if (html || html === "") {
       this.innerHTML = html;
       return this;
@@ -59,17 +59,18 @@
       return this.innerHTML ? this.innerHTML : "";
     }
   };
-  node.__proto__.__proto__.text = function() {
+  node.__proto__.__proto__.text = function () {
     return this.innerText ? this.innerText.trim() : "";
   };
-  node.__proto__.__proto__.hide = function() {
+  node.__proto__.__proto__.hide = function () {
     if (this.style.display && this.style.display != "none") {
       this.oldDisplay = this.style.display;
     }
     this.style.display = "none";
+    this.style.opacity = "";
     return this;
   };
-  node.__proto__.__proto__.show = function() {
+  node.__proto__.__proto__.show = function () {
     if (this.style.display && this.style.display == "none") {
       this.style.display = this.oldDisplay || "";
       if (window.getComputedStyle(this).display === "none") {
@@ -84,29 +85,113 @@
       if (window.getComputedStyle(this).display === "none") {
         this.style.display = "block";
       }
+      this.style.opacity = "";
+      if (getComputedStyle(this).opacity != 1) {
+        this.style.opacity = 1;
+      }
     }
     return this;
   };
-  node.__proto__.__proto__.addClass = function(className) {
+  node.__proto__.__proto__.addClass = function (className) {
     this.classList.add(className);
     return this;
   };
-  node.__proto__.__proto__.removeClass = function(className) {
+  node.__proto__.__proto__.removeClass = function (className) {
     this.classList.remove(className);
     return this;
   };
-  node.__proto__.__proto__.toggleClass = function(className) {
+  node.__proto__.__proto__.toggleClass = function (className) {
     this.classList.toggle(className);
     return this;
   };
-  node.__proto__.__proto__.hasClass = function(className) {
+  node.__proto__.__proto__.hasClass = function (className) {
     return this.classList.contains(className);
+  };
+  node.__proto__.__proto__.fadeIn = function (duration, callBack) {
+    let obj = this;
+    let animationDuration = 300;
+    let afterAnimationFunction;
+    if (duration) {
+      if (Number(duration)) {
+        animationDuration = duration;
+      } else if (typeof duration === "function") {
+        afterAnimationFunction = duration;
+      }
+    }
+    if (callBack) {
+      if (Number(callBack)) {
+        animationDuration = callBack;
+      } else if (typeof callBack === "function") {
+        afterAnimationFunction = callBack;
+      }
+    }
+    animationDuration = animationDuration || 50;
+    let opacity = parseFloat(getComputedStyle(obj).opacity);
+    let IncrementValue = 1.0 / (animationDuration / 50);
+    let interval = animationDuration / (animationDuration / 50);
+    let windowInterval = window.setInterval(function () {
+      opacity -= IncrementValue;
+      if (opacity <= 0) {
+        obj.style.opacity = 0;
+        obj.hide();
+        if (afterAnimationFunction) {
+          obj.fnFadeIn = afterAnimationFunction;
+          obj.fnFadeIn();
+        }
+        window.clearInterval(windowInterval);
+        return obj;
+      }
+
+      obj.style.opacity = opacity;
+    }, interval);
+    return obj;
+  };
+  node.__proto__.__proto__.fadeOut = function (duration, callBack) {
+    let obj = this;
+    let animationDuration = 300;
+    let afterAnimationFunction;
+    if (duration) {
+      if (Number(duration)) {
+        animationDuration = duration;
+      } else if (typeof duration === "function") {
+        afterAnimationFunction = duration;
+      }
+    }
+    if (callBack) {
+      if (Number(callBack)) {
+        animationDuration = callBack;
+      } else if (typeof callBack === "function") {
+        afterAnimationFunction = callBack;
+      }
+    }
+    animationDuration = animationDuration || 50;
+    let opacity = parseFloat(getComputedStyle(obj).opacity);
+    let IncrementValue = 1.0 / (animationDuration / 50);
+    let interval = animationDuration / (animationDuration / 50);
+    obj.show();
+    let windowInterval = window.setInterval(function () {
+      opacity += IncrementValue;
+      if (opacity >= 1) {
+        obj.style.opacity = "";
+        if (getComputedStyle(obj).opacity != 1) {
+          obj.style.opacity = 1;
+        }
+        if (afterAnimationFunction) {
+          obj.fnFadeOut = afterAnimationFunction;
+          obj.fnFadeOut();
+        }
+        window.clearInterval(windowInterval);
+        return obj;
+      }
+      obj.style.opacity = opacity;
+    }, interval);
+    return obj;
   };
   ////////////////////////////////////////////////////////////////////////////////////////////
   // querySelectorAll Extenstion Methods
   ////////////////////////////////////////////////////////////////////////////////////////////
   let nodeList = document.querySelectorAll("html");
-  nodeList.__proto__.val = function(value) {
+  nodeList.__proto__.val = function (value) {
     if (value || value === "") {
       if (this.length > 0) {
         this[0].value = value;
@@ -120,7 +205,7 @@
       }
     }
   };
-  nodeList.__proto__.html = function(html) {
+  nodeList.__proto__.html = function (html) {
     if (html || html === "") {
       if (this.length > 0) {
         this[0].innerHTML = html;
@@ -134,54 +219,66 @@
       }
     }
   };
-  nodeList.__proto__.text = function() {
+  nodeList.__proto__.text = function () {
     if (this.length > 0) {
       return this[0].innerText ? this[0].innerText.trim() : "";
     } else {
       return "";
     }
   };
-  nodeList.__proto__.hide = function() {
+  nodeList.__proto__.hide = function () {
     for (let i = 0; i < this.length; i++) {
       this[i].hide();
     }
     return this;
   };
-  nodeList.__proto__.show = function() {
+  nodeList.__proto__.show = function () {
     for (let i = 0; i < this.length; i++) {
       this[i].show();
     }
     return this;
   };
-  nodeList.__proto__.addClass = function(className) {
+  nodeList.__proto__.addClass = function (className) {
     for (let i = 0; i < this.length; i++) {
       this[i].classList.add(className);
     }
     return this;
   };
-  nodeList.__proto__.removeClass = function(className) {
+  nodeList.__proto__.removeClass = function (className) {
     for (let i = 0; i < this.length; i++) {
       this[i].classList.remove(className);
     }
     return this;
   };
-  nodeList.__proto__.toggleClass = function(className) {
+  nodeList.__proto__.toggleClass = function (className) {
     for (let i = 0; i < this.length; i++) {
       this[i].classList.toggle(className);
     }
     return this;
   };
-  nodeList.__proto__.hasClass = function(className) {
+  nodeList.__proto__.hasClass = function (className) {
     if (this.length > 0) {
       return this[0].classList.contains(className);
     }
     return false;
+  };
+  nodeList.__proto__.fadeIn = function (duration, callBack) {
+    for (let i = 0; i < this.length; i++) {
+      this[i].fadeIn(duration, callBack);
+    }
+    return this;
+  };
+  nodeList.__proto__.fadeOut = function (duration, callBack) {
+    for (let i = 0; i < this.length; i++) {
+      this[i].fadeOut(duration, callBack);
+    }
+    return this;
   };
   ////////////////////////////////////////////////////////////////////////////////////////////
   // getElementsByTagNames,getElementsByClassName Extenstion Methods
   ////////////////////////////////////////////////////////////////////////////////////////////
   let htmlCollection = document.getElementsByTagName("div");
-  htmlCollection.__proto__.val = function(value) {
+  htmlCollection.__proto__.val = function (value) {
     if (value || value === "") {
       if (this.length > 0) {
         this[0].value = value;
@@ -195,7 +292,7 @@
       }
     }
   };
-  htmlCollection.__proto__.html = function(html) {
+  htmlCollection.__proto__.html = function (html) {
     if (html || html === "") {
       if (this.length > 0) {
         this[0].innerHTML = html;
@@ -209,47 +306,59 @@
       }
     }
   };
-  htmlCollection.__proto__.text = function() {
+  htmlCollection.__proto__.text = function () {
     if (this.length > 0) {
       return this[0].innerText ? this[0].innerText.trim() : "";
     } else {
       return "";
     }
   };
-  htmlCollection.__proto__.hide = function() {
+  htmlCollection.__proto__.hide = function () {
     for (let i = 0; i < this.length; i++) {
       this[i].hide();
     }
     return this;
   };
-  htmlCollection.__proto__.show = function() {
+  htmlCollection.__proto__.show = function () {
     for (let i = 0; i < this.length; i++) {
       this[i].show();
     }
     return this;
   };
-  htmlCollection.__proto__.addClass = function(className) {
+  htmlCollection.__proto__.addClass = function (className) {
     for (let i = 0; i < this.length; i++) {
       this[i].classList.add(className);
     }
     return this;
   };
-  htmlCollection.__proto__.removeClass = function(className) {
+  htmlCollection.__proto__.removeClass = function (className) {
     for (let i = 0; i < this.length; i++) {
       this[i].classList.remove(className);
     }
     return this;
   };
-  htmlCollection.__proto__.toggleClass = function(className) {
+  htmlCollection.__proto__.toggleClass = function (className) {
     for (let i = 0; i < this.length; i++) {
       this[i].classList.toggle(className);
     }
     return this;
   };
-  htmlCollection.__proto__.hasClass = function(className) {
+  htmlCollection.__proto__.hasClass = function (className) {
     if (this.length > 0) {
       return this[0].classList.contains(className);
     }
     return false;
+  };
+  htmlCollection.__proto__.fadeIn = function (duration, callBack) {
+    for (let i = 0; i < this.length; i++) {
+      this[i].fadeIn(duration, callBack);
+    }
+    return this;
+  };
+  htmlCollection.__proto__.fadeOut = function (duration, callBack) {
+    for (let i = 0; i < this.length; i++) {
+      this[i].fadeOut(duration, callBack);
+    }
+    return this;
   };
 })();
