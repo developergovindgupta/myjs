@@ -1,0 +1,69 @@
+<h1>.isVisible()</h1>
+<hr />
+<h3>Target:</h3>
+<p>
+  Applicable with any DOM element.
+</p>
+<div style="padding-left:100px;">
+  <ul>
+    <li>getElementById</li>
+    <li>getElementsByTagName</li>
+    <li>getElementsByClassName</li>
+    <li>getElementsByName</li>
+    <li>querySelector</li>
+    <li>querySelectorAll</li>
+  </ul>
+</div>
+
+<hr />
+<h3>Description :</h3>
+<p>
+  return <i>true</i> if target element or first element of list is visible other wise <b><i>false</i></b
+  >.
+</p>
+
+<hr />
+<h3>Syntax:</h3>
+<p>
+  DOMElement.isVisible()
+</p>
+<p>
+  DOMNodeList.isVisible()
+</p>
+<p>
+  HTMLCollection.isVisible()
+</p>
+<hr />
+
+<h3>Usase:</h3>
+<div class="divExample">
+  <ol>
+    <li>
+      document.getElementById('firstDiv').isVisible()<br />
+      <span class="output"><i>it return true if firstDiv element other wise false</i></span>
+    </li>
+    <li>
+      document.getElementsByTagName('div').isVisible()<br />
+      <span class="output"><i>the getElementsByTagName selects all div but isVisible() method check for only first div and if it is visible then return true else false.</i> </span>
+    </li>
+    <li>
+      document.getElementsByClassName('FirstDiv').isVisible()<br />
+      <span class="output"><i>the getElementsByClassName selects all div having class "FirstDiv" but isVisible() method consider only first element and return true if it is visible other wise false. </i> </span>
+    </li>
+    <li>
+      document.getElementsByName('FirstDiv').isVisible()<br />
+      <span class="output"><i>the getElementsByName selects all elements having name attribute "FirstDiv" but isVisible() method consider only first element and return true if it is visible other wise false. </i> </span>
+    </li>
+    <li>
+      document.querySelector('.FirstDiv').isVisible()<br />
+      <span class="output"><i>the querySelector selects first div having class "FirstDiv" and isVisible() method check whether it is visible or not</i> </span>
+    </li>
+    <li>
+      document.querySelectorAll('.FirstDiv').isVisible()<br />
+      <span class="output"><i>the querySelectorAll selects all div having class "FirstDiv" but isVisible() method consider only first element and return true if it is visible other wise false. </i> </span>
+    </li>
+  </ol>
+</div>
+<script type="text/javascript">
+  window.location.href = window.location.origin + "?page=" + window.location.pathname;
+</script>
