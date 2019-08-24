@@ -199,6 +199,17 @@
   node.__proto__.__proto__.isVisible = function () {
     return this.offsetHeight > 0;
   };
+  node.__proto__.__proto__.visible = function () {
+    let rID = parseInt(Math.random() * 1000000);
+    if (this.offsetHeight > 0) {
+      this.setAttribute('MYJS_Visible_Control', rID);
+    }
+    let vNodesList = document.querySelectorAll('[MYJS_Visible_Control= "' + rID + '"]');
+    for (let i = 0; i < vNodesList.length; i++) {
+      vNodesList[i].removeAttribute('MYJS_Visible_Control');
+    }
+    return vNodesList;
+  };
   ////////////////////////////////////////////////////////////////////////////////////////////
   // querySelectorAll Extenstion Methods
   ////////////////////////////////////////////////////////////////////////////////////////////
@@ -302,6 +313,21 @@
     }
     return false;
   };
+  nodeList.__proto__.visible = function () {
+    let rID = parseInt(Math.random() * 1000000);
+    for (let i = 0; i < this.length; i++) {
+      if (this[i].offsetHeight > 0) {
+        this[i].setAttribute('MYJS_Visible_Control', rID);
+      }
+    }
+
+    let vNodesList = document.querySelectorAll('[MYJS_Visible_Control= "' + rID + '"]');
+    for (let i = 0; i < vNodesList.length; i++) {
+      vNodesList[i].removeAttribute('MYJS_Visible_Control');
+    }
+    return vNodesList;
+  };
+
   ////////////////////////////////////////////////////////////////////////////////////////////
   // getElementsByTagNames,getElementsByClassName Extenstion Methods
   ////////////////////////////////////////////////////////////////////////////////////////////
@@ -404,5 +430,19 @@
       return this[0].isVisible();
     }
     return false;
+  };
+  htmlCollection.__proto__.visible = function () {
+    let rID = parseInt(Math.random() * 1000000);
+    for (let i = 0; i < this.length; i++) {
+      if (this[i].offsetHeight > 0) {
+        this[i].setAttribute('MYJS_Visible_Control', rID);
+      }
+    }
+
+    let vNodesList = document.querySelectorAll('[MYJS_Visible_Control= "' + rID + '"]');
+    for (let i = 0; i < vNodesList.length; i++) {
+      vNodesList[i].removeAttribute('MYJS_Visible_Control');
+    }
+    return vNodesList;
   };
 })();
