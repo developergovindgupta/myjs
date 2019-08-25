@@ -2,7 +2,7 @@
 <hr />
 <h3>Target:</h3>
 <p>
-  Applicable with any DOM element.
+  Applicable with any DOM elements List.
 </p>
 <div style="padding-left:100px;">
   <ul>
@@ -18,7 +18,7 @@
 <hr />
 <h3>Description :</h3>
 <p>
-  return DOM Node or Nodes List that are visible in selector.
+  return DOMNodeList that are visible in selector.
 </p>
 
 <hr />
@@ -39,12 +39,7 @@
   <ol>
     <li>
       document.getElementById('firstDiv').visible()<br />
-      <span class="output"
-        ><i
-          >if the div having id firstDiv is visible then return firstDiv element else null <br />
-          in case of null next statement will throw error.</i
-        ></span
-      >
+      <span class="output"><i>if the div having id firstDiv is visible then return DOMNodeList having firstDiv</i></span>
     </li>
     <li>
       document.getElementsByTagName('div').visible()<br />
@@ -60,7 +55,7 @@
     </li>
     <li>
       document.querySelector('.FirstDiv').visible()<br />
-      <span class="output"><i>the querySelector selects first div having class "FirstDiv" and visible() method return element if it is visible otherwise null.</i> </span>
+      <span class="output"><i>the querySelector selects first div having class "FirstDiv" and visible() method return DOMNodeList having FirstDiv Element if visible otherwise empty list.</i> </span>
     </li>
     <li>
       document.querySelectorAll('.FirstDiv').visible()<br />

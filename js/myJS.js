@@ -202,13 +202,17 @@
   node.__proto__.__proto__.visible = function () {
     let rID = parseInt(Math.random() * 1000000);
     if (this.offsetHeight > 0) {
-      this.setAttribute('MYJS_Visible_Control', rID);
+      this.setAttribute("MYJS_Visible_Control", rID);
     }
     let vNodesList = document.querySelectorAll('[MYJS_Visible_Control= "' + rID + '"]');
     for (let i = 0; i < vNodesList.length; i++) {
-      vNodesList[i].removeAttribute('MYJS_Visible_Control');
+      vNodesList[i].removeAttribute("MYJS_Visible_Control");
     }
     return vNodesList;
+  };
+  node.__proto__.__proto__.find = function (selector) {
+    selector = selector || '*';
+    return this.querySelectorAll(selector);
   };
   ////////////////////////////////////////////////////////////////////////////////////////////
   // querySelectorAll Extenstion Methods
@@ -317,15 +321,27 @@
     let rID = parseInt(Math.random() * 1000000);
     for (let i = 0; i < this.length; i++) {
       if (this[i].offsetHeight > 0) {
-        this[i].setAttribute('MYJS_Visible_Control', rID);
+        this[i].setAttribute("MYJS_Visible_Control", rID);
       }
     }
 
     let vNodesList = document.querySelectorAll('[MYJS_Visible_Control= "' + rID + '"]');
     for (let i = 0; i < vNodesList.length; i++) {
-      vNodesList[i].removeAttribute('MYJS_Visible_Control');
+      vNodesList[i].removeAttribute("MYJS_Visible_Control");
     }
     return vNodesList;
+  };
+  nodeList.__proto__.find = function (selector) {
+    selector = selector || '*';
+    let rID = parseInt(Math.random() * 1000000);
+    for (let i = 0; i < this.length; i++) {
+      this[i].setAttribute("MYJS_Find_Control", rID);
+    }
+    let fNodesList = document.querySelectorAll('[MYJS_Find_Control= "' + rID + '"] ' + selector);
+    for (let i = 0; i < this.length; i++) {
+      this[i].removeAttribute("MYJS_Find_Control");
+    }
+    return fNodesList;
   };
 
   ////////////////////////////////////////////////////////////////////////////////////////////
@@ -435,14 +451,27 @@
     let rID = parseInt(Math.random() * 1000000);
     for (let i = 0; i < this.length; i++) {
       if (this[i].offsetHeight > 0) {
-        this[i].setAttribute('MYJS_Visible_Control', rID);
+        this[i].setAttribute("MYJS_Visible_Control", rID);
       }
     }
 
     let vNodesList = document.querySelectorAll('[MYJS_Visible_Control= "' + rID + '"]');
     for (let i = 0; i < vNodesList.length; i++) {
-      vNodesList[i].removeAttribute('MYJS_Visible_Control');
+      vNodesList[i].removeAttribute("MYJS_Visible_Control");
     }
     return vNodesList;
   };
+  htmlCollection.__proto__.find = function (selector) {
+    selector = selector || '*';
+    let rID = parseInt(Math.random() * 1000000);
+    for (let i = 0; i < this.length; i++) {
+      this[i].setAttribute("MYJS_Find_Control", rID);
+    }
+    let fNodesList = document.querySelectorAll('[MYJS_Find_Control= "' + rID + '"] ' + selector);
+    for (let i = 0; i < this.length; i++) {
+      this[i].removeAttribute("MYJS_Find_Control");
+    }
+    return fNodesList;
+  };
+
 })();

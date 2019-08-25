@@ -1,0 +1,68 @@
+<h1>.find(<i>selector</i>)</h1>
+<hr />
+<h3>Target:</h3>
+<p>
+  Applicable with any DOM element or elements List.
+</p>
+<div style="padding-left:100px;">
+  <ul>
+    <li>getElementById</li>
+    <li>getElementsByTagName</li>
+    <li>getElementsByClassName</li>
+    <li>getElementsByName</li>
+    <li>querySelector</li>
+    <li>querySelectorAll</li>
+  </ul>
+</div>
+
+<hr />
+<h3>Description :</h3>
+<p>
+  it search selector in element/elements list and return DOMNodeList that are matched with selector passed.
+</p>
+
+<hr />
+<h3>Syntax:</h3>
+<p>
+  DOMElement.find(<i>selector</i>)
+</p>
+<p>
+  DOMNodeList.find(<i>selector</i>)
+</p>
+<p>
+  HTMLCollection.find(<i>selector</i>)
+</p>
+<hr />
+
+<h3>Usase:</h3>
+<div class="divExample">
+  <ol>
+    <li>
+      document.getElementById('firstDiv').find(<i>'input'</i>)<br />
+      <span class="output"><i>it search input elements in firstDiv and return DOMNodeList of all input elements inside firstDiv.</i></span>
+    </li>
+    <li>
+      document.getElementsByTagName('div').find(<i>'input'</i>)<br />
+      <span class="output"><i>the getElementsByTagName selects all div and find() method seaches input elements in all dives and return DOMNodeList of input elements.</i> </span>
+    </li>
+    <li>
+      document.getElementsByClassName('FirstDiv').find(<i>'input'</i>)<br />
+      <span class="output"><i>the getElementsByClassName selects all elements having class FirstDiv and find() method seaches input elements in all elements and returns DOMNodeList on input elements.</i></span>
+    </li>
+    <li>
+      document.getElementsByName('FirstDiv').find(<i>'input'</i>)<br />
+      <span class="output"><i>the getElementsByName selects all elements having name attribute "FirstDiv" and find() method searches input elements in all elements and returns DOMNodeList of input elements.</i> </span>
+    </li>
+    <li>
+      document.querySelector('.FirstDiv').find(<i>'input'</i>)<br />
+      <span class="output"><i>the querySelector selects first div having class "FirstDiv" and find() method search input elements in firstDiv and return DOMNodeList of input elements.</i> </span>
+    </li>
+    <li>
+      document.querySelectorAll('.FirstDiv').find(<i>'input'</i>)<br />
+      <span class="output"><i>the querySelectorAll selects all elements having class FirstDiv and find() method search input elements in every elements and returns DOMNodeList of input elements.</i> </span>
+    </li>
+  </ol>
+</div>
+<script type="text/javascript">
+  window.location.href = window.location.origin + "?page=" + window.location.pathname;
+</script>
