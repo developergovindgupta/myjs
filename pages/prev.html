@@ -1,0 +1,71 @@
+<h1>.prev()</h1>
+<hr />
+<h3>Target:</h3>
+<p>
+  Applicable with any DOM element.
+</p>
+<div style="padding-left:100px;">
+  <ul>
+    <li>getElementById</li>
+    <li>getElementsByTagName</li>
+    <li>getElementsByClassName</li>
+    <li>getElementsByName</li>
+    <li>querySelector</li>
+    <li>querySelectorAll</li>
+  </ul>
+</div>
+
+<hr />
+<h3>Description :</h3>
+<p>
+  return previous sibling element of selected element other wise null.
+</p>
+<br />
+<p>
+  <b>Note: if selector is DOM Elements List then first node element's previous sibling node return.</b>
+</p>
+<hr />
+<h3>Syntax:</h3>
+<p>
+  DOMElement.prev()
+</p>
+<p>
+  DOMNodeList.prev()
+</p>
+<p>
+  HTMLCollection.prev()
+</p>
+<hr />
+
+<h3>Usase:</h3>
+<div class="divExample">
+  <ol>
+    <li>
+      document.getElementById('firstDiv').prev()<br />
+      <span class="output"><i>if firstDive element's previous sibling node exists return it.</i></span>
+    </li>
+    <li>
+      document.getElementsByTagName('div').prev()<br />
+      <span class="output"><i>the getElementsByTagName selects all div and prev() method return previous sibling node if exists </i> </span>
+    </li>
+    <li>
+      document.getElementsByClassName('FirstDiv').prev()<br />
+      <span class="output"><i>the getElementsByClassName selects all div having class "FirstDiv" and prev() method return first element's previous sibling node if exists. </i></span>
+    </li>
+    <li>
+      document.getElementsByName('FirstDiv').prev()<br />
+      <span class="output"><i>the getElementsByName selects all elements having name attribute "FirstDiv" and prev() method return first element's previous sibling node if exists.</i> </span>
+    </li>
+    <li>
+      document.querySelector('.FirstDiv').prev()<br />
+      <span class="output"><i>the querySelector selects first div having class "FirstDiv" and prev() method return previous element if exists.</i> </span>
+    </li>
+    <li>
+      document.querySelectorAll('.FirstDiv').prev()<br />
+      <span class="output"><i>the querySelectorAll selects all div having class "FirstDiv" and prev() method return first element's previous sibling node if exists.</i> </span>
+    </li>
+  </ol>
+</div>
+<script type="text/javascript">
+  window.location.href = window.location.origin + "?page=" + window.location.pathname;
+</script>

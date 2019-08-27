@@ -1,0 +1,71 @@
+<h1>.next()</h1>
+<hr />
+<h3>Target:</h3>
+<p>
+  Applicable with any DOM element.
+</p>
+<div style="padding-left:100px;">
+  <ul>
+    <li>getElementById</li>
+    <li>getElementsByTagName</li>
+    <li>getElementsByClassName</li>
+    <li>getElementsByName</li>
+    <li>querySelector</li>
+    <li>querySelectorAll</li>
+  </ul>
+</div>
+
+<hr />
+<h3>Description :</h3>
+<p>
+  return next sibling element of selected element other wise null.
+</p>
+<br />
+<p>
+  <b>Note: if selector is DOM Elements List then first node element's next sibling node return.</b>
+</p>
+<hr />
+<h3>Syntax:</h3>
+<p>
+  DOMElement.next()
+</p>
+<p>
+  DOMNodeList.next()
+</p>
+<p>
+  HTMLCollection.next()
+</p>
+<hr />
+
+<h3>Usase:</h3>
+<div class="divExample">
+  <ol>
+    <li>
+      document.getElementById('firstDiv').next()<br />
+      <span class="output"><i>if firstDive element's next sibling node exists return it.</i></span>
+    </li>
+    <li>
+      document.getElementsByTagName('div').next()<br />
+      <span class="output"><i>the getElementsByTagName selects all div and next() method return next sibling node if exists </i> </span>
+    </li>
+    <li>
+      document.getElementsByClassName('FirstDiv').next()<br />
+      <span class="output"><i>the getElementsByClassName selects all div having class "FirstDiv" and next() method return first element's next sibling node if exists. </i></span>
+    </li>
+    <li>
+      document.getElementsByName('FirstDiv').next()<br />
+      <span class="output"><i>the getElementsByName selects all elements having name attribute "FirstDiv" and next() method return first element's next sibling node if exists.</i> </span>
+    </li>
+    <li>
+      document.querySelector('.FirstDiv').next()<br />
+      <span class="output"><i>the querySelector selects first div having class "FirstDiv" and next() method return next element if exists.</i> </span>
+    </li>
+    <li>
+      document.querySelectorAll('.FirstDiv').next()<br />
+      <span class="output"><i>the querySelectorAll selects all div having class "FirstDiv" and next() method return first element's next sibling node if exists.</i> </span>
+    </li>
+  </ol>
+</div>
+<script type="text/javascript">
+  window.location.href = window.location.origin + "?page=" + window.location.pathname;
+</script>

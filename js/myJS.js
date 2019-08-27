@@ -214,6 +214,12 @@
     selector = selector || '*';
     return this.querySelectorAll(selector);
   };
+  node.__proto__.__proto__.next = function () {
+    return this.nextElementSibling;
+  };
+  node.__proto__.__proto__.prev = function () {
+    return this.previousElementSibling;
+  };
   ////////////////////////////////////////////////////////////////////////////////////////////
   // querySelectorAll Extenstion Methods
   ////////////////////////////////////////////////////////////////////////////////////////////
@@ -343,7 +349,18 @@
     }
     return fNodesList;
   };
-
+  nodeList.__proto__.next = function () {
+    if (this.length > 0) {
+      return this[0].nextElementSibling;
+    }
+    return null;
+  };
+  nodeList.__proto__.prev = function () {
+    if (this.length > 0) {
+      return this[0].previousElementSibling;
+    }
+    return null;
+  };
   ////////////////////////////////////////////////////////////////////////////////////////////
   // getElementsByTagNames,getElementsByClassName Extenstion Methods
   ////////////////////////////////////////////////////////////////////////////////////////////
@@ -473,5 +490,16 @@
     }
     return fNodesList;
   };
-
+  htmlCollection.__proto__.next = function () {
+    if (this.length > 0) {
+      return this[0].nextElementSibling;
+    }
+    return null;
+  };
+  htmlCollection.__proto__.prev = function () {
+    if (this.length > 0) {
+      return this[0].previousElementSibling;
+    }
+    return null;
+  };
 })();
