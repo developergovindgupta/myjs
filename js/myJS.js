@@ -220,6 +220,32 @@
   node.__proto__.__proto__.prev = function () {
     return this.previousElementSibling;
   };
+  node.__proto__.__proto__.nextAll = function () {
+    let rID = parseInt(Math.random() * 1000000);
+    let el = this.nextElementSibling;
+    while (el) {
+      el.setAttribute("MYJS_next_Element", rID);
+      el = el.nextElementSibling;
+    }
+    let nextAllElements = this.parentNode.querySelectorAll("[MYJS_next_Element='" + rID + "']");
+    for (let i = 0; i < nextAllElements.length; i++) {
+      nextAllElements[i].removeAttribute("MYJS_next_Element")
+    }
+    return nextAllElements;
+  };
+  node.__proto__.__proto__.prevAll = function () {
+    let rID = parseInt(Math.random() * 1000000);
+    let el = this.previousElementSibling;
+    while (el) {
+      el.setAttribute("MYJS_prev_Element", rID);
+      el = el.previousElementSibling;
+    }
+    let prevAllElements = this.parentNode.querySelectorAll("[MYJS_prev_Element='" + rID + "']");
+    for (let i = 0; i < prevAllElements.length; i++) {
+      prevAllElements[i].removeAttribute("MYJS_prev_Element")
+    }
+    return prevAllElements;
+  };
   ////////////////////////////////////////////////////////////////////////////////////////////
   // querySelectorAll Extenstion Methods
   ////////////////////////////////////////////////////////////////////////////////////////////
@@ -361,6 +387,18 @@
     }
     return null;
   };
+  nodeList.__proto__.nextAll = function () {
+    if (this.length > 0) {
+      return this[0].nextAll();
+    }
+    return null;
+  };
+  nodeList.__proto__.prevAll = function () {
+    if (this.length > 0) {
+      return this[0].prevAll();
+    }
+    return null;
+  };
   ////////////////////////////////////////////////////////////////////////////////////////////
   // getElementsByTagNames,getElementsByClassName Extenstion Methods
   ////////////////////////////////////////////////////////////////////////////////////////////
@@ -499,6 +537,18 @@
   htmlCollection.__proto__.prev = function () {
     if (this.length > 0) {
       return this[0].previousElementSibling;
+    }
+    return null;
+  };
+  htmlCollection.__proto__.nextAll = function () {
+    if (this.length > 0) {
+      return this[0].nextAll();
+    }
+    return null;
+  };
+  htmlCollection.__proto__.prevAll = function () {
+    if (this.length > 0) {
+      return this[0].prevAll();
     }
     return null;
   };

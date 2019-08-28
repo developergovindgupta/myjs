@@ -1,0 +1,71 @@
+<h1>.nextAll()</h1>
+<hr />
+<h3>Target:</h3>
+<p>
+  Applicable with any DOM element.
+</p>
+<div style="padding-left:100px;">
+  <ul>
+    <li>getElementById</li>
+    <li>getElementsByTagName</li>
+    <li>getElementsByClassName</li>
+    <li>getElementsByName</li>
+    <li>querySelector</li>
+    <li>querySelectorAll</li>
+  </ul>
+</div>
+
+<hr />
+<h3>Description :</h3>
+<p>
+  return DOMNodeList of next all sibling elements of selected element.
+</p>
+<br />
+<p>
+  <b>Note: if selector is DOM Elements List then first node element's next all sibling nodes return as DOMNodeList.</b>
+</p>
+<hr />
+<h3>Syntax:</h3>
+<p>
+  DOMElement.nextAll()
+</p>
+<p>
+  DOMNodeList.nextAll()
+</p>
+<p>
+  HTMLCollection.nextAll()
+</p>
+<hr />
+
+<h3>Usase:</h3>
+<div class="divExample">
+  <ol>
+    <li>
+      document.getElementById('firstDiv').nextAll()<br />
+      <span class="output"><i>it search element having id firstDive and return all elements next to it in same parent as DOMNodeList.</i></span>
+    </li>
+    <li>
+      document.getElementsByTagName('div').nextAll()<br />
+      <span class="output"><i>the getElementsByTagName selects all div and nextAll() method return first div's next all sibling nodes as DOMNodeList </i> </span>
+    </li>
+    <li>
+      document.getElementsByClassName('FirstDiv').nextAll()<br />
+      <span class="output"><i>the getElementsByClassName selects all div having class "FirstDiv" and nextAll() method return first element's next all sibling nodes as DOMNodeList. </i></span>
+    </li>
+    <li>
+      document.getElementsByName('FirstDiv').nextAll()<br />
+      <span class="output"><i>the getElementsByName selects all elements having name attribute "FirstDiv" and nextAll() method return first element's next all sibling nodes as DOMNodeList.</i> </span>
+    </li>
+    <li>
+      document.querySelector('.FirstDiv').nextAll()<br />
+      <span class="output"><i>the querySelector selects first div having class "FirstDiv" and nextAll() method return next all elements as DOMNodeList.</i> </span>
+    </li>
+    <li>
+      document.querySelectorAll('.FirstDiv').nextAll()<br />
+      <span class="output"><i>the querySelectorAll selects all div having class "FirstDiv" and nextAll() method return first element's next all sibling nodes as DOMNodeList.</i> </span>
+    </li>
+  </ol>
+</div>
+<script type="text/javascript">
+  window.location.href = window.location.origin + "?page=" + window.location.pathname;
+</script>
