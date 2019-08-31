@@ -211,9 +211,49 @@
     return vNodesList;
   };
   node.__proto__.__proto__.find = function (selector) {
-    selector = selector || '*';
+    selector = selector || "*";
     return this.querySelectorAll(selector);
   };
+  node.__proto__.__proto__.filter = function (selector) {
+    let rID = parseInt(Math.random() * 1000000);
+    this.classList.add("Filter" + rID);
+    selector = selector || "";
+    if (typeof selector !== "string") {
+      selector = "";
+    }
+    let _selector = selector.split(',');
+    let __selector = '';
+    for (let i = 0; i < _selector.length; i++) {
+      __selector += "," + _selector[i].trim() + ".Filter" + rID;
+    }
+    if (__selector) {
+      __selector = __selector.substring(1);
+    }
+    let filterList = this.parentNode.querySelectorAll(__selector);
+    this.classList.remove("Filter" + rID);
+    return filterList;
+  };
+  node.__proto__.__proto__.filterNot = function (selector) {
+    let rID = parseInt(Math.random() * 1000000);
+    this.classList.add("Filter" + rID);
+    selector = selector || "";
+    if (typeof selector !== "string") {
+      selector = "";
+    }
+    let _selector = selector.split(',');
+    let __selector = '';
+    for (let i = 0; i < _selector.length; i++) {
+      if (_selector[i].trim()) {
+        __selector += ":not(" + _selector[i].trim() + ")";
+      }
+    }
+
+    __selector = ".Filter" + rID + __selector;
+    let filterList = this.parentNode.querySelectorAll(__selector);
+    this.classList.remove("Filter" + rID);
+    return filterList;
+  };
+  node.__proto__.__proto__.not = node.__proto__.__proto__.filterNot;
   node.__proto__.__proto__.next = function () {
     return this.nextElementSibling;
   };
@@ -229,7 +269,7 @@
     }
     let nextAllElements = this.parentNode.querySelectorAll("[MYJS_next_Element='" + rID + "']");
     for (let i = 0; i < nextAllElements.length; i++) {
-      nextAllElements[i].removeAttribute("MYJS_next_Element")
+      nextAllElements[i].removeAttribute("MYJS_next_Element");
     }
     return nextAllElements;
   };
@@ -242,10 +282,11 @@
     }
     let prevAllElements = this.parentNode.querySelectorAll("[MYJS_prev_Element='" + rID + "']");
     for (let i = 0; i < prevAllElements.length; i++) {
-      prevAllElements[i].removeAttribute("MYJS_prev_Element")
+      prevAllElements[i].removeAttribute("MYJS_prev_Element");
     }
     return prevAllElements;
   };
+
   ////////////////////////////////////////////////////////////////////////////////////////////
   // querySelectorAll Extenstion Methods
   ////////////////////////////////////////////////////////////////////////////////////////////
@@ -364,7 +405,7 @@
     return vNodesList;
   };
   nodeList.__proto__.find = function (selector) {
-    selector = selector || '*';
+    selector = selector || "*";
     let rID = parseInt(Math.random() * 1000000);
     for (let i = 0; i < this.length; i++) {
       this[i].setAttribute("MYJS_Find_Control", rID);
@@ -375,6 +416,62 @@
     }
     return fNodesList;
   };
+  nodeList.__proto__.filter = function (selector) {
+    let rID = parseInt(Math.random() * 1000000);
+    for (let i = 0; i < this.length; i++) {
+      this[i].classList.add("Filter" + rID);
+    }
+
+    selector = selector || "";
+    if (typeof selector !== "string") {
+      selector = "";
+    }
+    let _selector = selector.split(',');
+    let __selector = '';
+    for (let i = 0; i < _selector.length; i++) {
+      __selector += "," + _selector[i].trim() + ".Filter" + rID;
+    }
+    if (__selector) {
+      __selector = __selector.substring(1);
+    }
+
+    let filterList = document.querySelectorAll(__selector);
+    for (let i = 0; i < this.length; i++) {
+      this[i].classList.remove("Filter" + rID);
+    }
+
+    return filterList;
+  };
+  nodeList.__proto__.filterNot = function (selector) {
+    let rID = parseInt(Math.random() * 1000000);
+    for (let i = 0; i < this.length; i++) {
+      this[i].classList.add("Filter" + rID);
+    }
+
+    selector = selector || "";
+    if (typeof selector !== "string") {
+      selector = "";
+    }
+    let _selector = selector.split(',');
+    let __selector = '';
+    for (let i = 0; i < _selector.length; i++) {
+      if (_selector[i].trim()) {
+        __selector += ":not(" + _selector[i].trim() + ")";
+      }
+    }
+
+    __selector = ".Filter" + rID + __selector;
+
+
+    let filterList = document.querySelectorAll(__selector);
+
+    for (let i = 0; i < this.length; i++) {
+      this[i].classList.remove("Filter" + rID);
+    }
+
+    return filterList;
+  };
+  nodeList.__proto__.not = nodeList.__proto__.filterNot;
   nodeList.__proto__.next = function () {
     if (this.length > 0) {
       return this[0].nextElementSibling;
@@ -517,7 +614,7 @@
     return vNodesList;
   };
   htmlCollection.__proto__.find = function (selector) {
-    selector = selector || '*';
+    selector = selector || "*";
     let rID = parseInt(Math.random() * 1000000);
     for (let i = 0; i < this.length; i++) {
       this[i].setAttribute("MYJS_Find_Control", rID);
@@ -528,6 +625,62 @@
     }
     return fNodesList;
   };
+  htmlCollection.__proto__.filter = function (selector) {
+    let rID = parseInt(Math.random() * 1000000);
+    for (let i = 0; i < this.length; i++) {
+      this[i].classList.add("Filter" + rID);
+    }
+
+    selector = selector || "";
+    if (typeof selector !== "string") {
+      selector = "";
+    }
+    let __selector = '';
+    for (let i = 0; i < _selector.length; i++) {
+      __selector += "," + _selector[i].trim() + ".Filter" + rID;
+    }
+    if (__selector) {
+      __selector = __selector.substring(1);
+    }
+
+    let filterList = document.querySelectorAll(__selector);
+
+    for (let i = 0; i < this.length; i++) {
+      this[i].classList.remove("Filter" + rID);
+    }
+
+    return filterList;
+  };
+  htmlCollection.__proto__.filterNot = function (selector) {
+    let rID = parseInt(Math.random() * 1000000);
+    for (let i = 0; i < this.length; i++) {
+      this[i].classList.add("Filter" + rID);
+    }
+
+    selector = selector || "";
+    if (typeof selector !== "string") {
+      selector = "";
+    }
+    let _selector = selector.split(',');
+    let __selector = '';
+    for (let i = 0; i < _selector.length; i++) {
+      if (_selector[i].trim()) {
+        __selector += ":not(" + _selector[i].trim() + ")";
+      }
+    }
+
+    __selector = ".Filter" + rID + __selector;
+
+
+    let filterList = document.querySelectorAll(__selector);
+
+    for (let i = 0; i < this.length; i++) {
+      this[i].classList.remove("Filter" + rID);
+    }
+
+    return filterList;
+  };
+  htmlCollection.__proto__.not = htmlCollection.__proto__.filterNot;
   htmlCollection.__proto__.next = function () {
     if (this.length > 0) {
       return this[0].nextElementSibling;
@@ -552,4 +705,5 @@
     }
     return null;
   };
+
 })();
