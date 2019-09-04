@@ -1,0 +1,151 @@
+<h1>.on(<i>eventName,eventHandlerFunction</i>)</h1>
+<h1>.on(<i>eventName.NameSpace,eventHandlerFunction</i>)</h1>
+<hr />
+<h3>Target:</h3>
+<p>
+  Applicable with any DOM element.
+</p>
+<div style="padding-left:100px;">
+  <ul>
+    <li>getElementById</li>
+    <li>getElementsByTagName</li>
+    <li>getElementsByClassName</li>
+    <li>getElementsByName</li>
+    <li>querySelector</li>
+    <li>querySelectorAll</li>
+  </ul>
+</div>
+
+<hr />
+<h3>Description :</h3>
+<p style="line-height: 1.5em">
+  It register <i><b title="function that executes when the event trigger">eventHandlerFunction</b></i> with element on triggering of <i> <b title="Any DOM event that support addEventListener method.">eventName</b> </i>. <br />
+  It is the easy way to use of <i>addEventListener</i> method. <br /><br />
+  <i><b>eventName</b></i> : name of event that trigger the event handler function.
+  <br />
+  <i><b>.NameSpace</b></i> : optional for registring more than one eventHandlerFunction with an event .
+  <br />
+  <i><b>eventHandlerFunction</b></i> : function that register with event and executes when event fired.
+  <br />
+  <br />
+  The [<i>this</i>] refer to the object with that eventName is register within the eventHandlerFunction.
+  <br />
+  The [<i>e</i>] argument of eventHandlerFunction received the event object of event.
+</p>
+<br />
+<p>
+  <b
+    >Note: It register only one eventHandlerFunction with one event.<br />
+    If you want to register more than one <i><b>eventHandlerFunction</b></i> function then you can use <i><b title="Example : eventName.NameSpace">.NameSpace</b></i> with eventName.
+  </b>
+</p>
+<hr />
+<h3>Syntax:</h3>
+<p>DOMElement.on(<i>eventName, eventHandlerFunction</i>)</p>
+<p>DOMNodeList.on(<i>eventName, eventHandlerFunction</i>)</p>
+<p>HTMLCollection.on(<i>eventName, eventHandlerFunction</i>)</p>
+<hr />
+
+<h3>Usase:</h3>
+<div class="divExample">
+  <ol>
+    <li>
+      document.getElementById('firstDiv').on(<i>"click", function(e){ console.log(this.tagName); }</i>)<br />
+      <span class="output">
+        <i>
+          It register function with the firstDiv element on click event.<br />
+          When firstDiv clicked then the function executes and log in console firstDiv tagName "DIV"
+        </i>
+        <br />
+        [e] is the event object that received as parameter in eventHandlerFunction
+      </span>
+    </li>
+    <li>
+      document.getElementsByTagName('div').on(<i>"click", function(e){ console.log(this.tagName); }</i>)<br />
+      <span class="output">
+        <i>
+          It register function with the all the div element's on click event.<br />
+          When any div is clicked then the function executes and log in console tagName "DIV"
+        </i>
+        <br />
+        [e] is the event object that received as parameter in eventHandlerFunction
+      </span>
+    </li>
+    <li>
+      document.getElementsByClassName('FirstDiv').on(<i>"click", function(e){ console.log(this.tagName); }</i>)<br />
+      <span class="output">
+        <i>
+          It register function with the all the elements having class of .FirstDiv on click event.<br />
+          When any element is clicked then the function executes and log in console tagName as "DIV"
+        </i>
+        <br />
+        [e] is the event object that received as parameter in eventHandlerFunction
+      </span>
+    </li>
+    <li>
+      document.getElementsByName('FirstDiv').on(<i>"click", function(e){ console.log(this.tagName); }</i>)<br />
+      <span class="output">
+        <i>
+          It register function with the all the elements having name attribute of FirstDiv on click event.<br />
+          When any element is clicked then the function executes and log in console tagName as "DIV"
+        </i>
+        <br />
+        [e] is the event object that received as parameter in eventHandlerFunction
+      </span>
+    </li>
+    <li>
+      document.querySelector('.FirstDiv').on(<i>"click", function(e){ console.log(this.tagName); }</i>)<br />
+      <span class="output">
+        <i>
+          The querySelector selects first div having class "FirstDiv" and on() method register function with the element on click event.<br />
+          When element is clicked then the function executes and log in console tagName as "DIV"
+        </i>
+        <br />
+        [e] is the event object that received as parameter in eventHandlerFunction
+      </span>
+    </li>
+    <li>
+      document.querySelectorAll('.FirstDiv').on(<i>"click", function(e){ console.log(this.tagName); }</i>)<br />
+      <span class="output">
+        <i>
+          The querySelectorAll selects all div having class "FirstDiv" and on() method register function with all the elements on click event.<br />
+          When element is clicked then the function executes and log in console tagName as "DIV"
+        </i>
+        <br />
+        [e] is the event object that received as parameter in eventHandlerFunction
+      </span>
+    </li>
+  </ol>
+  <br />
+  <hr />
+  <br />
+  <b>
+    For register more than one eventHandlerFunction use .NameSpace with eventName
+  </b>
+  <br />
+  <br />
+  <hr />
+  <br />
+  Example 1 : <br />document.getElementById('firstDiv')<br />.on('click',function(e){ console.log(this.tagName); })<br />.on('click',function(e){ console.log("firstDiv Clicked."); });
+  <span class="output">
+    <i>
+      the output in console when firstDiv element will click <br />
+      "firstDiv Clicked."
+    </i>
+  </span>
+  <br /><br /><br />
+  Example 2 : <br />document.getElementById('firstDiv')<br />.on('click',function(e){ console.log(this.tagName); })<br />.on('click.SecondFn',function(e){ console.log("firstDiv Clicked."); })<br />.on('click.Third',function(e){ console.log(e.target.id); });
+  <span class="output">
+    <i>
+      the output in console when firstDiv element will click <br />
+      "DIV"
+      <br />
+      "firstDiv Clicked."
+      <br />
+      "firstDiv"
+    </i>
+  </span>
+</div>
+<script type="text/javascript">
+  window.location.href = window.location.origin + "?page=" + window.location.pathname;
+</script>

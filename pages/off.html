@@ -1,0 +1,127 @@
+<h1>.off(<i>eventName</i>)</h1>
+<h1>.off(<i>eventName.NameSpace</i>)</h1>
+<hr />
+<h3>Target:</h3>
+<p>
+  Applicable with any DOM element.
+</p>
+<div style="padding-left:100px;">
+  <ul>
+    <li>getElementById</li>
+    <li>getElementsByTagName</li>
+    <li>getElementsByClassName</li>
+    <li>getElementsByName</li>
+    <li>querySelector</li>
+    <li>querySelectorAll</li>
+  </ul>
+</div>
+
+<hr />
+<h3>Description :</h3>
+<p style="line-height: 1.5em">
+  It remove <i><b title="function that executes when the event trigger">eventHandlerFunction</b></i> with element of <i><b title="Any DOM event that support addEventListener method.">eventName.</b> </i> It is the reverse of <b>on()</b> method.
+  <br />
+  It is the easy way of <i>removeEventListener</i> method.
+  <br />
+  <i><b>eventName</b></i> : name of event that was registered with on() method.
+  <br />
+  <i><b>.NameSpace</b></i> : if event is register with NameSpace then for removing eventHandlerFunction NameSpace is used.
+</p>
+<br />
+<p>
+  <b> Note: It clears the eventHandlerFunction from element register with on() method.<br /> </b>
+</p>
+<hr />
+<h3>Syntax:</h3>
+<p>DOMElement.off(<i>eventName</i>)</p>
+<p>DOMNodeList.off(<i>eventName</i>)</p>
+<p>HTMLCollection.off(<i>eventName</i>)</p>
+<hr />
+
+<h3>Usase:</h3>
+<div class="divExample">
+  <ol>
+    <li>
+      document.getElementById('firstDiv').off(<i>"click"</i>)<br />
+      <span class="output">
+        <i>
+          It remove click eventHandlerFunction from element having id firstDiv.
+        </i>
+      </span>
+    </li>
+    <li>
+      document.getElementsByTagName('div').off(<i>"click"</i>)<br />
+      <span class="output">
+        <i>
+          it remove click eventHandlerFunction from all divs of document that was previously registred with on() method.
+        </i>
+      </span>
+    </li>
+    <li>
+      document.getElementsByClassName('FirstDiv').off(<i>"click"</i>)<br />
+      <span class="output">
+        <i>
+          it remove click eventHandlerFunction from all elements that have class .FirstDiv of document that was previously registred with on() method.
+        </i>
+      </span>
+    </li>
+    <li>
+      document.getElementsByName('FirstDiv').off(<i>"click"</i>)<br />
+      <span class="output">
+        <i>
+          it remove click eventHandlerFunction from all elements that have name FirstDiv of document that was previously registred with on() method.
+        </i>
+      </span>
+    </li>
+    <li>
+      document.querySelector('.FirstDiv').off(<i>"click"</i>)<br />
+      <span class="output">
+        <i>
+          it remove click eventHandlerFunction from first element that have class .FirstDiv of document that was previously registred with on() method.
+        </i>
+      </span>
+    </li>
+    <li>
+      document.querySelectorAll('.FirstDiv').off(<i>"click"</i>)<br />
+      <span class="output">
+        <i>
+          it remove click eventHandlerFunction from all elements that have class .FirstDiv of document that was previously registred with on() method.
+        </i>
+      </span>
+    </li>
+  </ol>
+  <br />
+  <hr />
+  <br />
+  <b>
+    For removing eventHandlerFunction that was registered with .NameSpace pass NameSpace with eventName
+  </b>
+  <br />
+  <br />
+  <hr />
+  <br />
+  Example 1 : <br />document.getElementById('firstDiv')<br />.on('click',function(e){ console.log(this.tagName); })<br />.on('click.SecondFn',function(e){ console.log("firstDiv Clicked."); })<br />.on('click.Third',function(e){ console.log(e.target.id); });
+  <span class="output">
+    <i>
+      the output in console when firstDiv element will click <br />
+      "DIV"
+      <br />
+      "firstDiv Clicked."
+      <br />
+      "firstDiv"
+    </i>
+  </span>
+  <br />
+  <br />
+  <br />document.getElementById('firstDiv')<br />.off('click')<br />.off('click.Third');
+  <br />
+  <span class="output">
+    <i>
+      the output in console when firstDiv element will click <br />
+      "firstDiv Clicked."
+    </i>
+  </span>
+</div>
+<script type="text/javascript">
+  window.location.href = window.location.origin + "?page=" + window.location.pathname;
+</script>

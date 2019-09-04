@@ -115,6 +115,7 @@ nav .nav_title {
     display: block;
     text-align: center;
     padding: 5px;
+    border-top: solid 3px;
     border-bottom: solid 3px;
     font-size: 14pt;
 }
