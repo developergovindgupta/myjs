@@ -1,0 +1,72 @@
+<h1>.closest(<i>selector</i>)</h1>
+<hr />
+<h3>Target:</h3>
+<p>
+  Applicable with any DOM element.
+</p>
+<div style="padding-left:100px;">
+  <ul>
+    <li>getElementById</li>
+    <li>getElementsByTagName</li>
+    <li>getElementsByClassName</li>
+    <li>getElementsByName</li>
+    <li>querySelector</li>
+    <li>querySelectorAll</li>
+  </ul>
+</div>
+
+<hr />
+<h3>Description :</h3>
+<p>
+  it search for closest parent element that matched with the selector. It traverse parentNode to parentNode untill matched with selector if no any parent element matched then it return empty array of nodeElementsList instead of null so nested statement not generate error due to null reference.
+  <br /><br />
+  <b>
+    Note : it start searching of selector from the element itself. That's mean if the element matches with the selector it return itself.
+  </b>
+</p>
+
+<hr />
+<h3>Syntax:</h3>
+<p>
+  DOMElement.closest(<i>selector</i>)
+</p>
+<p>
+  DOMNodeList.closest(<i>selector</i>)
+</p>
+<p>
+  HTMLCollection.closest(<i>selector</i>)
+</p>
+<hr />
+
+<h3>Usase:</h3>
+<div class="divExample">
+  <ol>
+    <li>
+      document.getElementById('firstDiv').closest(<i>'form'</i>)<br />
+      <span class="output"><i>it search for firstDiv Element's parent form.</i></span>
+    </li>
+    <li>
+      document.getElementsByTagName('div').closest(<i>'form'</i>)<br />
+      <span class="output"><i>the getElementsByTagName selects all div and closest() method return first element's parent form.</i> </span>
+    </li>
+    <li>
+      document.getElementsByClassName('FirstDiv').closest(<i>'form'</i>)<br />
+      <span class="output"><i>the getElementsByClassName selects all elements having class FirstDiv and closest() method return first element's parent form.</i></span>
+    </li>
+    <li>
+      document.getElementsByName('FirstDiv').closest(<i>'form'</i>)<br />
+      <span class="output"><i>the getElementsByName selects all elements having name attribute "FirstDiv" and closest() method return first element's parent form.</i> </span>
+    </li>
+    <li>
+      document.querySelector('.FirstDiv').closest(<i>'form'</i>)<br />
+      <span class="output"><i>the querySelector selects first div having class "FirstDiv" and closest() method return it's parent form. </i> </span>
+    </li>
+    <li>
+      document.querySelectorAll('.FirstDiv').closest(<i>'form'</i>)<br />
+      <span class="output"><i>the querySelectorAll selects all elements having class FirstDiv and closest() method return first element's parent form.</i> </span>
+    </li>
+  </ol>
+</div>
+<script type="text/javascript">
+  window.location.href = window.location.origin + "?page=" + window.location.pathname;
+</script>

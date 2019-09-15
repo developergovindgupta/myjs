@@ -1,0 +1,107 @@
+<h1>.is(<i>selector|":visible"|domElement</i>)</h1>
+<hr />
+<h3>Target:</h3>
+<p>
+  Applicable with any DOM element.
+</p>
+<div style="padding-left:100px;">
+  <ul>
+    <li>getElementById</li>
+    <li>getElementsByTagName</li>
+    <li>getElementsByClassName</li>
+    <li>getElementsByName</li>
+    <li>querySelector</li>
+    <li>querySelectorAll</li>
+  </ul>
+</div>
+
+<hr />
+<h3>Description :</h3>
+<p>
+  return <i>true</i> if target element or first element of list is matched with selector other wise <b><i>false </i> </b>.
+  <br />
+  <b>selector : </b> any css selector string
+  <br />
+  <b>":visible" : </b> string for check is visible. Same as isVisible() method
+  <br />
+  <b>DomElement : </b> matched with element if both are same then return true other wise false.
+</p>
+
+<hr />
+<h3>Syntax:</h3>
+<p>
+  DOMElement.is(<i>selector</i>)
+</p>
+<p>
+  DOMNodeList.is(<i>selector</i>)
+</p>
+<p>
+  HTMLCollection.is(<i>selector</i>)
+</p>
+<hr />
+
+<h3>Usase:</h3>
+<div class="divExample">
+  <ol>
+    <li>
+      document.getElementById('firstDiv').is(<i>"div"</i>)<br />
+      <span class="output"><i>it return true if firstDiv element is div other wise false</i></span>
+    </li>
+    <li>
+      document.getElementsByTagName('div').is(<i>".FirstDiv"</i>)<br />
+      <span class="output"><i>the getElementsByTagName selects all div but is() method check for only first div and if it has class Firstdiv then return true else false.</i> </span>
+    </li>
+    <li>
+      document.getElementsByClassName('FirstDiv').is(<i>"div"</i>)<br />
+      <span class="output"><i>the getElementsByClassName selects all elements having class "FirstDiv" but is() method consider only first element and return true if it is div other wise false. </i> </span>
+    </li>
+    <li>
+      document.getElementsByName('FirstDiv').is(<i>"div"</i>)<br />
+      <span class="output"><i>the getElementsByName selects all elements having name attribute "FirstDiv" but is() method consider only first element and return true if it is div other wise false. </i> </span>
+    </li>
+    <li>
+      document.querySelector('.FirstDiv').is(<i>"div"</i>)<br />
+      <span class="output"><i>the querySelector selects first div having class "FirstDiv" and is() method check whether it is div or not</i> </span>
+    </li>
+    <li>
+      document.querySelectorAll('.FirstDiv').is(<i>"div"</i>)<br />
+      <span class="output"><i>the querySelectorAll selects all elements having class "FirstDiv" but is() method consider only first element and return true if it is div other wise false. </i> </span>
+    </li>
+    <hr />
+    <i><b>Other Examples:</b></i>
+    <hr />
+    <li>
+      let firstDiv = document.getElementById('firstDiv');
+      <br />
+      if(document.querySelector('#firstDiv').is(firstDiv)) <span style="color:green;">//domElement match</span> <br />{
+      <br />
+      &nbsp; &nbsp; alert('both are same'); <br />}<br />
+      else <br />{ <br />
+      &nbsp; &nbsp; alert("both are not matched"); <br />}
+    </li>
+    <li>
+      if(document.getElementById('firstDiv').is(":visible")) <span style="color:green;">//check visibility of element</span> <br />{
+      <br />
+      &nbsp; &nbsp; alert('Element is Visible');
+      <br />
+      }<br />
+      else <br />{<br />
+      &nbsp; &nbsp; alert('Element Not Visible');<br />
+      }
+    </li>
+    <li>
+      if(document.querySelector('.selected').is("li,div")) <span style="color:green;">//css Selector match</span><br />{
+      <br />
+      &nbsp; &nbsp; alert("selected element is li or div");
+      <br />
+      } <br />else <br />{
+      <br />
+      &nbsp; &nbsp; alert("selected element is not li and div");
+      <br />
+      }
+    </li>
+  </ol>
+</div>
+<script type="text/javascript">
+  window.location.href = window.location.origin + "?page=" + window.location.pathname;
+</script>
