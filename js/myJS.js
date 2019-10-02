@@ -876,4 +876,20 @@
     }
     return str;
   };
+  String.prototype.toCamelCase = function() {
+    let str = this.trimAll().toLowerCase();
+    let str2 = "";
+    let isSpace = false;
+    for (let i = 0; i < str.length; i++) {
+      if (str[i] === " " || str[i] === "-") {
+        isSpace = true;
+      } else if (isSpace) {
+        str2 += str[i].toUpperCase();
+        isSpace = false;
+      } else {
+        str2 += str[i];
+      }
+    }
+    return str2;
+  };
 })();
