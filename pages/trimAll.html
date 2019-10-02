@@ -1,0 +1,51 @@
+<h1><i>String</i>.trimAll()</h1>
+<hr />
+<h3>Target:</h3>
+<p>
+  Applicable with <b><u>String</u></b> Data Type.
+</p>
+
+<hr />
+<h3>Description :</h3>
+<p>
+  remove all extra spaces, tabs and new line characters from string and return string with single space between words.
+</p>
+<br />
+
+<hr />
+<h3>Syntax:</h3>
+<p><i>String</i>.trimAll()</p>
+
+<hr />
+
+<h3>Usase:</h3>
+<div class="divExample">
+  <ol>
+    <li>
+      " hello &nbsp; &nbsp; how &nbsp; &nbsp; are &nbsp; &nbsp; you? ".trimAll()
+      <br /><span class="output">It return string "hello how are you?"</span>
+    </li>
+    <li>
+      `MYJS
+      <br />(Make Your Java Scripting Easy) <br />
+      A &nbsp; &nbsp; Library &nbsp; &nbsp; of &nbsp; &nbsp; Javascript &nbsp; &nbsp; Extension &nbsp; &nbsp; Methods <br />
+      [This library add many dom prototype extension methods to make easy javascript coding.]`.trimAll()
+      <br />
+      <span class="output">
+        "MYJS(Make Your Java Scripting Easy)A Library of Javascript Extension Methods[This library add many dom prototype extension methods to make easy javascript coding.]"
+      </span>
+    </li>
+    <li>
+      var multiLineString=`line1<br />
+      &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; line2<br />
+      &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; line3`;
+      <br />
+      multiLineString.trimAll();
+      <br />
+      <span class="output">"line1 line2 line3"</span>
+    </li>
+  </ol>
+</div>
+<script type="text/javascript">
+  window.location.href = window.location.origin + "?page=" + window.location.pathname;
+</script>

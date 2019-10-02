@@ -861,4 +861,19 @@
     }
     return this;
   };
+  ////////////////////////////////////////////////////////////////////////////////////////////
+  // Data Type Extension Methods
+  ////////////////////////////////////////////////////////////////////////////////////////////
+  String.prototype.trimAll = function() {
+    let str = this;
+    str = str
+      .trim()
+      .replace(/\t/g, " ")
+      .replace(/\r/g, " ")
+      .replace(/\n/g, " ");
+    while (str.indexOf("  ") > 0) {
+      str = str.replace(/  /g, " ");
+    }
+    return str;
+  };
 })();
