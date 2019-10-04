@@ -972,4 +972,13 @@
     }
     return str2;
   };
+  String.prototype.left = function(n) {
+    return this.substr(0, n);
+  };
+  String.prototype.right = function(n) {
+    return this.substring(this.length - n);
+  };
+  String.prototype.mid = function(n, m) {
+    return this.substr(n, m);
+  };
 })();
