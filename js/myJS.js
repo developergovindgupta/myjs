@@ -877,17 +877,97 @@
     return str;
   };
   String.prototype.toCamelCase = function() {
-    let str = this.trimAll().toLowerCase();
+    let str = this.trimAll();
     let str2 = "";
     let isSpace = false;
-    for (let i = 0; i < str.length; i++) {
-      if (str[i] === " " || str[i] === "-") {
-        isSpace = true;
-      } else if (isSpace) {
-        str2 += str[i].toUpperCase();
-        isSpace = false;
-      } else {
-        str2 += str[i];
+    if (str.indexOf(" ") > 0 || str.indexOf("-") > 0 || str.indexOf("_") > 0) {
+      str = str.toLowerCase();
+      for (let i = 0; i < str.length; i++) {
+        if (str[i] === " " || str[i] === "-" || str[i] === "_") {
+          isSpace = true;
+        } else if (isSpace) {
+          str2 += str[i].toUpperCase();
+          isSpace = false;
+        } else {
+          str2 += str[i];
+        }
+      }
+    } else {
+      str2 = str[0].toLowerCase() + str.substring(1);
+    }
+    return str2;
+  };
+  String.prototype.toKebabCase = function() {
+    let str = this.trimAll();
+    let str2 = "";
+    let isSpace = false;
+    if (str.indexOf(" ") > 0 || str.indexOf("-") > 0 || str.indexOf("_") > 0) {
+      str = str.toLowerCase();
+      for (let i = 0; i < str.length; i++) {
+        if (str[i] === " " || str[i] === "-" || str[i] === "_") {
+          isSpace = true;
+        } else if (isSpace) {
+          str2 += "-" + str[i];
+          isSpace = false;
+        } else {
+          str2 += str[i];
+        }
+      }
+    } else {
+      for (let i = 0; i < str.length; i++) {
+        if (str[i] === str[i].toUpperCase() && i > 0) {
+          str2 += "-" + str[i].toLowerCase();
+        } else {
+          str2 += str[i].toLowerCase();
+        }
+      }
+    }
+    return str2;
+  };
+  String.prototype.toPascalCase = function() {
+    let str = this.trimAll();
+    let str2 = "";
+    let isSpace = false;
+    if (str.indexOf(" ") > 0 || str.indexOf("-") > 0 || str.indexOf("_") > 0) {
+      str = str.toLowerCase();
+      for (let i = 0; i < str.length; i++) {
+        if (str[i] === " " || str[i] === "-" || str[i] === "_") {
+          isSpace = true;
+        } else if (isSpace || i === 0) {
+          str2 += str[i].toUpperCase();
+          isSpace = false;
+        } else {
+          str2 += str[i];
+        }
+      }
+    } else {
+      str2 = str[0].toUpperCase() + str.substring(1);
+    }
+    return str2;
+  };
+  String.prototype.toSnakeCase = function() {
+    let str = this.trimAll();
+    let str2 = "";
+    let isSpace = false;
+    if (str.indexOf(" ") > 0 || str.indexOf("-") > 0 || str.indexOf("_") > 0) {
+      str = str.toLowerCase();
+      for (let i = 0; i < str.length; i++) {
+        if (str[i] === " " || str[i] === "-" || str[i] === "_") {
+          isSpace = true;
+        } else if (isSpace) {
+          str2 += "_" + str[i];
+          isSpace = false;
+        } else {
+          str2 += str[i];
+        }
+      }
+    } else {
+      for (let i = 0; i < str.length; i++) {
+        if (str[i] === str[i].toUpperCase() && i > 0) {
+          str2 += "_" + str[i].toLowerCase();
+        } else {
+          str2 += str[i].toLowerCase();
+        }
       }
     }
     return str2;
