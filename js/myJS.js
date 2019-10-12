@@ -981,4 +981,286 @@
   String.prototype.mid = function(n, m) {
     return this.substr(n, m);
   };
+  String.prototype.toNumber = function() {
+    let num = parseFloat(this);
+    if (isNaN(num)) {
+      num = 0;
+    }
+    return num;
+  };
+  String.prototype.toDate = function() {
+    let d = new Date();
+    let _date = "";
+    if (this.indexOf(":") > 0) {
+      if (this.indexOf(":") > 3) {
+        _date = this.substring(0, this.indexOf(":") - 2).trimAll();
+      } else {
+        if (new Date(1900, 1, 1).getDay() != 0) {
+          _date = d.getDate() + "-" + (d.getMonth() + 1) + "-" + d.getFullYear();
+        } else {
+          _date = d.getDate() + "-" + d.getMonth() + "-" + d.getFullYear();
+        }
+      }
+    } else {
+      _date = this.trimAll();
+    }
+
+    return _date.toDateTime();
+  };
+  String.prototype.toDateTime = function() {
+    let mmm = { jan: 1, feb: 2, mar: 3, apr: 4, may: 5, jun: 6, jul: 7, aug: 8, sep: 9, oct: 10, nov: 11, dec: 12 };
+    let d = new Date();
+    let dt = { dd: 1, mm: 1, yy: 1900, h: 0, m: 0, s: 0 };
+    let strDate = this.replace(/[,-./ ]/g, " ").trimAll();
+    let _date = "";
+    let _time = "";
+    if (strDate.indexOf(":") > 0) {
+      if (strDate.indexOf(":") > 3) {
+        _date = strDate.substring(0, strDate.indexOf(":") - 2).trimAll();
+        _time = strDate.substring(strDate.indexOf(":") - 2).trimAll();
+      } else {
+        dt.dd = d.getDate();
+        dt.mm = d.getMonth();
+        dt.yy = d.getFullYear();
+        if (new Date(1900, 1, 1).getDay() != 0) {
+          dt.mm++;
+        }
+        _time = strDate.trimAll();
+      }
+    } else {
+      _date = strDate.trimAll();
+    }
+
+    if (/^[0-3][0-9][ ](jan|feb|mar|apr|may|jun|jul|aug|sep|oct|nov|dec|january|february|march|april|may|june|july|august|september|october|november|december)[ ][1-2][0-9][0-9][0-9]$/i.test(_date)) {
+      //"01-Jan-2019"
+      dt.dd = parseInt(_date.substr(0, 2));
+      dt.mm = mmm[_date.substr(3, 3).toLowerCase()];
+      dt.yy = parseInt(_date.right(4));
+    } else if (/^[0-9][ ](jan|feb|mar|apr|may|jun|jul|aug|sep|oct|nov|dec|january|february|march|april|may|june|july|august|september|october|november|december)[ ][1-2][0-9][0-9][0-9]$/i.test(_date)) {
+      //"1-Jan-2019"
+      dt.dd = parseInt(_date.substr(0, 1));
+      dt.mm = mmm[_date.substr(2, 3).toLowerCase()];
+      dt.yy = parseInt(_date.right(4));
+    } else if (/^[0-3][0-9](jan|feb|mar|apr|may|jun|jul|aug|sep|oct|nov|dec|january|february|march|april|may|june|july|august|september|october|november|december)[1-2][0-9][0-9][0-9]$/i.test(_date)) {
+      //"01Jan2019"
+      dt.dd = parseInt(_date.substr(0, 2));
+      dt.mm = mmm[_date.substr(2, 3).toLowerCase()];
+      dt.yy = parseInt(_date.right(4));
+    } else if (/^[0-9](jan|feb|mar|apr|may|jun|jul|aug|sep|oct|nov|dec|january|february|march|april|may|june|july|august|september|october|november|december)[1-2][0-9][0-9][0-9]$/i.test(_date)) {
+      //"1Jan2019"
+      dt.dd = parseInt(_date.substr(0, 1));
+      dt.mm = mmm[_date.substr(1, 3).toLowerCase()];
+      dt.yy = parseInt(_date.right(4));
+    } else if (/^(jan|feb|mar|apr|may|jun|jul|aug|sep|oct|nov|dec|january|february|march|april|may|june|july|august|september|october|november|december)[ ][1-2][0-9][0-9][0-9]$/i.test(_date)) {
+      //"Jan-2019"
+      dt.dd = 1;
+      dt.mm = mmm[_date.substr(0, 3).toLowerCase()];
+      dt.yy = parseInt(_date.right(4));
+    } else if (/^(jan|feb|mar|apr|may|jun|jul|aug|sep|oct|nov|dec|january|february|march|april|may|june|july|august|september|october|november|december)[1-2][0-9][0-9][0-9]$/i.test(_date)) {
+      //"Jan2019"
+      dt.dd = 1;
+      dt.mm = mmm[_date.substr(0, 3).toLowerCase()];
+      dt.yy = parseInt(_date.right(4));
+    } else if (/^[0-3][0-9][ ](jan|feb|mar|apr|may|jun|jul|aug|sep|oct|nov|dec|january|february|march|april|may|june|july|august|september|october|november|december)[ ][0-9][0-9]$/i.test(_date)) {
+      //"01-Jan-19"
+      dt.dd = parseInt(_date.substr(0, 2));
+      dt.mm = mmm[_date.substr(3, 3).toLowerCase()];
+      dt.yy = parseInt(_date.right(2));
+    } else if (/^[0-9][ ](jan|feb|mar|apr|may|jun|jul|aug|sep|oct|nov|dec|january|february|march|april|may|june|july|august|september|october|november|december)[ ][0-9][0-9]$/i.test(_date)) {
+      //"1-Jan-19"
+      dt.dd = parseInt(_date.substr(0, 1));
+      dt.mm = mmm[_date.substr(2, 3).toLowerCase()];
+      dt.yy = parseInt(_date.right(2));
+    } else if (/^[0-3][0-9](jan|feb|mar|apr|may|jun|jul|aug|sep|oct|nov|dec|january|february|march|april|may|june|july|august|september|october|november|december)[0-9][0-9]$/i.test(_date)) {
+      //"01Jan19"
+      dt.dd = parseInt(_date.substr(0, 2));
+      dt.mm = mmm[_date.substr(2, 3).toLowerCase()];
+      dt.yy = parseInt(_date.right(2));
+    } else if (/^[0-9](jan|feb|mar|apr|may|jun|jul|aug|sep|oct|nov|dec|january|february|march|april|may|june|july|august|september|october|november|december)[0-9][0-9]$/i.test(_date)) {
+      //"1Jan19"
+      dt.dd = parseInt(_date.substr(0, 1));
+      dt.mm = mmm[_date.substr(1, 3).toLowerCase()];
+      dt.yy = parseInt(_date.right(2));
+    } else if (/^(jan|feb|mar|apr|may|jun|jul|aug|sep|oct|nov|dec|january|february|march|april|may|june|july|august|september|october|november|december)[ ][0-9][0-9]$/i.test(_date)) {
+      //"Jan-19"
+      dt.dd = 1;
+      dt.mm = mmm[_date.substr(0, 3).toLowerCase()];
+      dt.yy = parseInt(_date.right(2));
+    } else if (/^(jan|feb|mar|apr|may|jun|jul|aug|sep|oct|nov|dec|january|february|march|april|may|june|july|august|september|october|november|december)[0-9][0-9]$/i.test(_date)) {
+      //"Jan19"
+      dt.dd = 1;
+      dt.mm = mmm[_date.substr(0, 3).toLowerCase()];
+      dt.yy = parseInt(_date.right(2));
+    } else if (/^[0-3][0-9][ ](jan|feb|mar|apr|may|jun|jul|aug|sep|oct|nov|dec|january|february|march|april|may|june|july|august|september|october|november|december)$/i.test(_date)) {
+      //"05,jan"
+
+      dt.dd = parseInt(_date.substr(0, 2));
+      dt.mm = mmm[_date.substr(3, 3).toLowerCase()];
+      dt.yy = d.getFullYear();
+    } else if (/^[0-9][ ](jan|feb|mar|apr|may|jun|jul|aug|sep|oct|nov|dec|january|february|march|april|may|june|july|august|september|october|november|december)$/i.test(_date)) {
+      //"5,jan"
+      dt.dd = parseInt(_date.substr(0, 1));
+      dt.mm = mmm[_date.substr(2, 3).toLowerCase()];
+      dt.yy = d.getFullYear();
+    } else if (/^[0-3][0-9](jan|feb|mar|apr|may|jun|jul|aug|sep|oct|nov|dec|january|february|march|april|may|june|july|august|september|october|november|december)$/i.test(_date)) {
+      //"05jan"
+      dt.dd = parseInt(_date.substr(0, 2));
+      dt.mm = mmm[_date.substr(2, 3).toLowerCase()];
+      dt.yy = d.getFullYear();
+    } else if (/^[0-9](jan|feb|mar|apr|may|jun|jul|aug|sep|oct|nov|dec|january|february|march|april|may|june|july|august|september|october|november|december)$/i.test(_date)) {
+      //"5jan"
+      dt.dd = parseInt(_date.substr(0, 1));
+      dt.mm = mmm[_date.substr(1, 3).toLowerCase()];
+      dt.yy = d.getFullYear();
+    } else if (/^[0-3][0-9][ ][0-1][0-9][ ][1-2][0-9][0-9][0-9]$/i.test(_date)) {
+      //"05-08-2019"
+      dt.dd = parseInt(_date.substr(0, 2));
+      dt.mm = parseInt(_date.substr(3, 2));
+      dt.yy = parseInt(_date.right(4));
+    } else if (/^[0-9][ ][0-1][0-9][ ][1-2][0-9][0-9][0-9]$/i.test(_date)) {
+      //"5-08-2019"
+      dt.dd = parseInt(_date.substr(0, 1));
+      dt.mm = parseInt(_date.substr(2, 2));
+      dt.yy = parseInt(_date.right(4));
+    } else if (/^[0-9][ ][0-9][ ][1-2][0-9][0-9][0-9]$/i.test(_date)) {
+      //"5-8-2019"
+      dt.dd = parseInt(_date.substr(0, 1));
+      dt.mm = parseInt(_date.substr(2, 1));
+      dt.yy = parseInt(_date.right(4));
+    } else if (/^[0-3][0-9][ ][0-9][ ][1-2][0-9][0-9][0-9]$/i.test(_date)) {
+      //"15-8-2019"
+      dt.dd = parseInt(_date.substr(0, 2));
+      dt.mm = parseInt(_date.substr(3, 1));
+      dt.yy = parseInt(_date.right(4));
+    } else if (/^[0-1][0-9][ ][1-2][0-9][0-9][0-9]$/i.test(_date)) {
+      //"11-2019"
+      dt.dd = 1;
+      dt.mm = parseInt(_date.substr(0, 2));
+      dt.yy = parseInt(_date.right(4));
+    } else if (/^[0-9][ ][1-2][0-9][0-9][0-9]$/i.test(_date)) {
+      //"8-2019"
+      dt.dd = 1;
+      dt.mm = parseInt(_date.substr(0, 1));
+      dt.yy = parseInt(_date.right(4));
+    } else if (/^[0-3][0-9][ ][0-1][0-9][ ][0-9][0-9]$/i.test(_date)) {
+      //"05-08-19"
+      dt.dd = parseInt(_date.substr(0, 2));
+      dt.mm = parseInt(_date.substr(3, 2));
+      dt.yy = parseInt(_date.right(2));
+    } else if (/^[0-9][ ][0-1][0-9][ ][0-9][0-9]$/i.test(_date)) {
+      //"5-08-19"
+      dt.dd = parseInt(_date.substr(0, 1));
+      dt.mm = parseInt(_date.substr(2, 2));
+      dt.yy = parseInt(_date.right(2));
+    } else if (/^[0-9][ ][0-9][ ][0-9][0-9]$/i.test(_date)) {
+      //"5-8-19"
+      dt.dd = parseInt(_date.substr(0, 1));
+      dt.mm = parseInt(_date.substr(2, 1));
+      dt.yy = parseInt(_date.right(2));
+    } else if (/^[0-3][0-9][ ][0-9][ ][0-9][0-9]$/i.test(_date)) {
+      //"15-8-19"
+      dt.dd = parseInt(_date.substr(0, 2));
+      dt.mm = parseInt(_date.substr(3, 1));
+      dt.yy = parseInt(_date.right(2));
+    } else if (/^[0-1][0-9][ ][0-9][0-9]$/i.test(_date)) {
+      //"08-19"
+      dt.dd = 1;
+      dt.mm = parseInt(_date.substr(0, 2));
+      dt.yy = parseInt(_date.right(2));
+    } else if (/^[0-9][ ][0-9][0-9]$/i.test(_date)) {
+      //"8-19"
+      dt.dd = 1;
+      dt.mm = parseInt(_date.substr(0, 1));
+      dt.yy = parseInt(_date.right(2));
+    } else {
+      d = new Date(this);
+      if (!isNaN(d)) {
+        dt.dd = d.getDate();
+        dt.mm = d.getMonth();
+        dt.yy = d.getFullYear();
+        if (new Date(1900, 1, 1).getDay() != 0) {
+          dt.mm++;
+        }
+        dt.h = d.getHours();
+        dt.m = d.getMinutes();
+        dt.s = d.getSeconds();
+      }
+    }
+
+    if (/^[0-1][0-9]:[0-5][0-9]:[0-5][0-9][ ]{0,1}(am|pm)$/i.test(_time)) {
+      //"08:30:24 PM"
+      dt.h = parseInt(_time.substr(0, 2));
+      dt.m = parseInt(_time.substr(3, 2));
+      dt.s = parseInt(_time.substr(6, 2));
+      if (_time.right(2).toLowerCase() === "pm") {
+        if (dt.h < 12) {
+          dt.h += 12;
+        }
+      }
+    } else if (/^[0-9]:[0-5][0-9]:[0-5][0-9][ ]{0,1}(am|pm)$/i.test(_time)) {
+      //"8:30:24 PM"
+      dt.h = parseInt(_time.substr(0, 1));
+      dt.m = parseInt(_time.substr(2, 2));
+      dt.s = parseInt(_time.substr(5, 2));
+      if (_time.right(2).toLowerCase() === "pm") {
+        if (dt.h < 12) {
+          dt.h += 12;
+        }
+      }
+    } else if (/^[0-1][0-9]:[0-5][0-9][ ]{0,1}(am|pm)$/i.test(_time)) {
+      //"08:30 PM"
+      dt.h = parseInt(_time.substr(0, 2));
+      dt.m = parseInt(_time.substr(3, 2));
+
+      if (_time.right(2).toLowerCase() === "pm") {
+        if (dt.h < 12) {
+          dt.h += 12;
+        }
+      }
+    } else if (/^[0-9]:[0-5][0-9][ ]{0,1}(am|pm)$/i.test(_time)) {
+      //"8:30 PM"
+      dt.h = parseInt(_time.substr(0, 1));
+      dt.m = parseInt(_time.substr(2, 2));
+
+      if (_time.right(2).toLowerCase() === "pm") {
+        if (dt.h < 12) {
+          dt.h += 12;
+        }
+      }
+    } else if (/^[0-2][0-9]:[0-5][0-9]:[0-5][0-9]$/i.test(_time)) {
+      //"08:30:25"
+      dt.h = parseInt(_time.substr(0, 2));
+      dt.m = parseInt(_time.substr(3, 2));
+      dt.s = parseInt(_time.substr(6, 2));
+    } else if (/^[0-9]:[0-5][0-9]:[0-5][0-9]$/i.test(_time)) {
+      //"8:30:25"
+      dt.h = parseInt(_time.substr(0, 1));
+      dt.m = parseInt(_time.substr(2, 2));
+      dt.s = parseInt(_time.substr(5, 2));
+    } else if (/^[0-2][0-9]:[0-5][0-9]$/i.test(_time)) {
+      //"08:30"
+      dt.h = parseInt(_time.substr(0, 2));
+      dt.m = parseInt(_time.substr(3, 2));
+    } else if (/^[0-9]:[0-5][0-9]$/i.test(_time)) {
+      //"8:30"
+      dt.h = parseInt(_time.substr(0, 1));
+      dt.m = parseInt(_time.substr(2, 2));
+    }
+
+    if (new Date(1900, 1, 1).getDay() != 0) {
+      dt.mm--;
+    }
+    if (dt.yy < 50) {
+      dt.yy += 2000;
+    } else if (dt.yy < 100) {
+      dt.yy += 1900;
+    }
+    d = new Date(dt.yy, dt.mm, dt.dd, dt.h, dt.m, dt.s);
+
+    if (isNaN(d)) {
+      d = new Date("1jan1900");
+    }
+
+    return d;
+  };
 })();

@@ -1,0 +1,109 @@
+<h1><i>String</i>.toDateTime()</h1>
+<hr />
+<h3>Target:</h3>
+<p>
+  Applicable with <b><u>String</u></b> Data Type.
+</p>
+
+<hr />
+<h3>Description :</h3>
+<p>
+  convert string to Date object. Date should be "dd-MMM-yyyy hh:mm:ss tt" or "dd-MM-yyyy HH:mm:ss"
+</p>
+<br />
+<p>
+  <b>Note: if date not passed then current date and given time will return.</b>
+  <br /><b>In case of invalid date string it return "1-Jan-1900 00:00 AM"</b>
+</p>
+<hr />
+<h3>Syntax:</h3>
+<p><i>String</i>.toDateTime()</p>
+
+<hr />
+
+<h3>Usase:</h3>
+<div class="divExample">
+  <ol>
+    <li>
+      "11-Oct-2019".toDateTime()
+      <br /><span class="output">It return Date "Fri Oct 11 2019 00:00:00 GMT+0530 (India Standard Time)"</span>
+    </li>
+    <li>
+      "11/Oct/2019".toDateTime()
+      <br /><span class="output">It return Date "Fri Oct 11 2019 00:00:00 GMT+0530 (India Standard Time)"</span>
+    </li>
+    <li>
+      "11.Oct.2019".toDateTime()
+      <br /><span class="output">It return Date "Fri Oct 11 2019 00:00:00 GMT+0530 (India Standard Time)"</span>
+    </li>
+    <li>
+      "5Jun2019".toDateTime()
+      <br /><span class="output">It return Date "Wed Jun 05 2019 00:00:00 GMT+0530 (India Standard Time)"</span>
+    </li>
+    <li>
+      "15Jun".toDateTime()
+      <br /><span class="output">It return Date "Sat Jun 15 2019 00:00:00 GMT+0530 (India Standard Time)"</span>
+    </li>
+    <li>
+      "28, Jun".toDateTime()
+      <br /><span class="output">It return Date "Fri Jun 28 2019 00:00:00 GMT+0530 (India Standard Time)"</span>
+    </li>
+    <li>
+      "11, oct - 2019".toDateTime()
+      <br /><span class="output">It return Date "Fri Oct 11 2019 00:00:00 GMT+0530 (India Standard Time)"</span>
+    </li>
+    <li>
+      "July,2019".toDateTime()
+      <br /><span class="output">It return Date "Mon Jul 01 2019 00:00:00 GMT+0530 (India Standard Time)"</span>
+    </li>
+    <li>
+      "July 19".toDateTime()
+      <br /><span class="output">It return Date "Mon Jul 01 2019 00:00:00 GMT+0530 (India Standard Time)"</span>
+    </li>
+    <li>
+      "05/07/2019".toDateTime()
+      <br /><span class="output">It return Date "Fri Jul 05 2019 00:00:00 GMT+0530 (India Standard Time)"</span>
+    </li>
+    <li>
+      "5/12/2019".toDateTime()
+      <br /><span class="output">It return Date "Thu Dec 05 2019 00:00:00 GMT+0530 (India Standard Time)"</span>
+    </li>
+    <li>
+      "5-6-19".toDateTime()
+      <br /><span class="output">It return Date "Wed Jun 05 2019 00:00:00 GMT+0530 (India Standard Time)"</span>
+    </li>
+    <li>
+      "5-2019".toDateTime()
+      <br /><span class="output">It return Date "Wed May 01 2019 00:00:00 GMT+0530 (India Standard Time)"</span>
+    </li>
+    <li>
+      "7-82".toDateTime()
+      <br /><span class="output">It return Date "Thu Jul 01 1982 00:00:00 GMT+0530 (India Standard Time)"</span>
+    </li>
+    <li>
+      "05-Oct-2019 11:30:45 PM".toDateTime()
+      <br /><span class="output">It return Date "Sat Oct 05 2019 23:30:45 GMT+0530 (India Standard Time)"</span>
+    </li>
+    <li>
+      "11:30:45 PM".toDateTime()
+      <br /><span class="output"
+        >It return Date "<u><i>Current Date</i></u> 23:30:45 GMT+0530 (India Standard Time)"</span
+      >
+    </li>
+    <li>
+      "21:30:45".toDateTime()
+      <br /><span class="output"
+        >It return Date "<u><i>Current Date</i></u> 21:30:45 GMT+0530 (India Standard Time)"</span
+      >
+    </li>
+    <li>
+      "8:30 AM".toDateTime()
+      <br /><span class="output"
+        >It return Date "<u><i>Current Date</i></u> 08:30:00 GMT+0530 (India Standard Time)"</span
+      >
+    </li>
+  </ol>
+</div>
+<script type="text/javascript">
+  window.location.href = window.location.origin + "?page=" + window.location.pathname;
+</script>
