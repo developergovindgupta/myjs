@@ -28,7 +28,8 @@
         xhr.onreadystatechange = function(e) {
           if (xhr.readyState === 4 && xhr.status === 200) {
             container.innerHTML = xhr.responseText;
-            resolve(container);
+            container.resolve = resolve;
+            container.resolve(container);
           } else if (xhr.readyState === 4) {
             reject(xhr);
           }

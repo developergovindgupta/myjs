@@ -13,26 +13,22 @@
 
   <body class="Theme-3">
     <header>
-      <div id="ThemeChanger">
-        <a onclick="changeThemeTo(this)" class="Theme-0"></a>
-        <a onclick="changeThemeTo(this)" class="Theme-1"></a>
-        <a onclick="changeThemeTo(this)" class="Theme-2"></a>
-        <a onclick="changeThemeTo(this)" class="Theme-3"></a>
-        <a onclick="changeThemeTo(this)" class="Theme-4"></a>
-        <a onclick="changeThemeTo(this)" class="Theme-5"></a>
-        <a onclick="changeThemeTo(this)" class="Theme-6"></a>
-      </div>
-      <h1>
-        Welcome in
-        <b><u>MYJS</u></b>
-        Library, an Extension of Javascript.
-      </h1>
-      <h2 style="letter-spacing: 10px;word-spacing: 20px;">
+      <div class="navToggler" onclick="document.querySelector('nav').addClass('Open')"><span></span><span></span><span></span><span></span></div>
+
+      <span class="TitleLine1">
+        <span
+          >Welcome in
+          <b><u>MYJS</u></b>
+          Library,
+        </span>
+        <span>an Extension of Javascript.</span>
+      </span>
+      <span class="TitleLine2">
         Make Your Java Scripting Easy
-      </h2>
-      <h3>
+      </span>
+      <span class="TitleLine3">
         This library add many dom prototype extension methods to make easy javascript coding.
-      </h3>
+      </span>
     </header>
     <section>
       <nav>
@@ -40,138 +36,143 @@
           MYJS<br />
           <span style="font-size: 10pt;">Make Your Java Scripting Easy</span>
         </div>
-        <ul class="nav_Menu">
-          <li target="/pages/Home.html" class="Selected" pageTitle="Home">
-            Home
-          </li>
-        </ul>
-        <div class="nav_title">
-          DOM Methods
-        </div>
-        <ul class="nav_Menu">
-          <li target="/pages/ready.html" pageTitle="document_ready">
-            document.ready(fn)
-          </li>
-          <li target="/pages/load.html" pageTitle="DOM_Element_load">
-            .load()
-          </li>
-        </ul>
-        <div class="nav_title">
-          DOM Query Ext.
-        </div>
-        <ul class="nav_Menu">
-          <li target="/pages/val.html" pageTitle="DOM_Element_val">
-            .val(<i>value</i>)
-          </li>
-          <li target="/pages/html.html" pageTitle="DOM_Element_html">
-            .html(<i>html</i>)
-          </li>
-          <li target="/pages/text.html" pageTitle="DOM_Element_text">
-            .text()
-          </li>
-          <li target="/pages/hide.html" pageTitle="DOM_Element_hide">
-            .hide()
-          </li>
-          <li target="/pages/show.html" pageTitle="DOM_Element_show">
-            .show()
-          </li>
-          <li target="/pages/toggle.html" pageTitle="DOM_Element_toggle">
-            .toggle()
-          </li>
-          <li target="/pages/addClass.html" pageTitle="DOM_Element_addClass">
-            .addClass(<i>className</i>)
-          </li>
-          <li target="/pages/removeClass.html" pageTitle="DOM_Element_removeClass">
-            .removeClass(<i>className</i>)
-          </li>
-          <li target="/pages/toggleClass.html" pageTitle="DOM_Element_toggleClass">
-            .toggleClass(<i>className</i>)
-          </li>
-          <li target="/pages/hasClass.html" pageTitle="DOM_Element_hasClass">
-            .hasClass(<i>className</i>)
-          </li>
-          <li target="/pages/fadeIn.html" pageTitle="DOM_Element_fadeIn">
-            .fadeIn(<i>[duration],[callBack]</i>)
-          </li>
-          <li target="/pages/fadeOut.html" pageTitle="DOM_Element_fadeOut">
-            .fadeOut(<i>[duration],[callBack]</i>)
-          </li>
-          <li target="/pages/each.html" pageTitle="DOM_Element_each">
-            .each(<i>fn</i>)
-          </li>
-          <li target="/pages/isVisible.html" pageTitle="DOM_Element_isVisible">
-            .isVisible()
-          </li>
-          <li target="/pages/is.html" pageTitle="DOM_Element_is">
-            .is(<i>selector</i>)
-          </li>
-        </ul>
-        <div class="nav_title">
-          DOM Selector Ext.
-        </div>
-        <ul class="nav_Menu">
-          <li target="/pages/visible.html" pageTitle="DOM_Element_visible">
-            .visible()
-          </li>
-          <li target="/pages/find.html" pageTitle="DOM_Element_find">
-            .find(<i>selector</i>)
-          </li>
-          <li target="/pages/filter.html" pageTitle="DOM_Element_filter">
-            .filter(<i>selector</i>)
-          </li>
-          <li target="/pages/filterNot.html" pageTitle="DOM_Element_filterNot">
-            .filterNot(<i>selector</i>)
-          </li>
-          <li target="/pages/not.html" pageTitle="DOM_Element_not">
-            .not(<i>selector</i>)
-          </li>
-          <li target="/pages/next.html" pageTitle="DOM_Element_next">
-            .next()
-          </li>
-          <li target="/pages/prev.html" pageTitle="DOM_Element_prev">
-            .prev()
-          </li>
-          <li target="/pages/nextAll.html" pageTitle="DOM_Element_nextAll">
-            .nextAll()
-          </li>
-          <li target="/pages/prevAll.html" pageTitle="DOM_Element_prevAll">
-            .prevAll()
-          </li>
-          <li target="/pages/closest.html" pageTitle="DOM_Element_closest">
-            .closest(<i>selector</i>)
-          </li>
-        </ul>
-        <div class="nav_title">
-          DOM Event Ext.
-        </div>
-        <ul class="nav_Menu">
-          <li target="/pages/on.html" pageTitle="DOM_Event_on">
-            .on(<i>eventName,fn</i>)
-          </li>
-          <li target="/pages/off.html" pageTitle="DOM_Event_off">
-            .off(<i>eventName</i>)
-          </li>
-          <li target="/pages/one.html" pageTitle="DOM_Event_one">
-            .one(<i>eventName,fn</i>)
-          </li>
-        </ul>
-        <div class="nav_title">
-          Data Type Extensions
-        </div>
+        <div>
+          <a class="nav_close" onclick="document.querySelector('nav').removeClass('Open')">
+            X
+          </a>
+          <ul class="nav_Menu">
+            <li target="/pages/Home.html" class="Selected" pageTitle="Home">
+              Home
+            </li>
+          </ul>
+          <div class="nav_title">
+            DOM Methods
+          </div>
+          <ul class="nav_Menu">
+            <li target="/pages/ready.html" pageTitle="document_ready">
+              document.ready(fn)
+            </li>
+            <li target="/pages/load.html" pageTitle="DOM_Element_load">
+              .load()
+            </li>
+          </ul>
+          <div class="nav_title">
+            DOM Query Ext.
+          </div>
+          <ul class="nav_Menu">
+            <li target="/pages/val.html" pageTitle="DOM_Element_val">
+              .val(<i>value</i>)
+            </li>
+            <li target="/pages/html.html" pageTitle="DOM_Element_html">
+              .html(<i>html</i>)
+            </li>
+            <li target="/pages/text.html" pageTitle="DOM_Element_text">
+              .text()
+            </li>
+            <li target="/pages/hide.html" pageTitle="DOM_Element_hide">
+              .hide()
+            </li>
+            <li target="/pages/show.html" pageTitle="DOM_Element_show">
+              .show()
+            </li>
+            <li target="/pages/toggle.html" pageTitle="DOM_Element_toggle">
+              .toggle()
+            </li>
+            <li target="/pages/addClass.html" pageTitle="DOM_Element_addClass">
+              .addClass(<i>className</i>)
+            </li>
+            <li target="/pages/removeClass.html" pageTitle="DOM_Element_removeClass">
+              .removeClass(<i>className</i>)
+            </li>
+            <li target="/pages/toggleClass.html" pageTitle="DOM_Element_toggleClass">
+              .toggleClass(<i>className</i>)
+            </li>
+            <li target="/pages/hasClass.html" pageTitle="DOM_Element_hasClass">
+              .hasClass(<i>className</i>)
+            </li>
+            <li target="/pages/fadeIn.html" pageTitle="DOM_Element_fadeIn">
+              .fadeIn(<i>[duration],[callBack]</i>)
+            </li>
+            <li target="/pages/fadeOut.html" pageTitle="DOM_Element_fadeOut">
+              .fadeOut(<i>[duration],[callBack]</i>)
+            </li>
+            <li target="/pages/each.html" pageTitle="DOM_Element_each">
+              .each(<i>fn</i>)
+            </li>
+            <li target="/pages/isVisible.html" pageTitle="DOM_Element_isVisible">
+              .isVisible()
+            </li>
+            <li target="/pages/is.html" pageTitle="DOM_Element_is">
+              .is(<i>selector</i>)
+            </li>
+          </ul>
+          <div class="nav_title">
+            DOM Selector Ext.
+          </div>
+          <ul class="nav_Menu">
+            <li target="/pages/visible.html" pageTitle="DOM_Element_visible">
+              .visible()
+            </li>
+            <li target="/pages/find.html" pageTitle="DOM_Element_find">
+              .find(<i>selector</i>)
+            </li>
+            <li target="/pages/filter.html" pageTitle="DOM_Element_filter">
+              .filter(<i>selector</i>)
+            </li>
+            <li target="/pages/filterNot.html" pageTitle="DOM_Element_filterNot">
+              .filterNot(<i>selector</i>)
+            </li>
+            <li target="/pages/not.html" pageTitle="DOM_Element_not">
+              .not(<i>selector</i>)
+            </li>
+            <li target="/pages/next.html" pageTitle="DOM_Element_next">
+              .next()
+            </li>
+            <li target="/pages/prev.html" pageTitle="DOM_Element_prev">
+              .prev()
+            </li>
+            <li target="/pages/nextAll.html" pageTitle="DOM_Element_nextAll">
+              .nextAll()
+            </li>
+            <li target="/pages/prevAll.html" pageTitle="DOM_Element_prevAll">
+              .prevAll()
+            </li>
+            <li target="/pages/closest.html" pageTitle="DOM_Element_closest">
+              .closest(<i>selector</i>)
+            </li>
+          </ul>
+          <div class="nav_title">
+            DOM Event Ext.
+          </div>
+          <ul class="nav_Menu">
+            <li target="/pages/on.html" pageTitle="DOM_Event_on">
+              .on(<i>eventName,fn</i>)
+            </li>
+            <li target="/pages/off.html" pageTitle="DOM_Event_off">
+              .off(<i>eventName</i>)
+            </li>
+            <li target="/pages/one.html" pageTitle="DOM_Event_one">
+              .one(<i>eventName,fn</i>)
+            </li>
+          </ul>
+          <div class="nav_title">
+            Data Type Extensions
+          </div>
 
-        <ul class="nav_Menu">
-          <li target="/pages/trimAll.html" pageTitle="String_trimAll"><i>String</i>.trimAll()</li>
-          <li target="/pages/toCamelCase.html" pageTitle="String_toCamelCase"><i>String</i>.toCamelCase()</li>
-          <li target="/pages/toKebabCase.html" pageTitle="String_toKebabCase"><i>String</i>.toKebabCase()</li>
-          <li target="/pages/toSnakeCase.html" pageTitle="String_toSnakeCase"><i>String</i>.toSnakeCase()</li>
-          <li target="/pages/toPascalCase.html" pageTitle="String_toPascalCase"><i>String</i>.toPascalCase()</li>
-          <li target="/pages/left.html" pageTitle="String_left"><i>String</i>.left(<i>n</i>)</li>
-          <li target="/pages/right.html" pageTitle="String_right"><i>String</i>.right(<i>n</i>)</li>
-          <li target="/pages/mid.html" pageTitle="String_mid"><i>String</i>.mid(<i>n,m</i>)</li>
-          <li target="/pages/toNumber.html" pageTitle="String_toNumber"><i>String</i>.toNumber()</li>
-          <li target="/pages/toDate.html" pageTitle="String_toDate"><i>String</i>.toDate()</li>
-          <li target="/pages/toDateTime.html" pageTitle="String_toDateTime"><i>String</i>.toDateTime()</li>
-        </ul>
+          <ul class="nav_Menu">
+            <li target="/pages/trimAll.html" pageTitle="String_trimAll"><i>String</i>.trimAll()</li>
+            <li target="/pages/toCamelCase.html" pageTitle="String_toCamelCase"><i>String</i>.toCamelCase()</li>
+            <li target="/pages/toKebabCase.html" pageTitle="String_toKebabCase"><i>String</i>.toKebabCase()</li>
+            <li target="/pages/toSnakeCase.html" pageTitle="String_toSnakeCase"><i>String</i>.toSnakeCase()</li>
+            <li target="/pages/toPascalCase.html" pageTitle="String_toPascalCase"><i>String</i>.toPascalCase()</li>
+            <li target="/pages/left.html" pageTitle="String_left"><i>String</i>.left(<i>n</i>)</li>
+            <li target="/pages/right.html" pageTitle="String_right"><i>String</i>.right(<i>n</i>)</li>
+            <li target="/pages/mid.html" pageTitle="String_mid"><i>String</i>.mid(<i>n,m</i>)</li>
+            <li target="/pages/toNumber.html" pageTitle="String_toNumber"><i>String</i>.toNumber()</li>
+            <li target="/pages/toDate.html" pageTitle="String_toDate"><i>String</i>.toDate()</li>
+            <li target="/pages/toDateTime.html" pageTitle="String_toDateTime"><i>String</i>.toDateTime()</li>
+          </ul>
+        </div>
       </nav>
       <container> </container>
       <article>
@@ -188,11 +189,27 @@
           </svg>
           Github link</a
         >
+        <div id="ThemeChanger">
+          <a onclick="changeThemeTo(this)" class="Theme-0"></a>
+          <a onclick="changeThemeTo(this)" class="Theme-1"></a>
+          <a onclick="changeThemeTo(this)" class="Theme-2"></a>
+          <a onclick="changeThemeTo(this)" class="Theme-3"></a>
+          <a onclick="changeThemeTo(this)" class="Theme-4"></a>
+          <a onclick="changeThemeTo(this)" class="Theme-5"></a>
+          <a onclick="changeThemeTo(this)" class="Theme-6"></a>
+        </div>
       </article>
     </section>
     <footer>
-      <span>Enjoy! javascript coding more easy than previously what you know or learned.</span>
+      <span>Enjoy! javascript coding more easier than previously what you know or learned.</span>
     </footer>
   </body>
 </html>
 <script src="js/main.js"></script>
+<script>
+  document.ready(function() {
+    document.querySelectorAll("nav li").on("click", function() {
+      document.querySelector("nav").removeClass("Open");
+    });
+  });
+</script>
