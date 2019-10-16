@@ -983,7 +983,7 @@
     return this.substr(n, m);
   };
   String.prototype.toNumber = function() {
-    let num = parseFloat(this);
+    let num = parseFloat(this.replace(/,/g, "").trimAll());
     if (isNaN(num)) {
       num = 0;
     }
@@ -1263,5 +1263,61 @@
     }
 
     return d;
+  };
+  Number.prototype.format = function(strFormat) {
+    if (strFormat && typeof strFormat === "string" && /^([0#,])+([.]){0,1}([0])*$/.test(strFormat)) {
+      let str = this.toString();
+      let m = "";
+      let n = "";
+      if (str.indexOf(".") > 0) {
+        m = str.substring(0, str.indexOf("."));
+        n = str.substring(str.indexOf(".") + 1);
+      } else {
+        m = str;
+      }
+
+      let mm = "";
+      let nn = "";
+      if (strFormat.indexOf(".") > 0) {
+        mm = strFormat.substring(0, strFormat.indexOf("."));
+        nn = strFormat.substring(strFormat.indexOf(".") + 1);
+      } else {
+        mm = strFormat;
+      }
+      if (nn.indexOf(".") > 0) {
+        nn = nn.substring(0, nn.indexOf("."));
+      }
+      let mmm = "";
+      let nnn = "";
+      let x = m.length - 1;
+      for (let i = mm.length - 1; i >= 0; i--) {
+        if (m[x]) {
+          if (mm[i] === ",") {
+            mmm = mm[i] + mmm;
+          } else {
+            mmm = m[x] + mmm;
+            x--;
+          }
+        } else if ((mm[i] === "0" && mm.substring(i).indexOf("#") < 0) || (mm[i] === "," && mm.substring(i).indexOf("#") < 0)) {
+          mmm = mm[i] + mmm;
+        }
+      }
+      mmm = m.substring(0, x + 1) + mmm;
+
+      for (let i = 0; i < nn.length; i++) {
+        if (i < n.length) {
+          nnn += n[i];
+        } else {
+          nnn += nn[i];
+        }
+      }
+      if (n.length > nnn.length && parseInt(n[nn.length]) >= 5) {
+        nnn = (parseInt(nnn) + 1).toString();
+      }
+
+      return mmm + (nnn ? "." : "") + nnn;
+    } else {
+      return this.toLocaleString();
+    }
   };
 })();

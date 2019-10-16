@@ -1,0 +1,51 @@
+<h1><i>Number</i>.format(<i>strFormat</i>)</h1>
+<hr />
+<h3>Target:</h3>
+<p>
+  Applicable with <b><u>Number</u></b> Data Type.
+</p>
+
+<hr />
+<h3>Description :</h3>
+<p>
+  format Number to string with given format string.
+</p>
+<br />
+<p>
+  Note: strFormat should to matched with regular Expression "/^([0#,])+([.]){0,1}([0])*$/" other wise return toLocalString().
+</p>
+<br />
+<hr />
+<h3>Syntax:</h3>
+<p><i>Number</i>.format(<i>strFormat</i>)</p>
+
+<hr />
+
+<h3>Usase:</h3>
+<div class="divExample">
+  <ol>
+    <li>
+      (123456.123456).format("##,##,##0.00")
+      <br /><span class="output">It return string "1,23,456.12"</span>
+    </li>
+    <li>
+      (123456.123456).format("00000000000")
+      <br /><span class="output">It return string "00000123456"</span>
+    </li>
+    <li>
+      (123456545).format("00000000000.00")
+      <br /><span class="output">It return string "00123456545.00"</span>
+    </li>
+    <li>
+      (123456545).format("0.00")
+      <br /><span class="output">It return string "123456545.00"</span>
+    </li>
+    <li>
+      (123456.545).format("0.00")
+      <br /><span class="output">It return string "123456.55"</span>
+    </li>
+  </ol>
+</div>
+<script type="text/javascript">
+  window.location.href = window.location.origin + "?page=" + window.location.pathname;
+</script>
