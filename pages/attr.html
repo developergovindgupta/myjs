@@ -1,0 +1,73 @@
+<h1>.attr(<i>attributeName,[attributeValue]</i>)</h1>
+<hr />
+<h3>Target:</h3>
+<p>
+  Get/Set DOM element attribute.
+</p>
+<div style="padding-left:100px;">
+  <ul>
+    <li>getElementById</li>
+    <li>getElementsByTagName</li>
+    <li>getElementsByClassName</li>
+    <li>getElementsByName</li>
+    <li>querySelector</li>
+    <li>querySelectorAll</li>
+  </ul>
+</div>
+<p>
+  In case of DOM NodeList first Node Element is processed for get and set to all elements.
+</p>
+<hr />
+<h3>Description :</h3>
+<p>
+  get/set attribute of DOM element. if attributeValue is passed then it set the attribute and return element itself, otherwise return attribute of element. If attributeValue is blank string then it remove attribute.
+</p>
+<br />
+<p>
+  <b>Note: after setting the attribute of DOM elements it return the element/elementList.</b>
+</p>
+<hr />
+<h3>Syntax:</h3>
+<p>
+  DOMElement.attr(<i>'attributeName',[attributeValue]</i>)
+</p>
+<p>
+  DOMNodeList.attr(<i>'attributeName',[attributeValue]</i>)
+</p>
+<p>
+  HTMLCollection.attr(<i>'attributeName',[attributeValue]</i>)
+</p>
+<hr />
+
+<h3>Usase:</h3>
+<div class="divExample">
+  <ol>
+    <li>
+      document.getElementById('txtName').attr("maxlength",10)<br />
+      <span class="output"><i>it sets the maxlength of textbox with 10 character and return textbox element</i></span>
+    </li>
+    <li>
+      document.getElementById('txtName').attr("maxlength")<br />
+      <span class="output"><i>it return the maxlength of textbox i.e. "10"</i></span>
+    </li>
+    <li>
+      document.getElementById('txtName').attr("maxlength","")<br />
+      <span class="output"><i>it remove the maxlength attribute of textbox and return textbox element. </i></span>
+    </li>
+    <li>
+      document.querySelectorAll("input[type='text']").attr("maxlength",10)<br />
+      <span class="output"><i>it sets the maxlength of all textboxes with 10 character and return textbox DOMNodeList</i></span>
+    </li>
+    <li>
+      document.querySelectorAll("input[type='text']").attr("maxlength")<br />
+      <span class="output"><i>it return the maxlength of first textbox i.e. "10"</i></span>
+    </li>
+    <li>
+      document.querySelectorAll("input[type='text']").attr("maxlength","")<br />
+      <span class="output"><i>it remove the maxlength attribut of all textboxes and return textbox elements list.</i></span>
+    </li>
+  </ol>
+</div>
+<script type="text/javascript">
+  window.location.href = window.location.origin + "?page=" + window.location.pathname;
+</script>

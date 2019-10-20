@@ -371,6 +371,20 @@
 
     return this;
   };
+  node.__proto__.__proto__.attr = function(attributeName, attributeValue) {
+    if (attributeName) {
+      if (attributeValue) {
+        this.setAttribute(attributeName, attributeValue);
+        return this;
+      } else if (attributeValue === "") {
+        this.removeAttribute(attributeName);
+        return this;
+      } else {
+        return this.getAttribute(attributeName);
+      }
+    }
+    return "";
+  };
 
   ////////////////////////////////////////////////////////////////////////////////////////////
   // querySelectorAll Extenstion Methods
@@ -622,6 +636,28 @@
     }
     return this;
   };
+  nodeList.__proto__.attr = function(attributeName, attributeValue) {
+    if (attributeName) {
+      if (attributeValue) {
+        for (let i = 0; i < this.length; i++) {
+          this[i].setAttribute(attributeName, attributeValue);
+        }
+        return this;
+      } else if (attributeValue === "") {
+        for (let i = 0; i < this.length; i++) {
+          this[i].removeAttribute(attributeName);
+        }
+        return this;
+      } else {
+        if (this.length > 0) {
+          return this[0].getAttribute(attributeName);
+        } else {
+          return "";
+        }
+      }
+    }
+    return this;
+  };
   ////////////////////////////////////////////////////////////////////////////////////////////
   // getElementsByTagNames,getElementsByClassName Extenstion Methods
   ////////////////////////////////////////////////////////////////////////////////////////////
@@ -859,6 +895,28 @@
   htmlCollection.__proto__.off = function(eventName) {
     for (let i = 0; i < this.length; i++) {
       this[i].off(eventName);
+    }
+    return this;
+  };
+  htmlCollection.__proto__.attr = function(attributeName, attributeValue) {
+    if (attributeName) {
+      if (attributeValue) {
+        for (let i = 0; i < this.length; i++) {
+          this[i].setAttribute(attributeName, attributeValue);
+        }
+        return this;
+      } else if (attributeValue === "") {
+        for (let i = 0; i < this.length; i++) {
+          this[i].removeAttribute(attributeName);
+        }
+        return this;
+      } else {
+        if (this.length > 0) {
+          return this[0].getAttribute(attributeName);
+        } else {
+          return "";
+        }
+      }
     }
     return this;
   };
