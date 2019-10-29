@@ -385,6 +385,27 @@
     }
     return "";
   };
+  node.__proto__.__proto__.append = function(domElement) {
+    if (this.appendChild) {
+      if (typeof domElement === "string") {
+        let div = document.createElement("div");
+        div.innerHTML = domElement;
+        let children = div.childNodes;
+        for (let i = 0; i < children.length; i++) {
+          this.appendChild(children[i]);
+        }
+      } else if (domElement.outerHTML) {
+        this.appendChild(domElement);
+      } else if (domElement.length) {
+        for (let i = 0; i < domElement.length; i++) {
+          this.append(domElement[i]);
+        }
+      } else {
+        this.append(domElement.toString());
+      }
+    }
+    return this;
+  };
 
   ////////////////////////////////////////////////////////////////////////////////////////////
   // querySelectorAll Extenstion Methods
@@ -658,6 +679,13 @@
     }
     return this;
   };
+  nodeList.__proto__.append = function(domElement) {
+    if (this.length > 0) {
+      this[0].append(domElement);
+    }
+    return this;
+  };
+
   ////////////////////////////////////////////////////////////////////////////////////////////
   // getElementsByTagNames,getElementsByClassName Extenstion Methods
   ////////////////////////////////////////////////////////////////////////////////////////////
@@ -917,6 +945,12 @@
           return "";
         }
       }
+    }
+    return this;
+  };
+  htmlCollection.__proto__.append = function(domElement) {
+    if (this.length > 0) {
+      this[0].append(domElement);
     }
     return this;
   };
