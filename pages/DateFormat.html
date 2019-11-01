@@ -1,0 +1,124 @@
+<h1><i>Date</i>.format(<i>strFormat</i>)</h1>
+<hr />
+<h3>Target:</h3>
+<p>
+  Applicable with <b><u>Date</u></b> Data Type.
+</p>
+
+<hr />
+<h3>Description :</h3>
+<p>
+  format Date to string with given format string.
+  <br />
+  <ul style="padding-left:0px; margin-left:100px;">
+    <li style="font-weight: bold; text-decoration: underline; ">strFormat Description</li>
+    <ul style="padding-left:30px;">
+      <li>
+        <strong> dddd </strong>: full week day name as ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"]
+      </li>
+      <li>
+        <strong> ddd </strong>: three letter week day name as ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"]
+      </li>
+       <li>
+        <strong> dd </strong>: two digit date of month prefix with zero.
+      </li>
+      <li>
+        <strong> d </strong>:  date of month without prefix with zero.
+      </li>
+      <li>
+        <strong> MMMM </strong>:  full month name as ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"].
+      </li>
+      <li>
+        <strong> MMM </strong>:  three letter month name as ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"].
+      </li>
+      <li>
+        <strong> MM </strong>: two digit month number prefix with zero.
+      </li>
+      <li>
+        <strong> M </strong>: month number without prefix with zero.
+      </li>
+      <li>
+        <strong> yyyy </strong>: full year number in 4 digits.
+      </li>
+      <li>
+        <strong> yy </strong>: full year number's last 2 digits.
+      </li>
+      <li>
+        <strong> HH </strong>:Hour in 24 hour format prefix with zero.
+      </li>
+      <li>
+        <strong> H </strong>:Hour in 24 hour format without prefix with zero.
+      </li>
+      <li>
+        <strong> hh </strong>:Hour in 12 hour format prefix with zero.
+      </li>
+      <li>
+        <strong> h </strong>:Hour in 12 hour format without prefix with zero.
+      </li>
+      <li>
+        <strong> mm </strong>:Minutes  prefix with zero.
+      </li>
+      <li>
+        <strong> m </strong>:Minutes without prefix with zero.
+      </li>
+      <li>
+        <strong> ss </strong>:Seconds  prefix with zero.
+      </li>
+      <li>
+        <strong> s </strong>:Seconds without  prefix with zero.
+      </li>
+      <li>
+        <strong> fff </strong>:Miliseconds in three digits prefix with zero.
+      </li>
+      <li>
+        <strong> tt </strong>:AM/PM in capital Letter.
+      </li>
+      <li>
+        <strong> t </strong>:am/pm in small letter
+      </li>
+    </ul>
+
+  </ul>
+</p>
+<br />
+<p>
+  Note: strFormat not given then it return Date.toString().
+</p>
+<br />
+<hr />
+<h3>Syntax:</h3>
+<p><i>Date</i>.format(<i>strFormat</i>)</p>
+
+<hr />
+
+<h3>Usase:</h3>
+<div class="divExample">
+  <ol>
+    <li>
+      new Date().format("dd/MMM/yyyy")
+      <br /><span class="output">It return string "02/Nov/2019"</span>
+    </li>
+    <li>
+      new Date().format("dddd dd,MMMM,yyyy")
+      <br /><span class="output">It return string "Saturday 02,November,2019"</span>
+    </li>
+    <li>
+       new Date().format("dddd dd,MMMM,yyyy HH:mm:ss tt")
+      <br /><span class="output">It return string "Saturday 02,November,2019 00:03:12 AM"</span>
+    </li>
+    <li>
+      new Date().format("HH-mm-ss-ff")
+      <br /><span class="output">It return string "00-04-51-976"</span>
+    </li>
+    <li>
+      new Date().format("hh:mm:ss:ff t")
+      <br /><span class="output">It return string "00:05:49:739 am"</span>
+    </li>
+  </ol>
+</div>
+<script type="text/javascript">
+  window.location.href = window.location.origin + "?page=" + window.location.pathname;
+  function pageLoad() {
+    alert("pageLoad");
+  }
+</script>

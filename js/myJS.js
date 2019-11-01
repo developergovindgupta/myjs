@@ -406,6 +406,27 @@
     }
     return this;
   };
+  node.__proto__.__proto__.remove = function() {
+    this.parentNode.removeChild(this);
+  };
+  ////////////////////////////////////////////////////////////////////////////////////////////
+  // SELECT Element
+  ////////////////////////////////////////////////////////////////////////////////////////////
+  let select = document.createElement("select");
+  select.__proto__.text = function() {
+    if (this.selectedOptions.length > 0) {
+      return this.selectedOptions[0].innerText;
+    } else {
+      return "";
+    }
+  };
+  select.__proto__.html = function() {
+    if (this.selectedOptions.length > 0) {
+      return this.selectedOptions[0].innerHTML;
+    } else {
+      return "";
+    }
+  };
 
   ////////////////////////////////////////////////////////////////////////////////////////////
   // querySelectorAll Extenstion Methods
@@ -428,12 +449,12 @@
   nodeList.__proto__.html = function(html) {
     if (html || html === "") {
       if (this.length > 0) {
-        this[0].innerHTML = html;
+        this[0].html(html);
       }
       return this;
     } else {
       if (this.length > 0) {
-        return this[0].innerHTML ? this[0].innerHTML : "";
+        return this[0].html();
       } else {
         return "";
       }
@@ -441,7 +462,7 @@
   };
   nodeList.__proto__.text = function() {
     if (this.length > 0) {
-      return this[0].innerText ? this[0].innerText.trim() : "";
+      return this[0].text();
     } else {
       return "";
     }
@@ -685,6 +706,11 @@
     }
     return this;
   };
+  nodeList.__proto__.remove = function() {
+    for (let i = this.length - 1; i >= 0; i--) {
+      this[i].remove();
+    }
+  };
 
   ////////////////////////////////////////////////////////////////////////////////////////////
   // getElementsByTagNames,getElementsByClassName Extenstion Methods
@@ -707,12 +733,12 @@
   htmlCollection.__proto__.html = function(html) {
     if (html || html === "") {
       if (this.length > 0) {
-        this[0].innerHTML = html;
+        this[0].html(html);
       }
       return this;
     } else {
       if (this.length > 0) {
-        return this[0].innerHTML ? this[0].innerHTML : "";
+        return this[0].html();
       } else {
         return "";
       }
@@ -720,7 +746,7 @@
   };
   htmlCollection.__proto__.text = function() {
     if (this.length > 0) {
-      return this[0].innerText ? this[0].innerText.trim() : "";
+      return this[0].text();
     } else {
       return "";
     }
@@ -953,6 +979,11 @@
       this[0].append(domElement);
     }
     return this;
+  };
+  htmlCollection.__proto__.remove = function() {
+    for (let i = this.length - 1; i >= 0; i--) {
+      this[i].remove();
+    }
   };
   ////////////////////////////////////////////////////////////////////////////////////////////
   // Data Type Extension Methods
@@ -1410,6 +1441,72 @@
       return mmm + (nnn ? "." : "") + nnn;
     } else {
       return this.toLocaleString();
+    }
+  };
+  Date.prototype.format = function (strFormat) {
+    if (strFormat) {
+      let MMM = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
+      let MMMM = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
+      let ddd = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
+      let dddd = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
+      let d = this.getDay();
+      let dd = this.getDate();
+      let MM = this.getMonth();
+      let yyyy = this.getFullYear();
+      let hh = this.getHours();
+      let mm = this.getMinutes();
+      let ss = this.getSeconds();
+      let ff = this.getMilliseconds();
+      let tt = hh >= 12 ? "PM" : "AM";
+      let h = hh % 12;
+      let yy = parseInt(yyyy.toString().right(2));
+
+      let _date = new Date("1Jan1900");
+      if (_date.getMonth() != 0) {
+        MM--;
+      }
+      if (_date.getDay() == 0) {
+        if (d == 0) {
+          d = 6;
+        } else {
+          d--;
+        }
+      }
+      strFormat = strFormat.replace(/dddd/g, "DDDD");
+      strFormat = strFormat.replace(/ddd/g, "DDD");
+      strFormat = strFormat.replace(/dd/g, dd.format("00"));
+      strFormat = strFormat.replace(/d/g, dd);
+      strFormat = strFormat.replace(/MMMM/g, "XXXX");
+      strFormat = strFormat.replace(/MMM/g, "XXX");
+      strFormat = strFormat.replace(/MM/g, "XX");
+      strFormat = strFormat.replace(/M/g, "X");
+      strFormat = strFormat.replace(/yyyy/g, yyyy.format("0000"));
+      strFormat = strFormat.replace(/yyy/g, yyyy.format("0000"));
+      strFormat = strFormat.replace(/yy/g, yy.format("00"));
+      strFormat = strFormat.replace(/y/g, yy);
+      strFormat = strFormat.replace(/HH/g, hh.format("00"));
+      strFormat = strFormat.replace(/H/g, hh);
+      strFormat = strFormat.replace(/hh/g, h.format("00"));
+      strFormat = strFormat.replace(/h/g, h);
+      strFormat = strFormat.replace(/mm/g, mm.format("00"));
+      strFormat = strFormat.replace(/m/g, mm);
+      strFormat = strFormat.replace(/ss/g, ss.format("00"));
+      strFormat = strFormat.replace(/s/g, ss);
+      strFormat = strFormat.replace(/fff/g, ff.format("000"));
+      strFormat = strFormat.replace(/ff/g, ff.format("000"));
+      strFormat = strFormat.replace(/f/g, ff.format("000"));
+      strFormat = strFormat.replace(/tt/g, tt);
+      strFormat = strFormat.replace(/t/g, tt.toLowerCase());
+      strFormat = strFormat.replace(/DDDD/g, dddd[d]);
+      strFormat = strFormat.replace(/DDD/g, ddd[d]);
+      strFormat = strFormat.replace(/XXXX/g, MMMM[MM]);
+      strFormat = strFormat.replace(/XXX/g, MMM[MM]);
+      strFormat = strFormat.replace(/XX/g, (MM + 1).format("00"));
+      strFormat = strFormat.replace(/X/g, MM + 1);
+      return strFormat;
+    }
+    else { 
+      return this.toString();
     }
   };
 })();

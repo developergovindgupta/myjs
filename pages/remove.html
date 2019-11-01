@@ -1,0 +1,59 @@
+<h1>.remove()</h1>
+<hr />
+<h3>Target:</h3>
+<p>
+  remove selected element from DOM.
+</p>
+<div style="padding-left:100px;">
+  <ul>
+    <li>getElementById</li>
+    <li>getElementsByTagName</li>
+    <li>getElementsByClassName</li>
+    <li>getElementsByName</li>
+    <li>querySelector</li>
+    <li>querySelectorAll</li>
+  </ul>
+</div>
+
+<hr />
+<h3>Description :</h3>
+<p>
+  remove all element and it's children from DOM.
+</p>
+<br />
+<p>
+  <b>Note: it return nothing.</b>
+</p>
+<hr />
+<h3>Syntax:</h3>
+<p>
+  DOMElement.remove()
+</p>
+<p>
+  DOMNodeList.remove()
+</p>
+<p>
+  HTMLCollection.remove()
+</p>
+<hr />
+
+<h3>Usase:</h3>
+<div class="divExample">
+  <ol>
+    <li>
+      document.querySelector('container').remove()<br />
+      <span class="output"><i>it remove container element from document</i></span>
+    </li>
+    <li>
+      document.querySelectorAll('ul').remove()<br />
+      <span class="output"><i>it remove all UL elements from DOM. </i></span>
+    </li>
+    <li>
+      document.getElementsByClassName('output').remove()<br />
+      <span class="output"><i>it remove all elements having class name output. </i></span>
+    </li>
+  </ol>
+</div>
+<script type="text/javascript">
+  window.location.href = window.location.origin + "?page=" + window.location.pathname;
+</script>

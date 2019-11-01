@@ -15,6 +15,15 @@ document.ready(function() {
         .load(this.getAttribute("target"))
         .then(function(obj) {
           obj.scrollTop = 0;
+          document.querySelectorAll("script[group='container']").remove();
+          let scripts = obj
+            .querySelectorAll("script")
+            .attr("type", "text/javascript")
+            .attr("group", "container");
+          document.querySelector("head").append(scripts);
+          if (typeof pageLoad == "function") {
+            pageLoad();
+          }
         })
         .catch(function(ex) {
           console.log(ex);
