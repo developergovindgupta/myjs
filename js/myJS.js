@@ -1508,4 +1508,25 @@
       return this.toString();
     }
   };
+  Date.prototype.addDays = function (num) {
+    let d = new Date(this);
+    if (num) {
+      d.setDate(this.getDate() + num);
+    }
+    return d;
+  };
+  Date.prototype.addMonths = function (num) {
+    let d = new Date(this);
+    if (num) {
+      d.setMonth(this.getMonth() + num);
+    }
+    return d;
+  };
+  Date.prototype.addYears = function (num) {
+    let d = new Date(this);
+    if (num) {
+      d.setFullYear(this.getFullYear() + num);
+    }
+    return d;
+  };
 })();
