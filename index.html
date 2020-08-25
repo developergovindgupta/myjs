@@ -182,6 +182,9 @@
             <li target="/pages/toDateTime.html" pageTitle="String_toDateTime"><i>String</i>.toDateTime()</li>
             <li target="/pages/format.html" pageTitle="Number_format"><i>Number</i>.format(<i>strFormat</i>)</li>
             <li target="/pages/DateFormat.html" pageTitle="Date_format"><i>Date</i>.format(<i>strFormat</i>)</li>
+            <li target="/pages/addDays.html" pageTitle="addDays"><i>Date</i>.addDays(<i>Number</i>)</li>
+            <li target="/pages/addMonths.html" pageTitle="addMonths"><i>Date</i>.addMonths(<i>Number</i>)</li>
+            <li target="/pages/addYears.html" pageTitle="addYears"><i>Date</i>.addYears(<i>Number</i>)</li>
           </ul>
         </div>
       </nav>
@@ -208,6 +211,7 @@
           <a onclick="changeThemeTo(this)" class="Theme-4"></a>
           <a onclick="changeThemeTo(this)" class="Theme-5"></a>
           <a onclick="changeThemeTo(this)" class="Theme-6"></a>
+          <a onclick="changeThemeTo(this)" class="Theme-7"></a>
         </div>
       </article>
     </section>
@@ -218,8 +222,8 @@
 </html>
 <script src="js/main.js"></script>
 <script>
-  document.ready(function() {
-    document.querySelectorAll("nav li").on("click", function() {
+  document.ready(function () {
+    document.querySelectorAll("nav li").on("click", function () {
       document.querySelector("nav").removeClass("Open");
     });
   });

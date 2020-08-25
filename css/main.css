@@ -124,6 +124,9 @@ article {
 .Theme-6 {
   background-color: rgb(0, 0, 255);
 }
+.Theme-7 {
+  background-color: none;
+}
 
 nav .nav_close {
   display: none;
@@ -234,6 +237,13 @@ i {
   color: gray;
   padding: 10px;
   display: inline-block;
+}
+.Theme-7 .divExample {
+  background-color: lightgray;
+  color: black;
+}
+.Theme-7 .divExample .output {
+  color: rgb(80, 80, 80);
 }
 
 @media only screen and (max-width: 799px) {
