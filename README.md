@@ -2,7 +2,7 @@
 
 An HTML DOM elements prototype extension methods to make easy javascript coding
 
-##Data Type Extensions
+## Data Type Extensions
 
 - [String.trimAll()](https://myjsacademy.blogspot.com/2020/08/string.html)
 - [String.toCamelCase()](https://myjsacademy.blogspot.com/2020/08/javascript-stringtocamelcase.html)
@@ -13,7 +13,7 @@ An HTML DOM elements prototype extension methods to make easy javascript coding
 - String.right(n)
 - String.mid(n,m)
 - [String.toNumber()](https://myjsacademy.blogspot.com/2020/08/javascript-stringtonumber.html)
-- String.toDate()
+- [String.toDate()]https://myjsacademy.blogspot.com/2020/08/javascript-stringtodate.html)
 - [String.toDateTime()](https://myjsacademy.blogspot.com/2020/08/javascript-stringtodatetime.html)
 - Number.format(strFormat)
 - [Date.format(strFormat)](https://myjsacademy.blogspot.com/2020/08/javascript-dateformatstrformat.html)
