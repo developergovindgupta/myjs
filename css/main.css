@@ -238,6 +238,10 @@ i {
   padding: 10px;
   display: inline-block;
 }
+.divExample .comment {
+  color: green;
+  display: inline-block;
+}
 .Theme-7 .divExample {
   background-color: lightgray;
   color: black;

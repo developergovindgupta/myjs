@@ -1320,6 +1320,10 @@
         if (dt.h < 12) {
           dt.h += 12;
         }
+      } else {
+        if (dt.h == 12) {
+          dt.h = 0;
+        }
       }
     } else if (/^[0-9]:[0-5][0-9]:[0-5][0-9][ ]{0,1}(am|pm)$/i.test(_time)) {
       //"8:30:24 PM"
@@ -1329,6 +1333,10 @@
       if (_time.right(2).toLowerCase() === "pm") {
         if (dt.h < 12) {
           dt.h += 12;
+        }
+      } else {
+        if (dt.h == 12) {
+          dt.h = 0;
         }
       }
     } else if (/^[0-1][0-9]:[0-5][0-9][ ]{0,1}(am|pm)$/i.test(_time)) {
@@ -1340,6 +1348,10 @@
         if (dt.h < 12) {
           dt.h += 12;
         }
+      } else {
+        if (dt.h == 12) {
+          dt.h = 0;
+        }
       }
     } else if (/^[0-9]:[0-5][0-9][ ]{0,1}(am|pm)$/i.test(_time)) {
       //"8:30 PM"
@@ -1349,6 +1361,10 @@
       if (_time.right(2).toLowerCase() === "pm") {
         if (dt.h < 12) {
           dt.h += 12;
+        }
+      } else {
+        if (dt.h == 12) {
+          dt.h = 0;
         }
       }
     } else if (/^[0-2][0-9]:[0-5][0-9]:[0-5][0-9]$/i.test(_time)) {
@@ -1460,6 +1476,9 @@
       let tt = hh >= 12 ? "PM" : "AM";
       let h = hh % 12;
       let yy = parseInt(yyyy.toString().right(2));
+      if (hh == 12) {
+        h = 12;
+      }
 
       let _date = new Date("1Jan1900");
       if (_date.getMonth() != 0) {
@@ -1526,6 +1545,27 @@
     let d = new Date(this);
     if (num) {
       d.setFullYear(this.getFullYear() + num);
+    }
+    return d;
+  };
+  Date.prototype.addHours = function (num) {
+    let d = new Date(this);
+    if (num) {
+      d.setHours(this.getHours() + num);
+    }
+    return d;
+  };
+  Date.prototype.addMinutes = function (num) {
+    let d = new Date(this);
+    if (num) {
+      d.setMinutes(this.getMinutes() + num);
+    }
+    return d;
+  };
+  Date.prototype.addSeconds = function (num) {
+    let d = new Date(this);
+    if (num) {
+      d.setSeconds(this.getSeconds() + num);
     }
     return d;
   };

@@ -7,13 +7,9 @@
 
 <hr />
 <h3>Description :</h3>
-<p>
-  format Number to string with given format string.
-</p>
+<p>format Number to string with given format string.</p>
 <br />
-<p>
-  Note: strFormat should to matched with regular Expression "/^([0#,])+([.]){0,1}([0])*$/" other wise return toLocalString().
-</p>
+<p>Note: strFormat should to matched with regular Expression "/^([0#,])+([.]){0,1}([0])*$/" other wise return toLocalString().</p>
 <br />
 <hr />
 <h3>Syntax:</h3>
@@ -25,23 +21,27 @@
 <div class="divExample">
   <ol>
     <li>
-      (123456.123456).format("##,##,##0.00")
-      <br /><span class="output">It return string "1,23,456.12"</span>
+      (123456.123456).format("##,##,##0.00") <span class="comment">//Currency</span> <br />
+      <span class="output">It return string "1,23,456.12"</span>
     </li>
     <li>
       (123456.123456).format("00000000000")
+      <span class="comment">//pad zero</span>
       <br /><span class="output">It return string "00000123456"</span>
     </li>
     <li>
       (123456545).format("00000000000.00")
+      <span class="comment">//pad zero + decimal</span>
       <br /><span class="output">It return string "00123456545.00"</span>
     </li>
     <li>
       (123456545).format("0.00")
+      <span class="comment">//Fixed Decimal Places</span>
       <br /><span class="output">It return string "123456545.00"</span>
     </li>
     <li>
       (123456.545).format("0.00")
+      <span class="comment">//floating point round in decimal places</span>
       <br /><span class="output">It return string "123456.55"</span>
     </li>
   </ol>
