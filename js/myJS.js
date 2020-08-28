@@ -1121,6 +1121,9 @@
   String.prototype.mid = function (n, m) {
     return this.substr(n, m);
   };
+  String.prototype.reverse = function () {
+    return this.split("").reverse().join("");
+  };
   String.prototype.toNumber = function () {
     let num = parseFloat(this.replace(/,/g, "").trimAll());
     if (isNaN(num)) {
