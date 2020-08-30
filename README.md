@@ -24,3 +24,17 @@ An HTML DOM elements prototype extension methods to make easy javascript coding
 - [Date.addHours(Number)](https://myjsacademy.blogspot.com/2020/08/javascript-dateaddhoursnumber.html)
 - [Date.addMinutes(Number)](https://myjsacademy.blogspot.com/2020/08/javascript-dateaddminutesnumber.html)
 - [Date.addSeconds(Number)](https://myjsacademy.blogspot.com/2020/08/javascript-dateaddsecondsnumber.html)
+
+## DOM Selector Ext.
+
+- [.select()](https://myjsacademy.blogspot.com/2020/08/javascript-selectcssselector.html)
+- [.visible()](https://myjsacademy.blogspot.com/2020/08/javascript-visible.html)
+- [.find(selector)](https://myjsacademy.blogspot.com/2020/08/javascript-findcssselector.html)
+- [.filter(selector)](https://myjsacademy.blogspot.com/2020/08/javascript-filtercssselector.html)
+- [.filterNot(selector)](https://myjsacademy.blogspot.com/2020/08/javascript-filternotcssselector.html)
+- [.not(selector)](https://myjsacademy.blogspot.com/2020/08/javascript-notcssselector.html)
+- .next()
+- .prev()
+- .nextAll()
+- .prevAll()
+- .closest(selector)

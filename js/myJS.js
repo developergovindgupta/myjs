@@ -1,3 +1,4 @@
+"use strict";
 (function () {
   document.ready = function (fn) {
     if (typeof fn === "function") {
@@ -17,7 +18,19 @@
   }
   document.__proto__.select = function (selector) {
     selector = selector || "*";
-    return document.querySelectorAll(selector);
+    if (typeof selector === "string") {
+      return document.querySelectorAll(selector);
+    } else if (selector.isNodeList) {
+      return selector;
+    } else if (selector.isDomElement) {
+      let rID = parseInt(Math.random() * 1000000);
+      selector.classList.add("selectnode" + rID);
+      let selectList = document.querySelectorAll(".selectnode" + rID);
+      selector.classList.remove("selectnode" + rID);
+      return selectList;
+    } else {
+      return document.querySelectorAll("MyJS_Emply_Node_List");
+    }
   };
   ////////////////////////////////////////////////////////////////////////////////////////////
   //                                                                                        //
@@ -25,6 +38,8 @@
   //                                                                                        //
   ////////////////////////////////////////////////////////////////////////////////////////////
   let node = document.createElement("input");
+  node.__proto__.__proto__.isDomElement = true;
+  node.__proto__.__proto__.select = document.select;
   /*
     ======================================================================================
     It load passed page url content in target DOM element asynchronously. 
@@ -443,6 +458,7 @@
   // querySelectorAll Extenstion Methods
   ////////////////////////////////////////////////////////////////////////////////////////////
   let nodeList = document.querySelectorAll("html");
+  nodeList.__proto__.isNodeList = true;
   nodeList.__proto__.val = function (value) {
     if (value || value === "") {
       if (this.length > 0) {
@@ -587,69 +603,56 @@
   };
   nodeList.__proto__.find = function (selector) {
     selector = selector || "*";
-    let rID = parseInt(Math.random() * 1000000);
-    for (let i = 0; i < this.length; i++) {
-      this[i].setAttribute("MYJS_Find_Control", rID);
+    if (typeof selector === "string") {
+      let rID = parseInt(Math.random() * 1000000);
+      for (let i = 0; i < this.length; i++) {
+        this[i].setAttribute("MYJS_Find_Control", rID);
+      }
+      let fNodesList = document.querySelectorAll('[MYJS_Find_Control= "' + rID + '"] ' + selector);
+      for (let i = 0; i < this.length; i++) {
+        this[i].removeAttribute("MYJS_Find_Control");
+      }
+      return fNodesList;
+    } else {
+      return document.select(selector);
     }
-    let fNodesList = document.querySelectorAll('[MYJS_Find_Control= "' + rID + '"] ' + selector);
-    for (let i = 0; i < this.length; i++) {
-      this[i].removeAttribute("MYJS_Find_Control");
-    }
-    return fNodesList;
   };
+  nodeList.__proto__.select = nodeList.__proto__.find;
   nodeList.__proto__.filter = function (selector) {
     let rID = parseInt(Math.random() * 1000000);
     for (let i = 0; i < this.length; i++) {
       this[i].classList.add("Filter" + rID);
     }
-
-    selector = selector || "";
-    if (typeof selector !== "string") {
-      selector = "";
+    let fList = document.select(selector);
+    for (let i = 0; i < fList.length; i++) {
+      fList[i].classList.add("FilterItem" + rID);
     }
-    let _selector = selector.split(",");
-    let __selector = "";
-    for (let i = 0; i < _selector.length; i++) {
-      __selector += "," + _selector[i].trim() + ".Filter" + rID;
-    }
-    if (__selector) {
-      __selector = __selector.substring(1);
-    }
-
-    let filterList = document.querySelectorAll(__selector);
+    let resultList = document.querySelectorAll(".Filter" + rID + ".FilterItem" + rID);
     for (let i = 0; i < this.length; i++) {
       this[i].classList.remove("Filter" + rID);
     }
-
-    return filterList;
+    for (let i = 0; i < fList.length; i++) {
+      fList[i].classList.remove("FilterItem" + rID);
+    }
+    return resultList;
   };
   nodeList.__proto__.filterNot = function (selector) {
     let rID = parseInt(Math.random() * 1000000);
     for (let i = 0; i < this.length; i++) {
       this[i].classList.add("Filter" + rID);
     }
-
-    selector = selector || "";
-    if (typeof selector !== "string") {
-      selector = "";
+    let fList = document.select(selector);
+    for (let i = 0; i < fList.length; i++) {
+      fList[i].classList.add("FilterItem" + rID);
     }
-    let _selector = selector.split(",");
-    let __selector = "";
-    for (let i = 0; i < _selector.length; i++) {
-      if (_selector[i].trim()) {
-        __selector += ":not(" + _selector[i].trim() + ")";
-      }
-    }
-
-    __selector = ".Filter" + rID + __selector;
-
-    let filterList = document.querySelectorAll(__selector);
-
+    let resultList = document.querySelectorAll(".Filter" + rID + ":not(.FilterItem" + rID + ")");
     for (let i = 0; i < this.length; i++) {
       this[i].classList.remove("Filter" + rID);
     }
-
-    return filterList;
+    for (let i = 0; i < fList.length; i++) {
+      fList[i].classList.remove("FilterItem" + rID);
+    }
+    return resultList;
   };
   nodeList.__proto__.not = nodeList.__proto__.filterNot;
   nodeList.__proto__.next = function () {
@@ -736,6 +739,7 @@
   // getElementsByTagNames,getElementsByClassName Extenstion Methods
   ////////////////////////////////////////////////////////////////////////////////////////////
   let htmlCollection = document.getElementsByTagName("div");
+  htmlCollection.__proto__.isNodeList = true;
   htmlCollection.__proto__.val = function (value) {
     if (value || value === "") {
       if (this.length > 0) {
@@ -871,69 +875,56 @@
   };
   htmlCollection.__proto__.find = function (selector) {
     selector = selector || "*";
-    let rID = parseInt(Math.random() * 1000000);
-    for (let i = 0; i < this.length; i++) {
-      this[i].setAttribute("MYJS_Find_Control", rID);
+    if (typeof selector === "string") {
+      let rID = parseInt(Math.random() * 1000000);
+      for (let i = 0; i < this.length; i++) {
+        this[i].setAttribute("MYJS_Find_Control", rID);
+      }
+      let fNodesList = document.querySelectorAll('[MYJS_Find_Control= "' + rID + '"] ' + selector);
+      for (let i = 0; i < this.length; i++) {
+        this[i].removeAttribute("MYJS_Find_Control");
+      }
+      return fNodesList;
+    } else {
+      return document.select(selector);
     }
-    let fNodesList = document.querySelectorAll('[MYJS_Find_Control= "' + rID + '"] ' + selector);
-    for (let i = 0; i < this.length; i++) {
-      this[i].removeAttribute("MYJS_Find_Control");
-    }
-    return fNodesList;
   };
+  htmlCollection.__proto__.select = htmlCollection.__proto__.find;
   htmlCollection.__proto__.filter = function (selector) {
     let rID = parseInt(Math.random() * 1000000);
     for (let i = 0; i < this.length; i++) {
       this[i].classList.add("Filter" + rID);
     }
-
-    selector = selector || "";
-    if (typeof selector !== "string") {
-      selector = "";
+    let fList = document.select(selector);
+    for (let i = 0; i < fList.length; i++) {
+      fList[i].classList.add("FilterItem" + rID);
     }
-    let __selector = "";
-    for (let i = 0; i < _selector.length; i++) {
-      __selector += "," + _selector[i].trim() + ".Filter" + rID;
-    }
-    if (__selector) {
-      __selector = __selector.substring(1);
-    }
-
-    let filterList = document.querySelectorAll(__selector);
-
+    let resultList = document.querySelectorAll(".Filter" + rID + ".FilterItem" + rID);
     for (let i = 0; i < this.length; i++) {
       this[i].classList.remove("Filter" + rID);
     }
-
-    return filterList;
+    for (let i = 0; i < fList.length; i++) {
+      fList[i].classList.remove("FilterItem" + rID);
+    }
+    return resultList;
   };
   htmlCollection.__proto__.filterNot = function (selector) {
     let rID = parseInt(Math.random() * 1000000);
     for (let i = 0; i < this.length; i++) {
       this[i].classList.add("Filter" + rID);
     }
-
-    selector = selector || "";
-    if (typeof selector !== "string") {
-      selector = "";
+    let fList = document.select(selector);
+    for (let i = 0; i < fList.length; i++) {
+      fList[i].classList.add("FilterItem" + rID);
     }
-    let _selector = selector.split(",");
-    let __selector = "";
-    for (let i = 0; i < _selector.length; i++) {
-      if (_selector[i].trim()) {
-        __selector += ":not(" + _selector[i].trim() + ")";
-      }
-    }
-
-    __selector = ".Filter" + rID + __selector;
-
-    let filterList = document.querySelectorAll(__selector);
-
+    let resultList = document.querySelectorAll(".Filter" + rID + ":not(.FilterItem" + rID + ")");
     for (let i = 0; i < this.length; i++) {
       this[i].classList.remove("Filter" + rID);
     }
-
-    return filterList;
+    for (let i = 0; i < fList.length; i++) {
+      fList[i].classList.remove("FilterItem" + rID);
+    }
+    return resultList;
   };
   htmlCollection.__proto__.not = htmlCollection.__proto__.filterNot;
   htmlCollection.__proto__.next = function () {

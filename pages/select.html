@@ -1,0 +1,80 @@
+<h1>.select(<i>selector</i>)</h1>
+<hr />
+<h3>Target:</h3>
+<p>Applicable with any DOM element or elements List.</p>
+<div style="padding-left: 100px">
+  <ul>
+    <li>document</li>
+    <li>getElementById</li>
+    <li>getElementsByTagName</li>
+    <li>getElementsByClassName</li>
+    <li>getElementsByName</li>
+    <li>querySelector</li>
+    <li>querySelectorAll</li>
+    <li>select</li>
+    <li>find</li>
+    <li>filter</li>
+    <li>filterNot</li>
+    <li>not</li>
+    <li>visible</li>
+    <li>nextAll</li>
+    <li>prevAll</li>
+    <li>next</li>
+    <li>prev</li>
+    <li>closest</li>
+  </ul>
+</div>
+
+<hr />
+<h3>Description :</h3>
+<p>It search selector element in the document/element/elements list itself or children and return all DOMNodeList that are matched with selector passed.</p>
+
+<hr />
+<h3>Syntax:</h3>
+<p>Document.select(<i>selector</i>)</p>
+<p>DOMElement.select(<i>selector</i>)</p>
+<p>DOMNodeList.select(<i>selector</i>)</p>
+<p>HTMLCollection.select(<i>selector</i>)</p>
+<hr />
+<p><b>Note : selector may be any css selector string or DomElement</b></p>
+<h3>Usase:</h3>
+<div class="divExample">
+  <ol>
+    <li>
+      document.select('#firstDiv <i>input'</i>)<br />
+      <span class="output"><i>it search input elements in firstDiv and return DOMNodeList of all input elements inside firstDiv.</i></span>
+    </li>
+    <li>
+      document.select('<i>.divExample</i>').select('<i>li</i>).select('<i>span</i>')
+      <span class="output"><i>It find ".divExample" in document and then find "li" in result list and then find "span" in next result list.</i></span>
+    </li>
+    <li>
+      document.getElementsByTagName('div').select(<i>'input'</i>)<br />
+      <span class="output"><i>the getElementsByTagName selects all div and select() method seaches input elements in all dives and return DOMNodeList of input elements.</i> </span>
+    </li>
+    <li>
+      document.getElementsByClassName('FirstDiv').select(<i>'input'</i>)<br />
+      <span class="output"><i>the getElementsByClassName selects all elements having class FirstDiv and select() method seaches input elements in all elements and returns DOMNodeList on input elements.</i></span>
+    </li>
+    <li>
+      document.getElementsByName('FirstDiv').select(<i>'input'</i>)<br />
+      <span class="output"><i>the getElementsByName selects all elements having name attribute "FirstDiv" and select() method searches input elements in all elements and returns DOMNodeList of input elements.</i> </span>
+    </li>
+    <li>
+      document.querySelector('.FirstDiv').select(<i>'input'</i>)<br />
+      <span class="output"><i>the querySelector selects first div having class "FirstDiv" and select() method search input elements in firstDiv and return DOMNodeList of input elements.</i> </span>
+    </li>
+    <li>
+      document.querySelectorAll('.FirstDiv').select(<i>'input'</i>)<br />
+      <span class="output"><i>the querySelectorAll selects all elements having class FirstDiv and select() method search input elements in every elements and returns DOMNodeList of input elements.</i> </span>
+    </li>
+    <li>
+      <div>var divExample=document.querySelector('.divExample');</div>
+      <div>document.select(divExample);</div>
+      <span class="output"><i>It convert and return domElement to DOMNodeList.</i> </span>
+    </li>
+  </ol>
+</div>
+<script type="text/javascript">
+  window.location.href = window.location.origin + "?page=" + window.location.pathname;
+</script>
