@@ -261,6 +261,9 @@
     }
   };
   node.__proto__.__proto__.closest = function (selector) {
+    if (!selector) {
+      return this.parentNode;
+    }
     let p = this;
     while (p) {
       if (p.is(selector)) {
@@ -315,10 +318,10 @@
   };
   node.__proto__.__proto__.not = node.__proto__.__proto__.filterNot;
   node.__proto__.__proto__.next = function () {
-    return this.nextElementSibling;
+    return this.nextElementSibling || document.querySelectorAll("xxxxxxxxxxx");
   };
   node.__proto__.__proto__.prev = function () {
-    return this.previousElementSibling;
+    return this.previousElementSibling || document.querySelectorAll("xxxxxxxxxxx");
   };
   node.__proto__.__proto__.nextAll = function () {
     let rID = parseInt(Math.random() * 1000000);
@@ -598,7 +601,7 @@
     if (this.length > 0) {
       return this[0].closest(selector);
     } else {
-      return document.querySelectorAll("xxxxxxxxxxx");
+      return this;
     }
   };
   nodeList.__proto__.find = function (selector) {
@@ -659,23 +662,23 @@
     if (this.length > 0) {
       let n = this[0].nextElementSibling;
       if (n) {
-        return n;
+        return document.select(n);
       } else {
         return document.querySelectorAll("xxxxxxxxxxx");
       }
     }
-    return document.querySelectorAll("xxxxxxxxxxx");
+    return this;
   };
   nodeList.__proto__.prev = function () {
     if (this.length > 0) {
       let previousElement = this[0].previousElementSibling;
       if (previousElement) {
-        return previousElement;
+        return document.select(previousElement);
       } else {
         return document.querySelectorAll("xxxxxxxxxxx");
       }
     }
-    return document.querySelectorAll("xxxxxxxxxxx");
+    return this;
   };
   nodeList.__proto__.nextAll = function () {
     if (this.length > 0) {
@@ -870,7 +873,7 @@
     if (this.length > 0) {
       return this[0].closest(selector);
     } else {
-      return document.querySelectorAll("xxxxxxxxxxx");
+      return this;
     }
   };
   htmlCollection.__proto__.find = function (selector) {
@@ -929,13 +932,23 @@
   htmlCollection.__proto__.not = htmlCollection.__proto__.filterNot;
   htmlCollection.__proto__.next = function () {
     if (this.length > 0) {
-      return this[0].nextElementSibling;
+      let n = this[0].nextElementSibling;
+      if (n) {
+        return document.select(n);
+      } else {
+        return document.querySelectorAll("xxxxxxxxxxx");
+      }
     }
-    return this;
+    return document.querySelectorAll("xxxxxxxxxxx");
   };
   htmlCollection.__proto__.prev = function () {
     if (this.length > 0) {
-      return this[0].previousElementSibling;
+      let previousElement = this[0].previousElementSibling;
+      if (previousElement) {
+        return document.select(previousElement);
+      } else {
+        return document.querySelectorAll("xxxxxxxxxxx");
+      }
     }
     return this;
   };
