@@ -24,6 +24,7 @@ An HTML DOM elements prototype extension methods to make easy javascript coding
 - [Date.addHours(Number)](https://myjsacademy.blogspot.com/2020/08/javascript-dateaddhoursnumber.html)
 - [Date.addMinutes(Number)](https://myjsacademy.blogspot.com/2020/08/javascript-dateaddminutesnumber.html)
 - [Date.addSeconds(Number)](https://myjsacademy.blogspot.com/2020/08/javascript-dateaddsecondsnumber.html)
+- [Array.clone()](https://myjsacademy.blogspot.com/2020/09/javascript-arrayclone.html)
 
 ## DOM Selector Ext.
 
@@ -37,4 +38,25 @@ An HTML DOM elements prototype extension methods to make easy javascript coding
 - [.prev()](https://myjsacademy.blogspot.com/2020/08/javascript-prev.html)
 - [.nextAll()](https://myjsacademy.blogspot.com/2020/08/javascript-nextall.html)
 - [.prevAll()](https://myjsacademy.blogspot.com/2020/08/javascript-prevall.html)
-- .closest(selector)
+- [.closest(selector)](https://myjsacademy.blogspot.com/2020/09/javascript-closestcssselector.html)
+
+## DOM Query Ext.
+
+- .val(value)
+- .html(html)
+- .text()
+- .hide()
+- .show()
+- .toggle()
+- .addClass(className)
+- .removeClass(className)
+- .toggleClass(className)
+- .hasClass(className)
+- .fadeIn([duration],[callBack])
+- .fadeOut([duration],[callBack])
+- .each(fn)
+- .isVisible()
+- .is(selector)
+- .attr(attributeName,[value])
+- .append(append)
+- .remove()

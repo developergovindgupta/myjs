@@ -1,10 +1,8 @@
-<h1>.closest(<i>selector</i>)</h1>
+<h1>.closest(<i>cssSelector</i>)</h1>
 <hr />
 <h3>Target:</h3>
-<p>
-  Applicable with any DOM element.
-</p>
-<div style="padding-left:100px;">
+<p>Applicable with any DOM element.</p>
+<div style="padding-left: 100px">
   <ul>
     <li>getElementById</li>
     <li>getElementsByTagName</li>
@@ -12,6 +10,8 @@
     <li>getElementsByName</li>
     <li>querySelector</li>
     <li>querySelectorAll</li>
+    <li>select</li>
+    <li>etc.</li>
   </ul>
 </div>
 
@@ -20,22 +20,14 @@
 <p>
   it search for closest parent element that matched with the selector. It traverse parentNode to parentNode untill matched with selector if no any parent element matched then it return empty array of nodeElementsList instead of null so nested statement not generate error due to null reference.
   <br /><br />
-  <b>
-    Note : it start searching of selector from the element itself. That's mean if the element matches with the selector it return itself.
-  </b>
+  <b> Note : it start searching of selector from the element itself. That's mean if the element matches with the selector it return itself. </b>
 </p>
 
 <hr />
 <h3>Syntax:</h3>
-<p>
-  DOMElement.closest(<i>selector</i>)
-</p>
-<p>
-  DOMNodeList.closest(<i>selector</i>)
-</p>
-<p>
-  HTMLCollection.closest(<i>selector</i>)
-</p>
+<p>DOMElement.closest(<i>cssSelector</i>)</p>
+<p>DOMNodeList.closest(<i>cssSelector</i>)</p>
+<p>HTMLCollection.closest(<i>cssSelector</i>)</p>
 <hr />
 
 <h3>Usase:</h3>

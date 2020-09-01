@@ -1,0 +1,45 @@
+<h1><i>Array</i>.clone()</h1>
+<hr />
+<h3>Target:</h3>
+<p>
+  Applicable with <b><u>Array</u></b> Data Type.
+</p>
+
+<hr />
+<h3>Description :</h3>
+<p>Clone array of mutable values or immutable values in to a new array without reference. It also clone array of object in to new array of object.</p>
+<br />
+<p>Note: logic behind it is JSON.stringify and JSON.parse.</p>
+<br />
+<hr />
+<h3>Syntax:</h3>
+<p><i>[]</i>.clone()</p>
+<p>return duplicate array without reference link of original array. That's mean changes in one not reflect in another.</p>
+<hr />
+
+<h3>Usase:</h3>
+<div class="divExample">
+  <ol>
+    <li>
+      [1,2,3,4,5].clone() <br />
+      <span class="output">It return new array [1,2,3,4,5]</span>
+    </li>
+    <li>
+      var arr = [1,2,3,4,5];<br />
+      var arr2 = arr.clone();
+      <br /><span class="output">arr2 = [1,2,3,4,5]</span>
+    </li>
+    <li>
+      var productList=[{productID:1,productName:'Product One'}, {productID:2,productName:'Product Two'}, {productID:3,productName:'Product Three'}]; <br />
+      var cloneList = productList.clone();
+      <br />
+      <span class="output">cloneList=[{productID:1,productName:"Product One"}, {productID:2,productName:"Product Two"}, {productID:3,productName:"Product Three"}] </span>
+    </li>
+  </ol>
+</div>
+<script type="text/javascript">
+  window.location.href = window.location.origin + "?page=" + window.location.pathname;
+  function pageLoad() {
+    alert("pageLoad");
+  }
+</script>
