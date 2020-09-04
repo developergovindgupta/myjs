@@ -24,27 +24,28 @@ An HTML DOM elements prototype extension methods to make easy javascript coding
 - [Date.addHours(Number)](https://myjsacademy.blogspot.com/2020/08/javascript-dateaddhoursnumber.html)
 - [Date.addMinutes(Number)](https://myjsacademy.blogspot.com/2020/08/javascript-dateaddminutesnumber.html)
 - [Date.addSeconds(Number)](https://myjsacademy.blogspot.com/2020/08/javascript-dateaddsecondsnumber.html)
+- Object.equals(Object)
 - [Array.clone()](https://myjsacademy.blogspot.com/2020/09/javascript-arrayclone.html)
 
 ## DOM Selector Ext.
 
-- [.select()](https://myjsacademy.blogspot.com/2020/08/javascript-selectcssselector.html)
+- [.select(cssSelector)](https://myjsacademy.blogspot.com/2020/08/javascript-selectcssselector.html)
 - [.visible()](https://myjsacademy.blogspot.com/2020/08/javascript-visible.html)
-- [.find(selector)](https://myjsacademy.blogspot.com/2020/08/javascript-findcssselector.html)
-- [.filter(selector)](https://myjsacademy.blogspot.com/2020/08/javascript-filtercssselector.html)
-- [.filterNot(selector)](https://myjsacademy.blogspot.com/2020/08/javascript-filternotcssselector.html)
-- [.not(selector)](https://myjsacademy.blogspot.com/2020/08/javascript-notcssselector.html)
+- [.find(cssSelector)](https://myjsacademy.blogspot.com/2020/08/javascript-findcssselector.html)
+- [.filter(cssSelector)](https://myjsacademy.blogspot.com/2020/08/javascript-filtercssselector.html)
+- [.filterNot(cssSelector)](https://myjsacademy.blogspot.com/2020/08/javascript-filternotcssselector.html)
+- [.not(cssSelector)](https://myjsacademy.blogspot.com/2020/08/javascript-notcssselector.html)
 - [.next()](https://myjsacademy.blogspot.com/2020/08/javascript-next.html)
 - [.prev()](https://myjsacademy.blogspot.com/2020/08/javascript-prev.html)
 - [.nextAll()](https://myjsacademy.blogspot.com/2020/08/javascript-nextall.html)
 - [.prevAll()](https://myjsacademy.blogspot.com/2020/08/javascript-prevall.html)
-- [.closest(selector)](https://myjsacademy.blogspot.com/2020/09/javascript-closestcssselector.html)
+- [.closest(cssSelector)](https://myjsacademy.blogspot.com/2020/09/javascript-closestcssselector.html)
 
 ## DOM Query Ext.
 
-- .val(value)
-- .html(html)
-- .text()
+- [.val(value)](https://myjsacademy.blogspot.com/2020/09/javascript-domelement-valvalue.html)
+- [.html(html)](https://myjsacademy.blogspot.com/2020/09/javascript-domelement-htmlhtml.html)
+- [.text()](https://myjsacademy.blogspot.com/2020/09/javascript-domelement-text.html)
 - .hide()
 - .show()
 - .toggle()

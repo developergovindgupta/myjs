@@ -1576,7 +1576,60 @@
     }
     return d;
   };
+  Object.prototype.equals = function (obj) {
+    if (!obj) {
+      return false;
+    }
+    let keys = Object.keys(this);
+    let keys2 = Object.keys(obj);
+    if (keys.length != keys2.length) {
+      return false;
+    }
+    if (keys.length === 0) {
+      if (this.isDomElement && obj.isDomElement) {
+        if (this.outerHTML != obj.outerHTML) {
+          return false;
+        }
+      } else {
+        if (JSON.stringify(this) != JSON.stringify(obj)) {
+          return false;
+        }
+      }
+    } else {
+      for (var i = 0; i < keys.length; i++) {
+        if (this[keys[i]].isDomElement) {
+          if (obj[keys[i]].isDomElement) {
+            if (this[keys[i]] != obj[keys[i]]) {
+              return false;
+            }
+          } else {
+            return false;
+          }
+        } else if (typeof this[keys[i]] === "object") {
+          if (typeof obj[keys[i]] === "object") {
+            if (this[keys[i]].equals(obj[keys[i]]) == false) {
+              return false;
+            }
+          } else {
+            return false;
+          }
+        } else if (this[keys[i]] != obj[keys[i]]) {
+          return false;
+        }
+      }
+    }
+    return true;
+  };
+  Array.prototype.isArray = true;
   Array.prototype.clone = function () {
     return JSON.parse(JSON.stringify(this));
+  };
+  Array.prototype.contains = function (val) {
+    for (let i = 0; i < this.length; i++) {
+      if (this[i] == val) {
+        return true;
+      }
+    }
+    return false;
   };
 })();
