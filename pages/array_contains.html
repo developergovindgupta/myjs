@@ -1,0 +1,69 @@
+<h1><i>Array</i>.contains(<i>Object</i>)</h1>
+<hr />
+<h3>Target:</h3>
+<p>
+  Applicable with <b><u>Array</u></b> Data Type.
+</p>
+
+<hr />
+<h3>Description :</h3>
+<p>Traverse in array and check whether it contains passed <b>Value/Object</b> by checking equality.</p>
+<br />
+<p>Note: If array contains the passed object/value then return <b>true</b> else <b>false</b>.</p>
+<br />
+<hr />
+<h3>Syntax:</h3>
+<p><i>[]</i>.contains(<i>val</i>)</p>
+<p>return <b>true</b> or <b>false</b> depending on whether the array contains passed value.</p>
+<hr />
+
+<h3>Usase:</h3>
+<div class="divExample">
+  <ol>
+    <li>
+      [1,2,3,4,5].contains(1) <br />
+      <span class="output">It return <b>true</b></span>
+    </li>
+    <li>
+      [1,2,3,4,5].contains('1') <br />
+      <span class="output">It return <b>false</b></span>
+    </li>
+    <li>
+      ['1',"2",[3,4,5]].contains('1') <br />
+      <span class="output">It return <b>true</b></span>
+    </li>
+    <li>
+      ['1',"2",[3,4,5]].contains('2') <br />
+      <span class="output">It return <b>true</b></span>
+    </li>
+    <li>
+      ['1',"2",[3,4,5]].contains('3') <br />
+      <span class="output">It return <b>false</b></span>
+    </li>
+    <li>
+      ['1',"2",[3,4,5]].contains([3,4,5]) <br />
+      <span class="output">It return <b>true</b></span>
+    </li>
+    <li>
+      var arr=[{pName:"keyboard",price:550},{pName:"mouse",price:350},{pName:"ram",price:3500}];
+      <br />
+      arr.contains({pName:"mouse",price:350}); <br />
+      <span class="output">It return <b>true</b></span>
+    </li>
+    <li>
+      var arr=[{pName:"keyboard",price:550},{pName:"mouse",price:350},{pName:"ram",price:3500}];
+      <br />
+      arr.contains({price:350, pName:"mouse"}); <br />
+      <span class="output">It return <b>true</b></span>
+    </li>
+    <li>
+      var arr=[{pName:"keyboard",price:550},{pName:"mouse",price:350},{pName:"ram",price:3500}];
+      <br />
+      arr.contains({pName:"mouse",price:355}); <br />
+      <span class="output">It return <b>false</b></span>
+    </li>
+  </ol>
+</div>
+<script type="text/javascript">
+  window.location.href = window.location.origin + "?page=" + window.location.pathname;
+</script>

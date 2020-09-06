@@ -1,0 +1,76 @@
+<h1>.getComputedStyle()</h1>
+<hr />
+<h3>Target:</h3>
+<p>Applicable with any DOM Element.</p>
+<div style="padding-left: 100px">
+  <ul>
+    <li>getElementById</li>
+    <li>getElementsByTagName</li>
+    <li>getElementsByClassName</li>
+    <li>getElementsByName</li>
+    <li>querySelector</li>
+    <li>querySelectorAll</li>
+    <li>select</li>
+    <li>etc.</li>
+  </ul>
+</div>
+<p>In case of DOM NodeList first Node Element is processed for getComputedStyle.</p>
+<hr />
+<h3>Description :</h3>
+<p>This extension method is exactly window.getComputedStyle(domElement). It return list of all style attribute applicable to that domElement.</p>
+<br />
+<p>
+  <b>Note: when list of element passed then it reutrn first element's style attribute list.</b>
+</p>
+<hr />
+<h3>Syntax:</h3>
+<p>DOMElement.getComputedStyle()</p>
+<p>DOMNodeList.getComputedStyle()</p>
+<p>HTMLCollection.getComputedStyle()</p>
+<hr />
+
+<h3>Usase:</h3>
+<div class="divExample">
+  <ol>
+    <li>
+      document.getElementById('firstDiv').getComputedStyle()<br />
+      <span class="output"
+        ><i>It return <b>CSSStyleDeclaration { }</b></i></span
+      >
+    </li>
+    <li>
+      document.querySelector('#firstDiv').getComputedStyle()<br />
+      <span class="output"
+        ><i>It return <b>CSSStyleDeclaration { }</b></i></span
+      >
+    </li>
+
+    <li>
+      document.querySelectorAll('ul').getComputedStyle()<br />
+      <span class="output"
+        ><i>It return <b>CSSStyleDeclaration { }</b></i></span
+      >
+    </li>
+    <li>
+      document.body.getComputedStyle().width <br />
+      <span class="output"
+        ><i>It return <b>"1366px"</b></i></span
+      >
+    </li>
+    <li>
+      document.body.getComputedStyle().backgroundColor <br />
+      <span class="output"
+        ><i>It return <b>"rgb(50, 0, 235)"</b></i></span
+      >
+    </li>
+    <li>
+      document.querySelectorAll('ul').getComputedStyle().width <br />
+      <span class="output"
+        ><i>It return <b>"231px"</b></i></span
+      >
+    </li>
+  </ol>
+</div>
+<script type="text/javascript">
+  window.location.href = window.location.origin + "?page=" + window.location.pathname;
+</script>

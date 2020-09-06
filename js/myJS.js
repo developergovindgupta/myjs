@@ -438,6 +438,9 @@
   node.__proto__.__proto__.remove = function () {
     this.parentNode.removeChild(this);
   };
+  node.__proto__.__proto__.getComputedStyle = function () {
+    return window.getComputedStyle(this);
+  };
   ////////////////////////////////////////////////////////////////////////////////////////////
   // SELECT Element
   ////////////////////////////////////////////////////////////////////////////////////////////
@@ -737,7 +740,13 @@
       this[i].remove();
     }
   };
-
+  nodeList.__proto__.getComputedStyle = function () {
+    if (this.length > 0) {
+      return window.getComputedStyle(this[0]);
+    } else {
+      return [];
+    }
+  };
   ////////////////////////////////////////////////////////////////////////////////////////////
   // getElementsByTagNames,getElementsByClassName Extenstion Methods
   ////////////////////////////////////////////////////////////////////////////////////////////
@@ -1007,6 +1016,13 @@
   htmlCollection.__proto__.remove = function () {
     for (let i = this.length - 1; i >= 0; i--) {
       this[i].remove();
+    }
+  };
+  htmlCollection.__proto__.getComputedStyle = function () {
+    if (this.length > 0) {
+      return window.getComputedStyle(this[0]);
+    } else {
+      return [];
     }
   };
   ////////////////////////////////////////////////////////////////////////////////////////////
@@ -1410,6 +1426,66 @@
 
     return d;
   };
+  String.prototype.toRGBA = function () {
+    let x = document.createElement("div");
+    document.body.appendChild(x);
+    x.style.backgroundColor = this;
+    let color = window.getComputedStyle(x).backgroundColor.toLowerCase();
+    x.parentNode.removeChild(x);
+    let rgba = { r: 0, g: 0, b: 0, a: 1, value: color };
+    if (color.substring(0, 4) == "rgba") {
+      let c = color.substring(5);
+      c = c.substring(0, c.length - 1);
+
+      let cc = c.split(",");
+      rgba.r = parseInt(cc[0]);
+      rgba.g = parseInt(cc[1]);
+      rgba.b = parseInt(cc[2]);
+      rgba.a = parseFloat(cc[3]);
+    } else if (color.substring(0, 3) == "rgb") {
+      let c = color.substring(4);
+      c = c.substring(0, c.length - 1);
+      let cc = c.split(",");
+      rgba.r = parseInt(cc[0]);
+      rgba.g = parseInt(cc[1]);
+      rgba.b = parseInt(cc[2]);
+      rgba.a = 1;
+    }
+    if (isNaN(rgba.r)) {
+      rgba.r = 0;
+    }
+    if (isNaN(rgba.g)) {
+      rgba.g = 0;
+    }
+    if (isNaN(rgba.b)) {
+      rgba.b = 0;
+    }
+    if (isNaN(rgba.a)) {
+      rgba.a = 1;
+    }
+    let R = rgba.r.toString(16);
+    let G = rgba.g.toString(16);
+    let B = rgba.b.toString(16);
+    let A = rgba.a > 0.0 && rgba.a < 1.0 ? parseInt(rgba.a * 255).toString(16) : "";
+    if (rgba.a == 0 && rgba.r == 0 && rgba.g == 0 && rgba.b == 0) {
+      A = "00";
+    }
+    if (R.length == 1) {
+      R = "0" + R;
+    }
+    if (G.length == 1) {
+      G = "0" + G;
+    }
+    if (B.length == 1) {
+      B = "0" + B;
+    }
+    if (A.length == 1) {
+      A = "0" + A;
+    }
+    rgba.hex = "#" + R + G + B + A;
+
+    return rgba;
+  };
   Number.prototype.format = function (strFormat) {
     if (strFormat && typeof strFormat === "string" && /^([0#,])+([.]){0,1}([0])*$/.test(strFormat)) {
       let str = this.toString();
@@ -1626,7 +1702,7 @@
   };
   Array.prototype.contains = function (val) {
     for (let i = 0; i < this.length; i++) {
-      if (this[i] == val) {
+      if (this[i].equals(val)) {
         return true;
       }
     }

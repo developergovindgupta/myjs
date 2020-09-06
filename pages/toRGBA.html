@@ -1,0 +1,58 @@
+<h1><i>strColor</i>.toRGBA()</h1>
+<hr />
+<h3>Target:</h3>
+<p>
+  Applicable with <b><u>String</u></b> Data Type.
+</p>
+
+<hr />
+<h3>Description :</h3>
+<p>convert string color to object {} having attributes. r,g,b,a,value and hex.</p>
+<br />
+<p>
+  Note: return javascript object.
+  <br />{}.r = Red Value <br />{}.g = Green Value <br />{}.b = Blue Value <br />{}.a = Alpha Value <br />{}.value = rgba string <br />{}.hex = Hexa color string
+</p>
+<br />
+<hr />
+<h3>Syntax:</h3>
+<p><i>String</i>.toRGBA()</p>
+
+<hr />
+
+<h3>Usase:</h3>
+<div class="divExample">
+  <ol>
+    <li>
+      "red".toRGBA()
+      <br /><span class="output">It return object { r: 255, g: 0, b: 0, a: 1, value: "rgb(255, 0, 0)", hex : "#ff0000"}</span>
+    </li>
+    <li>
+      "lightblue".toRGBA()
+      <br /><span class="output">It return object { r: 173, g: 216, b: 230, a: 1, value: "rgb(173, 216, 230)", hex : "#add8e6"}</span>
+    </li>
+    <li>
+      "rgb(128,128,55)".toRGBA()
+      <br /><span class="output">It return object { r: 128, g: 128, b: 55, a: 1, value: "rgb(128, 128, 55)", hex : "#808037"}</span>
+    </li>
+    <li>
+      "rgba(255,128,60,0.6)".toRGBA()
+      <br /><span class="output">It return object { r: 255, g: 128, b: 60, a: 0.6, value: "rgba(255, 128, 60, 0.6)", hex : "#ff803c99"}</span>
+    </li>
+    <li>
+      "#2abcde".toRGBA()
+      <br /><span class="output">It return object { r: 42, g: 188, b: 222, a: 1, value: "rgb(42, 188, 222)", hex : "#2abcde"}</span>
+    </li>
+    <li>
+      "#abcdef2a".toRGBA()
+      <br /><span class="output">It return object { r: 171, g: 205, b: 239, a: 0.165, value: "rgba(171, 205, 239, 0.165)", hex : "#abcdef2a"}</span>
+    </li>
+    <li>
+      "invalidColorString".toRGBA()
+      <br /><span class="output">It return object { r: 0, g: 0, b: 0, a: 0, value: "rgba(0, 0, 0, 0)", hex : "#00000000"}</span>
+    </li>
+  </ol>
+</div>
+<script type="text/javascript">
+  window.location.href = window.location.origin + "?page=" + window.location.pathname;
+</script>
