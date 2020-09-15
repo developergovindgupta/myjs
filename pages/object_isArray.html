@@ -1,0 +1,98 @@
+<h1><i>Object</i>.isArray</h1>
+<hr />
+<h3>Target:</h3>
+<p>
+  Applicable with any javascript <b><u>Object</u> Variable </b> that holds array value .
+</p>
+
+<hr />
+<h3>Description :</h3>
+<p>When an object holds an array then it return <b><i><u>true</u></i></b> otherwise <b><i><u>undefined</u></i></b>. 
+    basically it is defined in array prototype. Many time in programming we face a problem 
+    that an object variable holds array value or other object structure then it help us. 
+    Before writing the code of array manipulation we can check whether a variable holds 
+    array value or not. </p>
+<br />
+<p>Note: It is an property of array that is defined in Array Prototype.
+    <br>
+    It is useful to check an object variable is array or any other type.
+</p>
+<p>
+    When we check the typeof(object_variable) it return 'object' not 'array'.
+</p>
+
+<br />
+<hr />
+<h3>Syntax:</h3>
+<p><i>Object<b>.isArray</b></i></p>
+<p>return <b>true</b> when object hold's array value otherwise <b>undefined</b></p>
+<hr />
+
+<h3>Usase:</h3>
+<div class="divExample">
+  <ol>
+    <li>
+      var arr = [1,2,3,4,5]; <br />
+      if(arr.isArray){<br>&nbsp;&nbsp;&nbsp;&nbsp;
+          console.log('Object holds array');<br>
+      }<br>
+      else{<br>&nbsp;&nbsp;&nbsp;&nbsp;
+            console.log('Object is not array');<br>
+      }<br>
+      <span class="output">It return <b>"Object holds array"</b>.</span>
+    </li>
+    <li>
+      var arr = {}; <br />
+      if(arr.isArray){<br>&nbsp;&nbsp;&nbsp;&nbsp;
+          console.log('Object holds array');<br>
+      }<br>
+      else{<br>&nbsp;&nbsp;&nbsp;&nbsp;
+            console.log('Object is not array');<br>
+      }<br>
+      <span class="output">It return <b>"Object is not array"</b>.</span>
+    </li>
+    <li>
+      var arr = document.querySelectorAll('div'); <br />
+      if(arr.isArray){<br>&nbsp;&nbsp;&nbsp;&nbsp;
+          console.log('Object holds array');<br>
+      }<br>
+      else{<br>&nbsp;&nbsp;&nbsp;&nbsp;
+            console.log('Object is not array');<br>
+      }<br>
+      <span class="output">It return <b>"Object is not array"</b>.</span>
+    </li>
+    <li>
+      var arr = []; <br />
+      if(arr.isArray){<br>&nbsp;&nbsp;&nbsp;&nbsp;
+          console.log('Object holds array');<br>
+      }<br>
+      else{<br>&nbsp;&nbsp;&nbsp;&nbsp;
+            console.log('Object is not array');<br>
+      }<br>
+      <span class="output">It return <b>"Object holds array"</b>.</span>
+    </li>
+    <li>
+      var arr = {arr1:[1,2,3],arr2:[4,5,6]}; <br />
+      if(arr.isArray){<br>&nbsp;&nbsp;&nbsp;&nbsp;
+          console.log('Object holds array');<br>
+      }<br>
+      else{<br>&nbsp;&nbsp;&nbsp;&nbsp;
+            console.log('Object is not array');<br>
+      }<br>
+      <span class="output">It return <b>"Object is not array"</b>.</span>
+    </li>
+    <li>
+      var arr = [{name:'ram',age:38},{name:'mohan',age:37}]; <br />
+      if(arr.isArray){<br>&nbsp;&nbsp;&nbsp;&nbsp;
+          console.log('Object holds array');<br>
+      }<br>
+      else{<br>&nbsp;&nbsp;&nbsp;&nbsp;
+            console.log('Object is not array');<br>
+      }<br>
+      <span class="output">It return <b>"Object holds array"</b>.</span>
+    </li>
+  </ol>
+</div>
+<script type="text/javascript">
+  window.location.href = window.location.origin + "?page=" + window.location.pathname;
+</script>

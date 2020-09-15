@@ -1,0 +1,98 @@
+<h1><i>Object</i>.isDomElement</h1>
+<hr />
+<h3>Target:</h3>
+<p>
+  Applicable with any javascript <b><u>Object</u> Variable </b> that holds DOM Element .
+</p>
+
+<hr />
+<h3>Description :</h3>
+<p>When an object holds an html domElement then it return <b><i><u>true</u></i></b> otherwise <b><i><u>undefined</u></i></b>. 
+    basically it is defined in DomElement prototype. Many time in programming we face a problem 
+    that an object variable holds DomElement  or other object structure then it help us. 
+    Before writing the code of DomElement manipulation we can check whether a variable holds 
+    DomElement or not. </p>
+<br />
+<p>Note: It is an property of DomElement that is defined in DomElement Prototype.
+    <br>
+    It is useful to check an object variable is DomElement or any other type.
+</p>
+<p>
+    When we check the typeof(object_variable) it return 'object' not 'DomElement/Node'.
+</p>
+
+<br />
+<hr />
+<h3>Syntax:</h3>
+<p><i>Object<b>.isDomElement</b></i></p>
+<p>return <b>true</b> when object hold's DomElement otherwise <b>undefined</b></p>
+<hr />
+
+<h3>Usase:</h3>
+<div class="divExample">
+  <ol>
+    <li>
+      var obj = document.querySelector('div') <br />
+      if(obj.isDomElement){<br>&nbsp;&nbsp;&nbsp;&nbsp;
+          console.log('Object holds DomElement');<br>
+      }<br>
+      else{<br>&nbsp;&nbsp;&nbsp;&nbsp;
+            console.log('Object is not DomElement');<br>
+      }<br>
+      <span class="output">It return <b>"Object holds DomElement"</b>.</span>
+    </li>
+   <li>
+      var obj = document.createElement('p') <br />
+      if(obj.isDomElement){<br>&nbsp;&nbsp;&nbsp;&nbsp;
+          console.log('Object holds DomElement');<br>
+      }<br>
+      else{<br>&nbsp;&nbsp;&nbsp;&nbsp;
+            console.log('Object is not DomElement');<br>
+      }<br>
+      <span class="output">It return <b>"Object holds DomElement"</b>.</span>
+    </li>
+    <li>
+      var obj = {} <br />
+      if(obj.isDomElement){<br>&nbsp;&nbsp;&nbsp;&nbsp;
+          console.log('Object holds DomElement');<br>
+      }<br>
+      else{<br>&nbsp;&nbsp;&nbsp;&nbsp;
+            console.log('Object is not DomElement');<br>
+      }<br>
+      <span class="output">It return <b>"Object is not DomElement"</b>.</span>
+    </li>
+    <li>
+      var obj = [] <br />
+      if(obj.isDomElement){<br>&nbsp;&nbsp;&nbsp;&nbsp;
+          console.log('Object holds DomElement');<br>
+      }<br>
+      else{<br>&nbsp;&nbsp;&nbsp;&nbsp;
+            console.log('Object is not DomElement');<br>
+      }<br>
+      <span class="output">It return <b>"Object is not DomElement"</b>.</span>
+    </li>
+    <li>
+      var obj = document.querySelectorAll('li') <br />
+      if(obj.isDomElement){<br>&nbsp;&nbsp;&nbsp;&nbsp;
+          console.log('Object holds DomElement');<br>
+      }<br>
+      else{<br>&nbsp;&nbsp;&nbsp;&nbsp;
+            console.log('Object is not DomElement');<br>
+      }<br>
+      <span class="output">It return <b>"Object is not DomElement"</b>.</span>
+    </li>
+    <li>
+      var obj = document.getElementById('firstDiv'); <br />
+      if(obj && obj.isDomElement){<br>&nbsp;&nbsp;&nbsp;&nbsp;
+          console.log('Object holds DomElement');<br>
+      }<br>
+      else{<br>&nbsp;&nbsp;&nbsp;&nbsp;
+            console.log('Object is not DomElement');<br>
+      }<br>
+      <span class="output">It return <b>"Object holds DomElement"</b>.</span>
+    </li>
+  </ol>
+</div>
+<script type="text/javascript">
+  window.location.href = window.location.origin + "?page=" + window.location.pathname;
+</script>

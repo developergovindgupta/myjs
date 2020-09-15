@@ -441,6 +441,95 @@
   node.__proto__.__proto__.getComputedStyle = function () {
     return window.getComputedStyle(this);
   };
+  node.__proto__.__proto__.shadow = function () { 
+    let shadowList = [];
+    function getShadowList() { 
+      let boxShadow = window.getComputedStyle(this).boxShadow;
+      let _shadowAttr = boxShadow.match(/rgb(a){0,1}[(]([\d., ]+[)] )|[\d]+px|inset|#([\d\w])+|([\w])+|([,]) /ig);
+      //window.getComputedStyle(x).boxShadow.match(/rgb(a){0,1}[(]([\d., ]+[)] )|[\d]+px|inset|#([\d\w])+|([\w])+|([,]) /ig)
+      let s = {
+        color: '#000000',
+        hOffset:10,
+        vOffset: 10,
+        blur: 0,
+        spread: 0,
+        inset:false
+      };
+      let px = 0;
+      _shadowAttr.forEach(function (x) {
+        x = x.trim().toLowerCase();
+        if (x.isNumber() || x.indexOf('px') > 0) {
+          if (px == 0) {
+            s.hOffset = parseInt(x);
+          }
+          else if (px == 1) {
+            s.vOffset = parseInt(x);
+          }
+          else if (px == 2) {
+            s.blur = parseInt(x);
+          } else if (px == 3) {
+            s.spread = parseInt(x);
+          }
+          px++;
+        }
+        else if (x == 'inset') { 
+
+        }
+
+      });
+    }
+    getShadowList();
+    return shadowList;
+  };
+  node.__proto__.__proto__.addShadow = function (left, top, color) {
+    this.__shadow = this.__shadow || [];
+    var domObj = this;
+    let setShadow = function () {
+      let shadowstr = "";
+      domObj.__shadow.forEach(function (x) {
+        shadowstr += "," + x.left + " " + x.top + " " + x.color;
+      });
+      if (shadowstr.length > 0) {
+        shadowstr = shadowstr.substring(1);
+      }
+      domObj.style.boxShadow = shadowstr;
+    };
+    let Shadow = function () {
+      let _top = top || "0px";
+      let _left = left || "0px";
+      let _color = color || "#000000";
+      _top = parseInt(_top) + "px";
+      _left = parseInt(_left) + "px";
+      _color = _color.toString().toRGBA().value;
+
+      return {
+        get top() {
+          return _top;
+        },
+        set top(value) {
+          _top = parseInt(value) + "px";
+          setShadow();
+        },
+        get left() {
+          return _left;
+        },
+        set left(value) {
+          _left = parseInt(value) + "px";
+          setShadow();
+        },
+        get color() {
+          return _color;
+        },
+        set color(value) {
+          _color = value.toString().toRGBA().value;
+          setShadow();
+        },
+      };
+    };
+    this.__shadow.push(new Shadow());
+    setShadow();
+    return this.__shadow;
+  };
   ////////////////////////////////////////////////////////////////////////////////////////////
   // SELECT Element
   ////////////////////////////////////////////////////////////////////////////////////////////
@@ -1150,6 +1239,10 @@
       num = 0;
     }
     return num;
+  };
+  String.prototype.isNumber = function () { 
+    let regExp = /(^\d+.\d+$)/;
+    return regExp.test(this);
   };
   String.prototype.toDate = function () {
     return this.toDateTime().format("dd/MMM/yyyy").toDateTime();

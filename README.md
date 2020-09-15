@@ -26,6 +26,9 @@ An HTML DOM elements prototype extension methods to make easy javascript coding
 - [Date.addMinutes(Number)](https://myjsacademy.blogspot.com/2020/08/javascript-dateaddminutesnumber.html)
 - [Date.addSeconds(Number)](https://myjsacademy.blogspot.com/2020/08/javascript-dateaddsecondsnumber.html)
 - [Object.equals(Object)](https://myjsacademy.blogspot.com/2020/09/javascript-object-equalsobject.html)
+- Object.isArray
+- Object.isDomElement
+- Object.isNodeList
 - [Array.clone()](https://myjsacademy.blogspot.com/2020/09/javascript-arrayclone.html)
 - [Array.contains(Object)](https://myjsacademy.blogspot.com/2020/09/javascript-arraycontainsobject.html)
 
@@ -55,12 +58,12 @@ An HTML DOM elements prototype extension methods to make easy javascript coding
 - [.removeClass(className)](https://myjsacademy.blogspot.com/2020/09/javascript-domelement.html)
 - [.toggleClass(className)](https://myjsacademy.blogspot.com/2020/09/javascript-domelement_6.html)
 - [.hasClass(className)](https://myjsacademy.blogspot.com/2020/09/javascript-domelement-hasclass-classname.html)
-- .fadeIn([duration],[callBack])
-- .fadeOut([duration],[callBack])
-- .each(fn)
-- .isVisible()
-- .is(selector)
-- .attr(attributeName,[value])
-- .append(append)
-- .remove()
-- .getComputedStyle()
+- [.fadeIn([duration],[callBack])](https://myjsacademy.blogspot.com/2020/09/javascript-domelement_8.html)
+- [.fadeOut([duration],[callBack])](https://myjsacademy.blogspot.com/2020/09/javascript-domelement_10.html)
+- [.each(fn)](https://myjsacademy.blogspot.com/2020/09/javascript-domelementlist-each-function.html)
+- [.isVisible()](https://myjsacademy.blogspot.com/2020/09/javascript-domelement-isvisible.html)
+- [.is(selector)](https://myjsacademy.blogspot.com/2020/09/javascript-domelement_14.html)
+- [.attr(attributeName,[value])](https://myjsacademy.blogspot.com/2020/09/javascript-domelement_29.html)
+- [.append(append)](https://myjsacademy.blogspot.com/2020/09/javascript-domelement-appenddomelement.html)
+- [.remove()](https://myjsacademy.blogspot.com/2020/09/javascript-domelement-remove.html)
+- [.getComputedStyle()](https://myjsacademy.blogspot.com/2020/09/javascript-domelementgetcomputedstyle.html)
