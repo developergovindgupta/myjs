@@ -1,4 +1,4 @@
-<h1><i>String</i>.toNumber()</h1>
+<h1><i>String</i>.toNumber(<i>[nanValue]</i>)</h1>
 <hr />
 <h3>Target:</h3>
 <p>
@@ -14,10 +14,11 @@
 
 <hr />
 <h3>Syntax:</h3>
-<p><i>String</i>.toNumber()</p>
+<p><i>String</i>.toNumber(<i>[nanValue]</i>)</p>
 
 <hr />
-
+<p><b>Note : string is NaN then it return (0) or passed value (nanValue)</b></p>
+<hr />
 <h3>Usase:</h3>
 <div class="divExample">
   <ol>
@@ -26,12 +27,24 @@
       <br /><span class="output">It return number 55.25</span>
     </li>
     <li>
+      "10,500.50".toNumber()
+      <br /><span class="output">It return number 10500.5</span>
+    </li>
+    <li>
+      "1,23,456.789".toNumber()
+      <br /><span class="output">It return number 123456.789</span>
+    </li>
+    <li>
       "132abcd".toNumber()
       <br /><span class="output">It return number 123</span>
     </li>
     <li>
       "abcd132".toNumber()
       <br /><span class="output">It return number 0</span>
+    </li>
+    <li>
+      "abcd132".toNumber(-1)
+      <br /><span class="output">It return number -1</span>
     </li>
   </ol>
 </div>

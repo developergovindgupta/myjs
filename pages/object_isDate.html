@@ -1,0 +1,94 @@
+<h1><i>Object</i>.isDate</h1>
+<hr />
+<h3>Target:</h3>
+<p>
+  Applicable with any javascript <b><u>Object</u> Variable </b> that holds date value .
+</p>
+
+<hr />
+<h3>Description :</h3>
+<p>
+  When an object holds an date then it return
+  <b
+    ><i><u>true</u></i></b
+  >
+  otherwise
+  <b
+    ><i><u>undefined</u></i></b
+  >. basically it is defined in Date prototype. Many time in programming we face a problem that an object variable holds Date value or other object structure then it help us. Before writing the code of Date manipulation we can check whether a variable holds Date value or not.
+</p>
+<br />
+<p>
+  Note: It is an property of Date, that is defined in Date Prototype.
+  <br />
+  It is useful to check an object variable is Date or any other type.
+</p>
+<p>
+  When we check the typeof(object_variable) it return 'object' not 'date'.
+</p>
+
+<br />
+<hr />
+<h3>Syntax:</h3>
+<p>
+  <i>Object<b>.isDate</b></i>
+</p>
+<p>return <b>true</b> when object hold's Date value otherwise <b>undefined</b></p>
+<hr />
+
+<h3>Usase:</h3>
+<div class="divExample">
+  <ol>
+    <li>
+      var obj = 'date'; <br />
+      if(obj.isDate){<br />&nbsp;&nbsp;&nbsp;&nbsp; console.log('Object holds date value');<br />
+      }<br />
+      else{<br />&nbsp;&nbsp;&nbsp;&nbsp; console.log('Object is not a date value');<br />
+      }<br />
+      <span class="output">It return <b>"Object is not a date value"</b>.</span>
+    </li>
+    <li>
+      var obj = '1/Jan/2021'; <br />
+      if(obj.isDate){<br />&nbsp;&nbsp;&nbsp;&nbsp; console.log('Object holds date value');<br />
+      }<br />
+      else{<br />&nbsp;&nbsp;&nbsp;&nbsp; console.log('Object is not a date value');<br />
+      }<br />
+      <span class="output">It return <b>"Object is not a date value"</b>.</span>
+    </li>
+    <li>
+      var obj = '1/Jan/2021'.toDateTime(); <br />
+      if(obj.isDate){<br />&nbsp;&nbsp;&nbsp;&nbsp; console.log('Object holds date value');<br />
+      }<br />
+      else{<br />&nbsp;&nbsp;&nbsp;&nbsp; console.log('Object is not a date value');<br />
+      }<br />
+      <span class="output">It return <b>"Object holds date value"</b>.</span>
+    </li>
+    <li>
+      var obj = '1/Jan/2021'.toDate(); <br />
+      if(obj.isDate){<br />&nbsp;&nbsp;&nbsp;&nbsp; console.log('Object holds date value');<br />
+      }<br />
+      else{<br />&nbsp;&nbsp;&nbsp;&nbsp; console.log('Object is not a date value');<br />
+      }<br />
+      <span class="output">It return <b>"Object holds date value"</b>.</span>
+    </li>
+    <li>
+      var obj = ''.toDate(); <br />
+      if(obj.isDate){<br />&nbsp;&nbsp;&nbsp;&nbsp; console.log('Object holds date value');<br />
+      }<br />
+      else{<br />&nbsp;&nbsp;&nbsp;&nbsp; console.log('Object is not a date value');<br />
+      }<br />
+      <span class="output">It return <b>"Object holds date value"</b>.</span>
+    </li>
+    <li>
+      var obj = new Date(); <br />
+      if(obj.isDate){<br />&nbsp;&nbsp;&nbsp;&nbsp; console.log('Object holds date value');<br />
+      }<br />
+      else{<br />&nbsp;&nbsp;&nbsp;&nbsp; console.log('Object is not a date value');<br />
+      }<br />
+      <span class="output">It return <b>"Object holds date value"</b>.</span>
+    </li>
+  </ol>
+</div>
+<script type="text/javascript">
+  window.location.href = window.location.origin + "?page=" + window.location.pathname;
+</script>

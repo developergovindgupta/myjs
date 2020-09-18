@@ -1,0 +1,132 @@
+<h1><i>Object</i>.isNumber</h1>
+<hr />
+<h3>Target:</h3>
+<p>
+  Applicable with any javascript <b><u>Object</u> Variable </b> that holds numeric value .
+</p>
+
+<hr />
+<h3>Description :</h3>
+<p>
+  When an object holds an numeric value then it return
+  <b
+    ><i><u>true</u></i></b
+  >
+  otherwise
+  <b
+    ><i><u>undefined</u></i></b
+  >. basically it is defined in Number prototype. Many time in programming we face a problem that an object variable holds Numeric value or other object structure then it help us. Before writing the code of Numeric calculation we can check whether a variable holds Numeric value or not.
+</p>
+<br />
+<p>
+  Note: It is an property of Numeric, that is defined in Numeric Prototype.
+  <br />
+  It is useful to check an object variable is Numeric or any other type.
+</p>
+<p>
+  another way to check variable holds numeric value is "typeof(variable) = 'number'"
+  <br />
+  but when variable holds string numeric value it return "typeof(variable) = 'string'"
+</p>
+
+<br />
+<hr />
+<h3>Syntax:</h3>
+<p>
+  <i>Object<b>.isNumber</b></i>
+</p>
+<p>return <b>true</b> when object hold's Numeric value otherwise <b>undefined</b></p>
+<hr />
+
+<h3>Usase:</h3>
+<div class="divExample">
+  <ol>
+    <li>
+      var obj = 55; <br />
+      console.log('typeof obj = ' + typeof(obj));<br />
+      if(obj.isNumber){<br />&nbsp;&nbsp;&nbsp;&nbsp; console.log('Object holds Numeric value');<br />
+      }<br />
+      else{<br />&nbsp;&nbsp;&nbsp;&nbsp; console.log('Object is not a number');<br />
+      }<br />
+      <span class="output"
+        >It return <br /><b>"typeof obj = number" </b><br />
+        <b>"Object holds Numeric value"</b>.</span
+      >
+    </li>
+    <li>
+      var obj = 55.55; <br />
+      console.log('typeof obj = ' + typeof(obj));<br />
+      if(obj.isNumber){<br />&nbsp;&nbsp;&nbsp;&nbsp; console.log('Object holds Numeric value');<br />
+      }<br />
+      else{<br />&nbsp;&nbsp;&nbsp;&nbsp; console.log('Object is not a number');<br />
+      }<br />
+      <span class="output"
+        >It return <br /><b>"typeof obj = number" </b><br />
+        <b>"Object holds Numeric value"</b>.</span
+      >
+    </li>
+    <li>
+      var obj = '55'; <br />
+      console.log('typeof obj = ' + typeof(obj));<br />
+      if(obj.isNumber){<br />&nbsp;&nbsp;&nbsp;&nbsp; console.log('Object holds Numeric value');<br />
+      }<br />
+      else{<br />&nbsp;&nbsp;&nbsp;&nbsp; console.log('Object is not a number');<br />
+      }<br />
+      <span class="output"
+        >It return <br /><b>"typeof obj = string" </b><br />
+        <b>"Object holds Numeric value"</b>.</span
+      >
+    </li>
+    <li>
+      var obj = '55.05'; <br />
+      console.log('typeof obj = ' + typeof(obj));<br />
+      if(obj.isNumber){<br />&nbsp;&nbsp;&nbsp;&nbsp; console.log('Object holds Numeric value');<br />
+      }<br />
+      else{<br />&nbsp;&nbsp;&nbsp;&nbsp; console.log('Object is not a number');<br />
+      }<br />
+      <span class="output"
+        >It return <br /><b>"typeof obj = string" </b><br />
+        <b>"Object holds Numeric value"</b>.</span
+      >
+    </li>
+    <li>
+      var obj = [55]; <br />
+      console.log('typeof obj = ' + typeof(obj));<br />
+      if(obj.isNumber){<br />&nbsp;&nbsp;&nbsp;&nbsp; console.log('Object holds Numeric value');<br />
+      }<br />
+      else{<br />&nbsp;&nbsp;&nbsp;&nbsp; console.log('Object is not a number');<br />
+      }<br />
+      <span class="output"
+        >It return <br /><b>"typeof obj = object" </b><br />
+        <b>"Object is not a number"</b>.</span
+      >
+    </li>
+    <li>
+      var obj = '55px'; <br />
+      console.log('typeof obj = ' + typeof(obj));<br />
+      if(obj.isNumber){<br />&nbsp;&nbsp;&nbsp;&nbsp; console.log('Object holds Numeric value');<br />
+      }<br />
+      else{<br />&nbsp;&nbsp;&nbsp;&nbsp; console.log('Object is not a number');<br />
+      }<br />
+      <span class="output"
+        >It return <br /><b>"typeof obj = string" </b><br />
+        <b>"Object is not a number"</b>.</span
+      >
+    </li>
+    <li>
+      var obj = '55.55.5'; <br />
+      console.log('typeof obj = ' + typeof(obj));<br />
+      if(obj.isNumber){<br />&nbsp;&nbsp;&nbsp;&nbsp; console.log('Object holds Numeric value');<br />
+      }<br />
+      else{<br />&nbsp;&nbsp;&nbsp;&nbsp; console.log('Object is not a number');<br />
+      }<br />
+      <span class="output"
+        >It return <br /><b>"typeof obj = string" </b><br />
+        <b>"Object is not a number"</b>.</span
+      >
+    </li>
+  </ol>
+</div>
+<script type="text/javascript">
+  window.location.href = window.location.origin + "?page=" + window.location.pathname;
+</script>

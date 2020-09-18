@@ -441,41 +441,36 @@
   node.__proto__.__proto__.getComputedStyle = function () {
     return window.getComputedStyle(this);
   };
-  node.__proto__.__proto__.shadow = function () { 
+  node.__proto__.__proto__.shadow = function () {
     let shadowList = [];
-    function getShadowList() { 
+    function getShadowList() {
       let boxShadow = window.getComputedStyle(this).boxShadow;
-      let _shadowAttr = boxShadow.match(/rgb(a){0,1}[(]([\d., ]+[)] )|[\d]+px|inset|#([\d\w])+|([\w])+|([,]) /ig);
+      let _shadowAttr = boxShadow.match(/rgb(a){0,1}[(]([\d., ]+[)] )|[\d]+px|inset|#([\d\w])+|([\w])+|([,]) /gi);
       //window.getComputedStyle(x).boxShadow.match(/rgb(a){0,1}[(]([\d., ]+[)] )|[\d]+px|inset|#([\d\w])+|([\w])+|([,]) /ig)
       let s = {
-        color: '#000000',
-        hOffset:10,
+        color: "#000000",
+        hOffset: 10,
         vOffset: 10,
         blur: 0,
         spread: 0,
-        inset:false
+        inset: false,
       };
       let px = 0;
       _shadowAttr.forEach(function (x) {
         x = x.trim().toLowerCase();
-        if (x.isNumber() || x.indexOf('px') > 0) {
+        if (x.isNumber || x.indexOf("px") > 0) {
           if (px == 0) {
             s.hOffset = parseInt(x);
-          }
-          else if (px == 1) {
+          } else if (px == 1) {
             s.vOffset = parseInt(x);
-          }
-          else if (px == 2) {
+          } else if (px == 2) {
             s.blur = parseInt(x);
           } else if (px == 3) {
             s.spread = parseInt(x);
           }
           px++;
+        } else if (x == "inset") {
         }
-        else if (x == 'inset') { 
-
-        }
-
       });
     }
     getShadowList();
@@ -1233,17 +1228,49 @@
   String.prototype.reverse = function () {
     return this.split("").reverse().join("");
   };
-  String.prototype.toNumber = function () {
+  String.prototype.toNumber = function (nanValue) {
     let num = parseFloat(this.replace(/,/g, "").trimAll());
     if (isNaN(num)) {
-      num = 0;
+      if (nanValue || nanValue == 0) {
+        num = nanValue;
+      } else {
+        num = 0;
+      }
     }
     return num;
   };
-  String.prototype.isNumber = function () { 
-    let regExp = /(^\d+.\d+$)/;
-    return regExp.test(this);
+  String.prototype.parseInt = function (nanValue) {
+    let n = parseInt(this);
+    if ((nanValue || nanValue == 0) && isNaN(n)) {
+      return nanValue;
+    } else {
+      return n;
+    }
   };
+  String.prototype.parseFloat = function (nanValue) {
+    let n = parseFloat(this);
+    if ((nanValue || nanValue == 0) && isNaN(n)) {
+      return nanValue;
+    } else {
+      return n;
+    }
+  };
+  String.prototype.isNaN = function () {
+    return isNaN(parseFloat(this));
+  };
+  Object.defineProperty(String.prototype, "isNumber", {
+    get: function () {
+      let regExp = /(^\d+[.]{0,1}\d*$|^.\d+$)/;
+      return regExp.test(this);
+    },
+  });
+  Object.defineProperty(Object.__proto__, "isNumber", {
+    get: function () {
+      let regExp = /(^\d+[.]{0,1}\d*$|^.\d+$)/;
+      return regExp.test(this);
+    },
+  });
+
   String.prototype.toDate = function () {
     return this.toDateTime().format("dd/MMM/yyyy").toDateTime();
   };
@@ -1579,6 +1606,16 @@
 
     return rgba;
   };
+  String.prototype.innerHTML = function () {
+    let div = document.createElement("div");
+    div.innerHTML = this;
+    return div.innerHTML;
+  };
+  String.prototype.innerText = function () {
+    let div = document.createElement("div");
+    div.innerHTML = this;
+    return div.innerText;
+  };
   Number.prototype.format = function (strFormat) {
     if (strFormat && typeof strFormat === "string" && /^([0#,])+([.]){0,1}([0])*$/.test(strFormat)) {
       let str = this.toString();
@@ -1635,6 +1672,15 @@
       return this.toLocaleString();
     }
   };
+  Number.prototype.isNumber = true;
+  NaN.__proto__.isNaN = function (nanValue) {
+    if (nanValue || nanValue == 0) {
+      return nanValue;
+    } else {
+      return isNaN(this);
+    }
+  };
+  Date.prototype.isDate = true;
   Date.prototype.format = function (strFormat) {
     if (strFormat) {
       let MMM = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
@@ -1789,6 +1835,10 @@
     }
     return true;
   };
+  Object.prototype.isNaN = function () {
+    return true;
+  };
+
   Array.prototype.isArray = true;
   Array.prototype.clone = function () {
     return JSON.parse(JSON.stringify(this));

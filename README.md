@@ -13,7 +13,9 @@ An HTML DOM elements prototype extension methods to make easy javascript coding
 - [String.left(n)](https://myjsacademy.blogspot.com/2020/08/javascript-stringleft.html)
 - [String.right(n)](https://myjsacademy.blogspot.com/2020/08/javascript-stringright.html)
 - [String.mid(n,m)](https://myjsacademy.blogspot.com/2020/08/javascript-stringmid.html)
-- [String.toNumber()](https://myjsacademy.blogspot.com/2020/08/javascript-stringtonumber.html)
+- [String.toNumber([nanValue])](https://myjsacademy.blogspot.com/2020/08/javascript-stringtonumber.html)
+- [String.parseInt([nanValue])](https://myjsacademy.blogspot.com/2020/09/javascript-stringparseintnanvalue.html)
+- [String.parseFloat([nanValue])](https://myjsacademy.blogspot.com/2020/09/javascript-stringparsefloatnanvalue.html)
 - [String.toDate()](https://myjsacademy.blogspot.com/2020/08/javascript-stringtodate.html)
 - [String.toDateTime()](https://myjsacademy.blogspot.com/2020/08/javascript-stringtodatetime.html)
 - [String.toRGBA()](https://myjsacademy.blogspot.com/2020/09/javascript-string-strcolortorgba.html)
@@ -26,9 +28,11 @@ An HTML DOM elements prototype extension methods to make easy javascript coding
 - [Date.addMinutes(Number)](https://myjsacademy.blogspot.com/2020/08/javascript-dateaddminutesnumber.html)
 - [Date.addSeconds(Number)](https://myjsacademy.blogspot.com/2020/08/javascript-dateaddsecondsnumber.html)
 - [Object.equals(Object)](https://myjsacademy.blogspot.com/2020/09/javascript-object-equalsobject.html)
-- Object.isArray
-- Object.isDomElement
-- Object.isNodeList
+- [Object.isArray](https://myjsacademy.blogspot.com/2020/09/javascript-objectisarray.html)
+- [Object.isDomElement](https://myjsacademy.blogspot.com/2020/09/javascript-objectisdomelement.html)
+- [Object.isNodeList](https://myjsacademy.blogspot.com/2020/09/javascript-objectisnodelist.html)
+- [Object.isDate](https://myjsacademy.blogspot.com/2020/09/javascript-objectisdate.html)
+- [Object.isNumber](https://myjsacademy.blogspot.com/2020/09/javascript-objectisnumber.html)
 - [Array.clone()](https://myjsacademy.blogspot.com/2020/09/javascript-arrayclone.html)
 - [Array.contains(Object)](https://myjsacademy.blogspot.com/2020/09/javascript-arraycontainsobject.html)
 
