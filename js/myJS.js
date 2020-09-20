@@ -1616,6 +1616,30 @@
     div.innerHTML = this;
     return div.innerText;
   };
+  String.prototype.toArray = function () {
+    let arr = [];
+    for (let i = 0; i < this.length; i++) {
+      arr.push(this[i]);
+    }
+    return arr;
+  };
+  String.prototype.toCodeArray = function () {
+    let arr = [];
+    for (let i = 0; i < this.length; i++) {
+      arr.push(this.charCodeAt(i));
+    }
+    return arr;
+  };
+  String.prototype.toCharCodeArray = function () {
+    let arr = [];
+    for (let i = 0; i < this.length; i++) {
+      arr.push({ char: this[i], code: this.charCodeAt(i) });
+    }
+    return arr;
+  };
+  Number.prototype.toChar = function () {
+    return String.fromCharCode(this);
+  };
   Number.prototype.format = function (strFormat) {
     if (strFormat && typeof strFormat === "string" && /^([0#,])+([.]){0,1}([0])*$/.test(strFormat)) {
       let str = this.toString();
@@ -1838,7 +1862,9 @@
   Object.prototype.isNaN = function () {
     return true;
   };
-
+  Object.prototype.stringify = function () {
+    return JSON.stringify(this);
+  };
   Array.prototype.isArray = true;
   Array.prototype.clone = function () {
     return JSON.parse(JSON.stringify(this));
@@ -1850,5 +1876,14 @@
       }
     }
     return false;
+  };
+  Array.prototype.distinct = function () {
+    let arr = [];
+    this.forEach(function (x) {
+      if (!arr.contains(x)) {
+        arr.push(x);
+      }
+    });
+    return arr;
   };
 })();
