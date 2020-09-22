@@ -469,7 +469,7 @@
             s.spread = parseInt(x);
           }
           px++;
-        } else if (x == "inset") {
+        } else if (x === "inset") {
         }
       });
     }
@@ -1255,8 +1255,9 @@
       return n;
     }
   };
-  String.prototype.isNaN = function () {
-    return isNaN(parseFloat(this));
+  String.prototype.isNaN = function (nanValue) {
+    let n = parseFloat(this);
+    return n.isNaN(nanValue);
   };
   Object.defineProperty(String.prototype, "isNumber", {
     get: function () {
@@ -1698,10 +1699,18 @@
   };
   Number.prototype.isNumber = true;
   NaN.__proto__.isNaN = function (nanValue) {
-    if (nanValue || nanValue == 0) {
-      return nanValue;
+    if (isNaN(this) || this === Infinity) {
+      if (nanValue || nanValue == 0) {
+        return nanValue;
+      } else {
+        return true;
+      }
     } else {
-      return isNaN(this);
+      if (nanValue || nanValue == 0) {
+        return this;
+      } else {
+        return false;
+      }
     }
   };
   Date.prototype.isDate = true;
@@ -1846,7 +1855,7 @@
           }
         } else if (typeof this[keys[i]] === "object") {
           if (typeof obj[keys[i]] === "object") {
-            if (this[keys[i]].equals(obj[keys[i]]) == false) {
+            if (this[keys[i]].equals(obj[keys[i]]) === false) {
               return false;
             }
           } else {
@@ -1859,7 +1868,10 @@
     }
     return true;
   };
-  Object.prototype.isNaN = function () {
+  Object.prototype.isNaN = function (nanValue) {
+    if (nanValue) {
+      return nanValue;
+    }
     return true;
   };
   Object.prototype.stringify = function () {

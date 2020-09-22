@@ -1,0 +1,87 @@
+<h1><i>Object</i>.isNaN(<i>[nanValue]</i>)</h1>
+<hr />
+<h3>Target:</h3>
+<p>
+  Applicable with any javascript <b><u>Object</u> Variable </b> that holds numeric value .
+</p>
+
+<hr />
+<h3>Description :</h3>
+<p>It checks variable value if it is not a numeric value, NaN or infinity then it return <b>true</b> otherwise <b>false</b>. When nanValue is passed as argument then it convert the value in numeric if it's result is <b>NaN</b> then return nanValue otherwise converted <b>Numeric</b> value.</p>
+<br />
+<p>
+  Note: If nanValue is not passed then it return <b>true/false</b>.
+  <br />
+  If nanValue is passed then it convert value in numeric and return either <b>Numeric</b> value or <b>nanValue</b>.
+</p>
+<p>
+  another way to check whether variable holds numeric value or Nan or infinity
+  <br />
+  also convert the string to number if conversion failed then it return argument value <b>nanValue</b>
+</p>
+
+<br />
+<hr />
+<h3>Syntax:</h3>
+<p>
+  <i>Object<b>.isNaN(<i>[nanValue]</i>)</b></i>
+</p>
+<p>return <b>true/false</b> or converted <b>Numeric/nanValue</b></p>
+<hr />
+
+<h3>Usase:</h3>
+<div class="divExample">
+  <ol>
+    <li>
+      var obj = 55; <br />
+      obj.isNaN()
+      <br />
+      <span class="output">It return <b>false</b>.</span>
+    </li>
+    <li>
+      var obj = 55/0; <br />
+      obj.isNaN()
+      <br />
+      <span class="output">It return <b>true</b>.</span>
+    </li>
+    <li>
+      var obj = 'a5.5'; <br />
+      obj.isNaN()
+      <br />
+      <span class="output">It return <b>true</b>.</span>
+    </li>
+    <li>
+      var obj = 55; <br />
+      obj.isNaN(0)
+      <br />
+      <span class="output">It return <b>55</b>.</span>
+    </li>
+    <li>
+      var obj = 55/0; <br />
+      obj.isNaN(0)
+      <br />
+      <span class="output">It return <b>0</b>.</span>
+    </li>
+    <li>
+      var obj = 'a5.5'; <br />
+      obj.isNaN(0)
+      <br />
+      <span class="output">It return <b>0</b>.</span>
+    </li>
+    <li>
+      var obj = [1,2,3]; <br />
+      obj.isNaN()
+      <br />
+      <span class="output">It return <b>true</b>.</span>
+    </li>
+    <li>
+      var obj = [1,2,3]; <br />
+      obj.isNaN(-1)
+      <br />
+      <span class="output">It return <b>-1</b>.</span>
+    </li>
+  </ol>
+</div>
+<script type="text/javascript">
+  window.location.href = window.location.origin + "?page=" + window.location.pathname;
+</script>

@@ -1,0 +1,39 @@
+<h1><i>Array</i>.distinct()</h1>
+<hr />
+<h3>Target:</h3>
+<p>
+  Applicable with <b><u>Array</u></b> Data Type.
+</p>
+
+<hr />
+<h3>Description :</h3>
+<p>It remove duplicate items from array and create new array having distinct values/objects. It is an extension method of array object defined in array prototype. </p>
+<br />
+<p>Note: logic behind it is create a new array and push only that items which are not contains in array.</p>
+<br />
+<hr />
+<h3>Syntax:</h3>
+<p><i>[]</i>.distinct()</p>
+<p>return new array having unique and distinct values.</p>
+<hr />
+
+<h3>Usase:</h3>
+<div class="divExample">
+  <ol>
+    <li>
+      [1,2,5,8,4,2,6,3,5,1,3,4,5].distinct() <br />
+      <span class="output">It return new array [1, 2, 5, 8, 4, 6, 3]</span>
+    </li>
+    <li>
+        "Welcome in myjs tutorials".toArray().distinct() <br />
+      <span class="output">It return new array ["W", "e", "l", "c", "o", "m", " ", "i", "n", "y", "j", "s", "t", "u", "r", "a"]</span>
+    </li>
+    <li>
+        "Welcome in myjs tutorials".toCharCodeArray().distinct() <br />
+      <span class="output">It return new array [{"char":"W","code":87},{"char":"e","code":101},{"char":"l","code":108},{"char":"c","code":99},{"char":"o","code":111},{"char":"m","code":109},{"char":" ","code":32},{"char":"i","code":105},{"char":"n","code":110},{"char":"y","code":121},{"char":"j","code":106},{"char":"s","code":115},{"char":"t","code":116},{"char":"u","code":117},{"char":"r","code":114},{"char":"a","code":97}]</span>
+    </li>
+  </ol>
+</div>
+<script type="text/javascript">
+  window.location.href = window.location.origin + "?page=" + window.location.pathname;
+</script>
