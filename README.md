@@ -18,9 +18,9 @@ An HTML DOM elements prototype extension methods to make easy javascript coding
 - [String.parseFloat([nanValue])](https://myjsacademy.blogspot.com/2020/09/javascript-stringparsefloatnanvalue.html)
 - [String.toDate()](https://myjsacademy.blogspot.com/2020/08/javascript-stringtodate.html)
 - [String.toDateTime()](https://myjsacademy.blogspot.com/2020/08/javascript-stringtodatetime.html)
-- String.toArray()
-- String.toCodeArray()
-- String.toCharCodeArray()
+- [String.toArray()](https://myjsacademy.blogspot.com/2020/09/javascript-stringtoarray.html)
+- [String.toCodeArray()](https://myjsacademy.blogspot.com/2020/09/javascript-stringtocodearray.html)
+- [String.toCharCodeArray()](https://myjsacademy.blogspot.com/2020/09/javascript-stringtocharcodearray.html)
 - [String.toRGBA()](https://myjsacademy.blogspot.com/2020/09/javascript-string-strcolortorgba.html)
 - [Number.format(strFormat)](https://myjsacademy.blogspot.com/2020/08/javascript-numberformatstrformat.html)
 - [Date.format(strFormat)](https://myjsacademy.blogspot.com/2020/08/javascript-dateformatstrformat.html)
@@ -36,10 +36,10 @@ An HTML DOM elements prototype extension methods to make easy javascript coding
 - [Object.isNodeList](https://myjsacademy.blogspot.com/2020/09/javascript-objectisnodelist.html)
 - [Object.isDate](https://myjsacademy.blogspot.com/2020/09/javascript-objectisdate.html)
 - [Object.isNumber](https://myjsacademy.blogspot.com/2020/09/javascript-objectisnumber.html)
-- Object.isNaN([nanValue])
+- [Object.isNaN([nanValue])](https://myjsacademy.blogspot.com/2020/09/javascript-objectisnannanvalue.html)
 - [Array.clone()](https://myjsacademy.blogspot.com/2020/09/javascript-arrayclone.html)
 - [Array.contains(Object)](https://myjsacademy.blogspot.com/2020/09/javascript-arraycontainsobject.html)
-- Array.distinct()
+- [Array.distinct()](https://myjsacademy.blogspot.com/2020/09/javascript-arraydistinct.html)
 
 ## DOM Selector Ext.
 
