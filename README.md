@@ -76,3 +76,9 @@ An HTML DOM elements prototype extension methods to make easy javascript coding
 - [.append(append)](https://myjsacademy.blogspot.com/2020/09/javascript-domelement-appenddomelement.html)
 - [.remove()](https://myjsacademy.blogspot.com/2020/09/javascript-domelement-remove.html)
 - [.getComputedStyle()](https://myjsacademy.blogspot.com/2020/09/javascript-domelementgetcomputedstyle.html)
+
+# DOM Event Handler Registration Ext.
+
+- [.on(eventName,fn)](https://myjsacademy.blogspot.com/2020/09/javascript-oneventnameeventhandlerfunct.html)
+- [.off(eventName)](https://myjsacademy.blogspot.com/2020/09/javascript-offeventnamenamespace.html)
+- [.one(eventName,fn)](https://myjsacademy.blogspot.com/2020/09/javascript-oneeventnameeventhandlerfunc.html)
