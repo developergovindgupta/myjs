@@ -1261,13 +1261,13 @@
   };
   Object.defineProperty(String.prototype, "isNumber", {
     get: function () {
-      let regExp = /(^\d+[.]{0,1}\d*$|^.\d+$)/;
+      let regExp = /(^\d+[.]{0,1}\d*$|^[.]\d+$)/;
       return regExp.test(this);
     },
   });
   Object.defineProperty(Object.__proto__, "isNumber", {
     get: function () {
-      let regExp = /(^\d+[.]{0,1}\d*$|^.\d+$)/;
+      let regExp = /(^\d+[.]{0,1}\d*$|^[.]\d+$)/;
       return regExp.test(this);
     },
   });
@@ -1638,6 +1638,7 @@
     }
     return arr;
   };
+  String.prototype.isString = true;
   Number.prototype.toChar = function () {
     return String.fromCharCode(this);
   };
@@ -1697,7 +1698,11 @@
       return this.toLocaleString();
     }
   };
+  Number.prototype.toNumber = function () {
+    return this;
+  };
   Number.prototype.isNumber = true;
+  Number.prototype.isOnlyNumber = true;
   NaN.__proto__.isNaN = function (nanValue) {
     if (isNaN(this) || this === Infinity) {
       if (nanValue || nanValue == 0) {
@@ -1875,6 +1880,11 @@
     return true;
   };
   Object.prototype.stringify = function () {
+    if (this.isNumber) {
+      return this.toString();
+    } else if (this.isString) {
+      return this;
+    }
     return JSON.stringify(this);
   };
   Array.prototype.isArray = true;
@@ -1898,4 +1908,98 @@
     });
     return arr;
   };
+  Object.defineProperty(Array.prototype, "first", {
+    get: function () {
+      return this[0];
+    },
+  });
+  Object.defineProperty(Array.prototype, "last", {
+    get: function () {
+      return this[this.length - 1];
+    },
+  });
+  Object.defineProperty(Array.prototype, "max", {
+    get: function () {
+      let _max = this[0];
+      let isAllNumbers = true;
+      for (let i = 0; i < this.length; i++) {
+        if (!this[i].isNumber) {
+          isAllNumbers = false;
+          break;
+        }
+      }
+
+      if (isAllNumbers) {
+        for (let i = 1; i < this.length; i++) {
+          if (this[i] > _max) {
+            _max = this[i];
+          }
+        }
+      } else {
+        for (let i = 1; i < this.length; i++) {
+          if (this[i].stringify() > _max.stringify()) {
+            _max = this[i];
+          }
+        }
+      }
+      return _max;
+    },
+  });
+  Object.defineProperty(Array.prototype, "min", {
+    get: function () {
+      let _min = this[0];
+      let isAllNumbers = true;
+      for (let i = 0; i < this.length; i++) {
+        if (!this[i].isNumber) {
+          isAllNumbers = false;
+          break;
+        }
+      }
+
+      if (isAllNumbers) {
+        for (let i = 1; i < this.length; i++) {
+          if (this[i] < _min) {
+            _min = this[i];
+          }
+        }
+      } else {
+        for (let i = 1; i < this.length; i++) {
+          if (this[i].stringify() < _min.stringify()) {
+            _min = this[i];
+          }
+        }
+      }
+      return _min;
+    },
+  });
 })();
+
+class MyjsPromise {
+  constructor(fn) {
+    let p = {};
+    let resolve = function () {};
+    let reject = function () {};
+
+    p.then = function (fn, fc) {
+      resolve = fn;
+      reject = fc;
+      return p;
+    };
+    p.catch = function (fn) {
+      reject = fn;
+      return p;
+    };
+    if (typeof fn === "function") {
+      window.setTimeout(function () {
+        try {
+          fn(resolve, reject);
+        } catch (ex) {
+          if (typeof reject === "function") {
+            reject(ex);
+          }
+        }
+      });
+    }
+    return p;
+  }
+}

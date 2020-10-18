@@ -1,0 +1,167 @@
+<h1>
+  <i>Object</i>
+  .isString
+</h1>
+<hr />
+<h3>Target:</h3>
+<p>
+  Applicable with any javascript
+  <b>
+    <u>Object</u>
+    Variable
+  </b>
+  that holds string value .
+</p>
+
+<hr />
+<h3>Description :</h3>
+<p>
+  When an object holds an string value then it return
+  <b>
+    <i><u>true</u></i>
+  </b>
+  otherwise
+  <b>
+    <i><u>undefined</u></i>
+  </b>
+  . basically it is defined in String prototype. Many time in programming we face a problem that an object variable holds String value or other object structure then it help us. Before writing the code of String manipulation we can check whether a variable holds String value or not.
+</p>
+<br />
+<p>
+  Note: It is an property of String, that is defined in String Prototype.
+  <br />
+  It is useful to check an object variable is String or any other type.
+</p>
+<p>
+  another way to check variable holds string value is "typeof(variable) == 'string'"
+</p>
+
+<br />
+<hr />
+<h3>Syntax:</h3>
+<p>
+  <i>
+    ObjectVariable
+    <b>.isString</b>
+  </i>
+</p>
+<p>
+  return
+  <b>true</b>
+  when object hold's String value otherwise
+  <b>undefined</b>
+</p>
+<hr />
+
+<h3>Usase:</h3>
+<div class="divExample">
+  <ol>
+    <li>
+      var obj = 'abcd';
+      <br />
+      console.log('typeof obj = ' + typeof(obj));
+      <br />
+      if(obj.isString){
+      <br />
+      &nbsp;&nbsp;&nbsp;&nbsp; console.log('Object holds String value');
+      <br />
+      }
+      <br />
+      else{
+      <br />
+      &nbsp;&nbsp;&nbsp;&nbsp; console.log('Object is not a string');
+      <br />
+      }
+      <br />
+      <span class="output">
+        It return
+        <br />
+        <b>"typeof obj = string"</b>
+        <br />
+        <b>"Object holds String value"</b>
+        .
+      </span>
+    </li>
+    <li>
+      var obj = '55';
+      <br />
+      console.log('typeof obj = ' + typeof(obj));
+      <br />
+      if(obj.isString){
+      <br />
+      &nbsp;&nbsp;&nbsp;&nbsp; console.log('Object holds String value');
+      <br />
+      }
+      <br />
+      else{
+      <br />
+      &nbsp;&nbsp;&nbsp;&nbsp; console.log('Object is not a string');
+      <br />
+      }
+      <br />
+      <span class="output">
+        It return
+        <br />
+        <b>"typeof obj = string"</b>
+        <br />
+        <b>"Object holds String value"</b>
+        .
+      </span>
+    </li>
+    <li>
+      var obj = 55;
+      <br />
+      console.log('typeof obj = ' + typeof(obj));
+      <br />
+      if(obj.isString){
+      <br />
+      &nbsp;&nbsp;&nbsp;&nbsp; console.log('Object holds String value');
+      <br />
+      }
+      <br />
+      else{
+      <br />
+      &nbsp;&nbsp;&nbsp;&nbsp; console.log('Object is not a string');
+      <br />
+      }
+      <br />
+      <span class="output">
+        It return
+        <br />
+        <b>"typeof obj = number"</b>
+        <br />
+        <b>"Object is not a string"</b>
+        .
+      </span>
+    </li>
+    <li>
+      var obj = [55];
+      <br />
+      console.log('typeof obj = ' + typeof(obj));
+      <br />
+      if(obj.isString){
+      <br />
+      &nbsp;&nbsp;&nbsp;&nbsp; console.log('Object holds String value');
+      <br />
+      }
+      <br />
+      else{
+      <br />
+      &nbsp;&nbsp;&nbsp;&nbsp; console.log('Object is not a string');
+      <br />
+      }
+      <br />
+      <span class="output">
+        It return
+        <br />
+        <b>"typeof obj = object"</b>
+        <br />
+        <b>"Object is not a string"</b>
+        .
+      </span>
+    </li>
+  </ol>
+</div>
+<script type="text/javascript">
+  window.location.href = window.location.origin + "?page=" + window.location.pathname;
+</script>
