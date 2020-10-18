@@ -37,9 +37,14 @@ An HTML DOM elements prototype extension methods to make easy javascript coding
 - [Object.isDate](https://myjsacademy.blogspot.com/2020/09/javascript-objectisdate.html)
 - [Object.isNumber](https://myjsacademy.blogspot.com/2020/09/javascript-objectisnumber.html)
 - [Object.isNaN([nanValue])](https://myjsacademy.blogspot.com/2020/09/javascript-objectisnannanvalue.html)
+- [Object.isString](https://myjsacademy.blogspot.com/2020/10/javascript-object-isstring.html)
 - [Array.clone()](https://myjsacademy.blogspot.com/2020/09/javascript-arrayclone.html)
 - [Array.contains(Object)](https://myjsacademy.blogspot.com/2020/09/javascript-arraycontainsobject.html)
 - [Array.distinct()](https://myjsacademy.blogspot.com/2020/09/javascript-arraydistinct.html)
+- [Array.first](https://myjsacademy.blogspot.com/2020/10/javascript-array-first.html)
+- [Array.last](https://myjsacademy.blogspot.com/2020/10/javascript-array-last.html)
+- [Array.max](https://myjsacademy.blogspot.com/2020/10/javascript-array-max.html)
+- [Array.min](https://myjsacademy.blogspot.com/2020/10/javascript-array-min.html)
 
 ## DOM Selector Ext.
 
